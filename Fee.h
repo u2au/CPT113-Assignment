@@ -9,17 +9,13 @@
 
 class Fee : public Student {
 private:
-    double tuitionPerSem = 1875.00,
-           recurrent = 112.50,
-           nonRecurrent = 1330.00;
-
-
-
+    double hostelFee,
+           tuitionPerSem,
+           recurrent, nonRecurrent,
+           insuranceFee;
 
 public:
     Fee(); // Default Constructor
-
-
 
 
 

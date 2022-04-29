@@ -7,9 +7,16 @@
 
 class Student {
 private:
-    int sem;
     double matricNum;
+    int insuranceLevel,
+        monthlyMealPlan;
 
+    bool isFullyVaccinated;
+
+protected:
+    int livesInHostel;
+    bool isFreshman,
+         isInternational;
 
 
 public:
