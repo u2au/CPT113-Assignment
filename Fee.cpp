@@ -1,13 +1,18 @@
 //
 // Created by rinsuki on 29/04/2022.
 //
+
+#include "Fee.h"
 #include <iostream>
-#include "Student.h"
 
 using namespace std;
 
-int main() {
-    Student();
+int getSem() {
 
     return 0;
+}
+
+Fee::Fee() {
+
+
 }
