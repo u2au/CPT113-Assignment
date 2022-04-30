@@ -48,14 +48,81 @@ double Fee::calcHostelFee() {
 
 // Calculate the tuition fees this semester
 double Fee::calcTuitionPerSem() {
-    if (isInternational == true) {
-        tuitionPerSem = 12910;
+    // For International Students
+    if (isInternational) tuitionPerSem = 12910;
 
-    } else tuitionPerSem = 1291; // uncertain
+    // For Local Students
+    else tuitionPerSem = 1291;
 
-    return 0;
+    return tuitionPerSem;
 
 }
+
+// Get Insurance Fees
+double Fee::calcInsuranceFee() {
+    switch (insuranceLevel)
+    {
+        case 1:
+            insuranceFee = 1000;
+            break;
+
+        case 2:
+            insuranceFee = 2000;
+            break;
+
+        case 3:
+            insuranceFee = 5000;
+            break;
+
+        case 4:
+            insuranceFee = 8000;
+            break;
+
+        case 5:
+            insuranceFee = 10000;
+            break;
+
+        default:
+            insuranceFee = 0;
+            break;
+
+    }
+
+    return insuranceFee;
+}
+
+// Get Meal Fees
+double Fee::calcMealFee() {
+    switch (mealPlan)
+    {
+        case 1:
+            mealFee = 15;
+            break;
+
+        case 2:
+            mealFee = 20;
+            break;
+
+        case 3:
+            mealFee = 25;
+            break;
+
+        case 4:
+            mealFee = 30;
+            break;
+
+        case 5:
+            mealFee = 35;
+            break;
+
+        default:
+            mealFee = 0;
+            break;
+
+    }
+
+    return mealFee;
+};
 
 // Get Vaccinated Status
 bool Fee::getVaccinationStatus() {
@@ -67,6 +134,9 @@ bool Fee::getVaccinationStatus() {
 Fee::Fee() {
     calcHostelFee(); // Hostel
     calcTuitionPerSem(); // Tuition
-    getVaccinationStatus(); // Get Vaccination Status
+    getVaccinationStatus(); // Vaccination
+    calcInsuranceFee(); // Insurance
+    calcMealFee(); // Meal
+
 }
 

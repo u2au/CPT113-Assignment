@@ -12,12 +12,18 @@ private:
     double hostelFee,
            tuitionPerSem,
            recurrent, nonRecurrent,
-           insuranceFee;
+           insuranceFee,
+           mealFee;
 
 public:
     Fee(); // Default Constructor
+
+    // Prototype
     double calcHostelFee();
     double calcTuitionPerSem();
+    double calcInsuranceFee();
+    double calcMealFee();
+
     bool getVaccinationStatus();
 
 

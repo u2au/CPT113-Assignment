@@ -24,7 +24,7 @@ void Student::readFile(){
         file >> isInternational;
         file >> insuranceLevel;
         file >> isFullyVaccinated;
-        file >> monthlyMealPlan;
+        file >> mealPlan;
         file >> isFreshman;
 
     }
@@ -34,15 +34,23 @@ void Student::readFile(){
 
 }
 
+// Input Validation
+void Student::inputValidation() {
+    // Hostel
+
+
+
+}
+
 // Display the information
 void Student::Display() {
-    cout << "Matric Num: " << matricNum
-    << "\nHostel Type: " << livesInHostel
-    << "\nInternational Student? " << isInternational
-    << "\nInsurance Level: " << insuranceLevel
-    << "\nFully Vaccinated? " << isFullyVaccinated
-    << "\nMonthly Meal Plan: " << monthlyMealPlan
-    << "\nFreshman? " << isFreshman << endl;
+    cout << "Matric Num: " << matricNum << "\n"
+         << "Hostel Type: " << livesInHostel << "\n"
+         << "International Student? " << isInternational << "\n"
+         << "Insurance Level: " << insuranceLevel << "\n"
+         << "Fully Vaccinated? " << isFullyVaccinated << "\n"
+         << "Meal Plan: " << mealPlan << "\n"
+         << "Freshman? " << isFreshman << endl;
 
 }
 

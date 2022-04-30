@@ -13,7 +13,7 @@ private:
 protected:
     int livesInHostel,
         insuranceLevel,
-        monthlyMealPlan;
+        mealPlan;
 
     bool isFreshman,
          isInternational,
@@ -23,8 +23,8 @@ protected:
 public:
     Student();
     void readFile(); // Read From File
+    void inputValidation();
     void Display();
-
 
 
 };
