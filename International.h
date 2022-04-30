@@ -20,6 +20,7 @@ private:
 
 public:
     International();
+    double getVisaFee();
     double getQuarantineFee();
 
 

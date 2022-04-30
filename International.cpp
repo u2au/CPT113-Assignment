@@ -5,12 +5,22 @@
 #include "International.h"
 #include <iostream>
 
+// Get Visa Fees
+double International::getVisaFee() {
+    if (f.checkIntl()) visaFee = 1200;
+    else visaFee = 0;
+
+    return visaFee;
+
+}
+
+
 // Quarantine Fees (if any)
 double International::getQuarantineFee() {
     isFullyVaccinated = f.getVaccinationStatus();
 
     // If no quarantine is required, then quarantine fees are 0
-    if (isFullyVaccinated == true) {
+    if (isFullyVaccinated == 1) {
         return totalQuarantineFee;
 
     } else return 0;
@@ -19,6 +29,7 @@ double International::getQuarantineFee() {
 
 
 International::International() {
+    getVisaFee();
     getQuarantineFee();
 
 }

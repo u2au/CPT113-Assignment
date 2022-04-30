@@ -49,10 +49,10 @@ double Fee::calcHostelFee() {
 // Calculate the tuition fees this semester
 double Fee::calcTuitionPerSem() {
     // For International Students
-    if (isInternational) tuitionPerSem = 12910;
+    if (isInternational) tuitionPerSem = 8347;
 
     // For Local Students
-    else tuitionPerSem = 1291;
+    else tuitionPerSem = 1030;
 
     return tuitionPerSem;
 
@@ -129,6 +129,15 @@ bool Fee::getVaccinationStatus() {
 
     return isFullyVaccinated;
 }
+
+// Check if the student is an international student
+bool Fee::checkIntl() {
+
+    return isInternational;
+}
+
+// Calculate the total fees
+
 
 
 Fee::Fee() {

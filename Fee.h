@@ -25,6 +25,7 @@ public:
     double calcMealFee();
 
     bool getVaccinationStatus();
+    bool checkIntl();
 
 
 };
