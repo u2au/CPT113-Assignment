@@ -55,13 +55,19 @@ void Student::Display() {
 }
 
 
+// Output the data
+void Student::outputData() {
+
+
+}
+
 
 // Default Constructor
 Student::Student() {
     welc();
     readFile();
     Fee();
-    Display();
+//    Display();
 
 
 }

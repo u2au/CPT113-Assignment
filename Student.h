@@ -25,6 +25,7 @@ public:
     void readFile(); // Read From File
     void inputValidation();
     void Display();
+    void outputData();
 
 
 };
