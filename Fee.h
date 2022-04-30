@@ -16,7 +16,9 @@ private:
 
 public:
     Fee(); // Default Constructor
-
+    double calcHostelFee();
+    double calcTuitionPerSem();
+    bool getVaccinationStatus();
 
 
 };

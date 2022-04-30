@@ -5,22 +5,27 @@
 #ifndef CPT113_ASSIGNMENT_STUDENT_H
 #define CPT113_ASSIGNMENT_STUDENT_H
 
+
 class Student {
 private:
     double matricNum;
-    int insuranceLevel,
-        monthlyMealPlan;
-
-    bool isFullyVaccinated;
 
 protected:
-    int livesInHostel;
+    int livesInHostel,
+        insuranceLevel,
+        monthlyMealPlan;
+
     bool isFreshman,
-         isInternational;
+         isInternational,
+         isFullyVaccinated;
 
 
 public:
     Student();
+    void readFile(); // Read From File
+    void Display();
+
+
 
 };
 

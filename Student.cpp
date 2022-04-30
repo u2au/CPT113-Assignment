@@ -15,17 +15,18 @@ void welc() {
 }
 
 // Read from file
-void readFile(double num, double hostel, bool isInt, int insurance, bool vac, int meal, bool freshman){
+void Student::readFile(){
     ifstream file;
     file.open("student.txt");
     if (file.is_open()){
-        file >> num; // Matric Number
-        file >> hostel;
-        file >> isInt;
-        file >> insurance;
-        file >> vac;
-        file >> meal;
-        file >> freshman;
+        file >> matricNum; // Matric Number
+        file >> livesInHostel;
+        file >> isInternational;
+        file >> insuranceLevel;
+        file >> isFullyVaccinated;
+        file >> monthlyMealPlan;
+        file >> isFreshman;
+
     }
     else {
         cout << "Unable to open file\n";
@@ -33,13 +34,26 @@ void readFile(double num, double hostel, bool isInt, int insurance, bool vac, in
 
 }
 
+// Display the information
+void Student::Display() {
+    cout << "Matric Num: " << matricNum
+    << "\nHostel Type: " << livesInHostel
+    << "\nInternational Student? " << isInternational
+    << "\nInsurance Level: " << insuranceLevel
+    << "\nFully Vaccinated? " << isFullyVaccinated
+    << "\nMonthly Meal Plan: " << monthlyMealPlan
+    << "\nFreshman? " << isFreshman << endl;
+
+}
+
+
 
 // Default Constructor
 Student::Student() {
     welc();
-    readFile(&matricNum, &livesInHostel, &isInternational, &insuranceLevel,
-             &isFullyVaccinated, &monthlyMealPlan, &isFreshman);
+    readFile();
     Fee();
+    Display();
 
 
 }
