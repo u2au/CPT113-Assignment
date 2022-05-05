@@ -37,6 +37,39 @@ void Student::readFile(){
 // Input Validation
 void Student::inputValidation() {
     // Hostel
+    
+//input validation
+void Student::inputValidation() {
+    // Input validation
+    if (matricNum < 0) {
+        cout << "Matriculation number must be greater than 0" << endl;
+        exit(1);
+    }
+    if (livesInHostel < 0) {
+        cout << "Lives in hostel must be greater than 0" << endl;
+        exit(1);
+    }
+    if (insuranceLevel < 0) {
+        cout << "Insurance level must be greater than 0" << endl;
+        exit(1);
+    }
+    if (mealPlan < 0) {
+        cout << "Mealplan must be greater than 0" << endl;
+        exit(1);
+    }
+    if (isFreshman < 0 || isFreshman > 1) {
+        cout << "Isfreshmanmust be 0 or 1" << endl;
+        exit(1);
+    }
+    if (isInternational < 0 || isInternational > 1) {
+        cout << "Isinternational must be 0 or 1" << endl;
+        exit(1);
+    }
+    if (isFullyVaccinated < 0 || isFullyVaccinated > 1) {
+        cout << "Isfullyvaccinated must be 0 or 1" << endl;
+        exit(1);
+    }
+};
 
 
 
