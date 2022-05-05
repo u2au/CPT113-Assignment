@@ -41,33 +41,34 @@ void Student::inputValidation() {
 //input validation
 void Student::inputValidation() {
     // Input validation
-    if (matricNum < 0) {
-        cout << "Matriculation number must be greater than 0" << endl;
-        exit(1);
+    // Input validation
+    if (matricNum < 100000 || matricNum > 999999) {
+        cout << "Matriculation number must be greater than 0" << endl; // Validate matric number
+        exit(1);  // exit if file not opened
     }
-    if (livesInHostel < 0) {
-        cout << "Lives in hostel must be greater than 0" << endl;
-        exit(1);
+    if (livesInHostel < 0 || livesInHostel > 4) {
+        cout << "Lives in hostel must be greater than 0" << endl; // Validate livesinhostel
+        exit(1);  // exit if file not opened
     }
-    if (insuranceLevel < 0) {
-        cout << "Insurance level must be greater than 0" << endl;
-        exit(1);
+    if (insuranceLevel < 0 || insuranceLevel > 5) {
+        cout << "Insurance level must be greater than 0" << endl; // Validate insurancelevel
+        exit(1);  // exit if file not opened
     }
-    if (mealPlan < 0) {
-        cout << "Mealplan must be greater than 0" << endl;
-        exit(1);
+    if (mealPlan < 0 || mealPlan > 5) {
+        cout << "Meal plan must be greater than 0" << endl; // Validate mealplan
+        exit(1);  // exit if file not opened
     }
     if (isFreshman < 0 || isFreshman > 1) {
-        cout << "Isfreshmanmust be 0 or 1" << endl;
-        exit(1);
+        cout << "Is freshman must be 0 or 1" << endl; // Validate isfreshman
+        exit(1);  // exit if file not opened
     }
     if (isInternational < 0 || isInternational > 1) {
-        cout << "Isinternational must be 0 or 1" << endl;
-        exit(1);
+        cout << "Is international must be 0 or 1" << endl; // Validate isinternational
+        exit(1);  // exit if file not opened
     }
     if (isFullyVaccinated < 0 || isFullyVaccinated > 1) {
-        cout << "Isfullyvaccinated must be 0 or 1" << endl;
-        exit(1);
+        cout << "Is fully vaccinated must be 0 or 1" << endl; // Validate isfullyvaccinated
+        exit(1);  // exit if file not opened
     }
 };
 
