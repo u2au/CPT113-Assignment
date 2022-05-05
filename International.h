@@ -10,13 +10,13 @@
 class International {
 private:
     double visaFee,
-           quarantinePerDay = 150,
+           quarantinePerDay=150;
            totalQuarantineFee = quarantinePerDay * 5;
 
     bool isFullyVaccinated;
 
     // Composition (Privately)
-    Fee f;
+    Fee fee;
 
 public:
     International();
