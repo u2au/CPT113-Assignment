@@ -29,10 +29,3 @@ double International::getQuarantineFee(int days) {
 
 }
 
-
-/*这个是原来的现在不要了
-International::International() {
-    getVisaFee();
-    getQuarantineFee();
-
-}*/

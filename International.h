@@ -30,7 +30,7 @@ public:
         totalInternational=0.0;
     }
 
-    //constructor 1
+    //constructor 1： 别删，，这个显示composition的特性，，
     International(double visa,double quarantine,int days,double interFee,double total, double tuition,double insurance)
     {
         visaFee=visa;
@@ -44,8 +44,7 @@ public:
     void setInternationalTAndI(double tuition,double insurance)
     {
        TuitionAndInsuranceFee TAndIFee(tuition,insurance);
-       double temp=TAndIFee.getTotal();
-       internationalTAndI=temp*5;
+       internationalTAndI=TAndIFee.getTotal();
     }
 
     double getInternationalTAndI()const
@@ -53,14 +52,13 @@ public:
         return internationalTAndI;
     }
 
-   // International(); 不用这个了
     double getVisaFee();
     
     double getQuarantineFee(int daysQuarantine);//daysQuarantine 让user input还是读文件？
     
     double getTotalInternationalFee()const
     {
-        return visaFee+totalQuarantineFee+internationalTAndI;
+        return visaFee+totalQuarantineFee+(internationalTAndI*5);
 
     }
 

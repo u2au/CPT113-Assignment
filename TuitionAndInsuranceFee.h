@@ -1,8 +1,10 @@
 //tuition fee and insurance fee header file
 #ifndef TAI_H
 #define TAI_H
-class TuitionAndInsuranceFee{
+#include"Student.h"
+class TuitionAndInsuranceFee: public Student{
     private:
+        int sem;//用student里的sem
         double tuitionFee;
         double insuranceFee;
         double total;
@@ -15,22 +17,19 @@ class TuitionAndInsuranceFee{
          TuitionAndInsuranceFee(double t,double i){
              tuitionFee=t;
              insuranceFee=i;
+             
          }
-         void setTuitionFee(double t){
-             tuitionFee=t;
-
-         }
-         void setInsuranceFee(double i){
-             insuranceFee=i;
-         }
+         
+        
          double getTuitionFee()const{
              return tuitionFee;
          }
          double getInsuranceFee()const{
              return insuranceFee;
          }
-         double getTotal()const{
-             return tuitionFee+insuranceFee;
+         double getTotal(){
+             total=tuitionFee+insuranceFee;
+             return total;
          }
          
 };

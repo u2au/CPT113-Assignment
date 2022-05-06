@@ -14,6 +14,8 @@ protected:
     int livesInHostel,
         insuranceLevel,
         mealPlan;
+    int semester;
+    int month;
 
     bool isFreshman,
          isInternational,
@@ -24,6 +26,12 @@ public:
     Student();
 
     // Prototype
+    int getMonth() const{
+        return month;
+    }
+    int getSem()const{
+        return semester;
+    }
     void readFile(); // Read From File
     void inputValidation();
     void Display();
