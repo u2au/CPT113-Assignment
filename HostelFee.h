@@ -7,12 +7,11 @@ class HostelAndMealFee{
         double totalFee;
         double waterFee;
         double electricityFee;
-        double mealFee;
     public:
         HostelAndMealFee()
         {
             month=0;
-            total
+        
 
         }
 

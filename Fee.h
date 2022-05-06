@@ -7,9 +7,9 @@
 
 #include "Student.h"
 /*fee 分开，拆成:5个class，
-    1：hostelFee， 
-    2：学费和保险，
-    3：international，学费和保险当composition（国际生翻几倍），然后额外加visaFee和隔离费
+    1：hostelFee，住宿类型和水电费
+        （done）2：学费和保险，          
+        （90%done，缺隔离天数input方式）3：international，学费和保险当composition（国际生翻几倍），然后额外加visaFee和隔离费
     4. MealAndTransportationFee，上面几个随便拉一个当friend function
 
     5.totalFee，是student class 的dervied class。
