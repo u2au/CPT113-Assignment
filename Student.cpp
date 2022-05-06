@@ -37,39 +37,63 @@ void Student::readFile(){
 // Input Validation
 void Student::inputValidation() {
     // Hostel
-    
-//input validation
-void Student::inputValidation() {
-    // Input validation
-    // Input validation
-    if (matricNum < 100000 || matricNum > 999999) {
-        cout << "Matriculation number must be greater than 0" << endl; // Validate matric number
-        exit(1);  // exit if file not opened
+     if (matricNum < 0 || matricNum > 999999) {
+        cout << "Invalid matriculation number. Please re-enter: "; 
+        cin >> matricNum;  // Re-enter the matriculation number
+        ofstream outFile;
+        outFile.open("student.txt");
+        outFile << matricNum << endl;
+        outFile.close();
     }
     if (livesInHostel < 0 || livesInHostel > 4) {
-        cout << "Lives in hostel must be greater than 0" << endl; // Validate livesinhostel
-        exit(1);  // exit if file not opened
+        cout << "Invalid lives in hostel. Please re-enter: ";
+        cin >> livesInHostel;  // Re-enter the lives in hostel
+        ofstream outFile;
+        outFile.open("student.txt");
+        outFile << livesInHostel << endl;
+        outFile.close();
     }
     if (insuranceLevel < 0 || insuranceLevel > 5) {
-        cout << "Insurance level must be greater than 0" << endl; // Validate insurancelevel
-        exit(1);  // exit if file not opened
+        cout << "Invalid insurance level. Please re-enter: ";
+        cin >> insuranceLevel;  // Re-enter the insurance level
+        ofstream outFile;
+        outFile.open("student.txt");
+        outFile << insuranceLevel << endl;
+        outFile.close();
     }
     if (mealPlan < 0 || mealPlan > 5) {
-        cout << "Meal plan must be greater than 0" << endl; // Validate mealplan
-        exit(1);  // exit if file not opened
+        cout << "Invalid meal plan. Please re-enter: ";
+        cin >> mealPlan;  // Re-enter the meal plan
+        ofstream outFile;
+        outFile.open("student.txt");
+        outFile << mealPlan << endl;
+        outFile.close();
     }
     if (isFreshman < 0 || isFreshman > 1) {
-        cout << "Is freshman must be 0 or 1" << endl; // Validate isfreshman
-        exit(1);  // exit if file not opened
+        cout << "Invalid is freshman. Please re-enter: ";
+        cin >> isFreshman;  // Re-enter the is freshman
+        ofstream outFile;
+        outFile.open("student.txt");
+        outFile << isFreshman << endl;
+        outFile.close();
     }
     if (isInternational < 0 || isInternational > 1) {
-        cout << "Is international must be 0 or 1" << endl; // Validate isinternational
-        exit(1);  // exit if file not opened
+        cout << "Invalid is international. Please re-enter: ";
+        cin >> isInternational;  // Re-enter the is international
+        ofstream outFile;
+        outFile.open("student.txt");
+        outFile << isInternational << endl;
+        outFile.close();
     }
     if (isFullyVaccinated < 0 || isFullyVaccinated > 1) {
-        cout << "Is fully vaccinated must be 0 or 1" << endl; // Validate isfullyvaccinated
-        exit(1);  // exit if file not opened
+        cout << "Invalid is fully vaccinated. Please re-enter: ";
+        cin >> isFullyVaccinated;  // Re-enter the is fully vaccinated
+        ofstream outFile;
+        outFile.open("student.txt");
+        outFile << isFullyVaccinated << endl;
+        outFile.close();
     }
+
 };
 
 
