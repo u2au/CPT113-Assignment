@@ -9,13 +9,14 @@
 // r: 从文件读取，若有异常值则通过 inputValidation 要求用户 correct the data
 class Student {
 private:
-    double matricNum;
+    double matricNum = 111111,
+           totalFees = 0;
 
 protected:
-    int hostelType,
-        insuranceLevel,
-        mealPlan,
-        semester, month;
+    int hostelType = 0,
+        insuranceLevel = 0,
+        mealPlan = 0,
+        sem = 0;
 
     bool isFreshman,
          isInternational,
@@ -26,19 +27,20 @@ public:
     // Default Constructor
     Student();
 
-    // Prototype
-    int getMonth() const {
-        return month;
-    }
+    bool getIntl() const;
+    bool getVacStat() const;
 
-    int getSem() const {
-        return semester;
-    }
+    // Prototype
+    int getSem() const;
+    int getMealPlan() const;
 
     void readFile(); // Read From File
     void inputValidation();
-    void Display();
-    void outputData();
+
+//    void Display();
+//    void outputData();
+
+    double calcTotalFee();
 
 
 };

@@ -1,23 +1,28 @@
 #ifndef MAT_H
 #define MAT_H
+
+#include "Student.h"
+
 class HostelAndOtherFee;// Forward declaration of HostelFee class
 
 class MealAndTransportation {
 
     private:
-        int mealPlan;
-        double mealFee;
+        Student s; // Composition of class Student
+        int mealPlan = s.getMealPlan();
+
+        double mealFee = 0,
+                transportationFee = 0,
+                total = 0;
+
         bool isTransportation;
-        double transportationFee;
-        double total;
 
     public:
         // Default constructor
         MealAndTransportation() {
-            mealPlan = 0;
-            mealFee = 0.0;
-            transportationFee = 0.0;
-            total = 0.0;
+            calcMealFee(mealPlan);
+//            calcTransportationFee(isTransportation);
+//            addToOtherFee();
         }
 
         // Prototype

@@ -6,7 +6,6 @@
 
 class HostelAndOtherFee : public Student {
     private:
-    //int month;从student里来
        double hostelFee,
               otherFees,
               total;

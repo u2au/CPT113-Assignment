@@ -4,7 +4,7 @@
 
 #include "Student.h"
 #include <iostream>
-#include <fstream> // ifstream
+#include <fstream>
 
 using namespace std;
 
@@ -30,6 +30,16 @@ void Student::readFile(){
     else {
         cout << "Unable to open file\n";
     }
+
+}
+
+bool Student::getIntl() const {
+    return isInternational;
+
+}
+
+bool Student::getVacStat() const {
+    return isFullyVaccinated;
 
 }
 
@@ -73,7 +83,7 @@ void Student::inputValidation() {
 
 
     // Freshman? (bool, 0/1)
-    while (isFreshman < 0 || isFreshman > 1) {
+    while (isFreshman != 0 && isFreshman != 1) {
         cout << "Invalid is freshman. Please re-enter: ";
         cin >> isFreshman;  // Re-enter whether a freshman
         correctData << isFreshman;
@@ -81,7 +91,7 @@ void Student::inputValidation() {
 
 
     // International student? (bool, 0/1)
-    while (isInternational < 0 || isInternational > 1) {
+    while (isInternational != 0 && isInternational != 1) {
         cout << "Invalid is international. Please re-enter: ";
         cin >> isInternational;  // Re-enter whether international student
         correctData << isInternational;
@@ -89,7 +99,7 @@ void Student::inputValidation() {
 
 
     // Is Fully Vaccinated? (bool, 0/1)
-    while (isFullyVaccinated < 0 || isFullyVaccinated > 1) {
+    while (isFullyVaccinated != 0 && isFullyVaccinated != 1) {
         cout << "Invalid is fully vaccinated. Please re-enter: ";
         cin >> isFullyVaccinated;  // Re-enter whether fully vaccinated
         correctData << isFullyVaccinated;
@@ -101,35 +111,46 @@ void Student::inputValidation() {
 
 };
 
-
-
-}
-
 // Display the information (DEBUG)
-void Student::Display() {
-    cout << "Matric Num: " << matricNum << "\n"
-         << "Hostel Type: " << hostelType << "\n"
-         << "International Student? " << isInternational << "\n"
-         << "Insurance Level: " << insuranceLevel << "\n"
-         << "Fully Vaccinated? " << isFullyVaccinated << "\n"
-         << "Meal Plan: " << mealPlan << "\n"
-         << "Freshman? " << isFreshman << endl;
-
-}
+//void Student::Display() {
+//    cout << "Matric Num: " << matricNum << "\n"
+//         << "Hostel Type: " << hostelType << "\n"
+//         << "International Student? " << isInternational << "\n"
+//         << "Insurance Level: " << insuranceLevel << "\n"
+//         << "Fully Vaccinated? " << isFullyVaccinated << "\n"
+//         << "Meal Plan: " << mealPlan << "\n"
+//         << "Freshman? " << isFreshman << endl;
+//
+//}
 
 
 // Output the data
-void Student::outputData() {
+//void Student::outputData() {
+//
+//
+//}
 
-
+// Get Sem
+int Student::getSem() const {
+    return sem;
 }
 
+// Get Meal Plan
+int Student::getMealPlan() const {
+    return mealPlan;
+}
+
+// Calculate Total Fees
+//double Student::calcTotalFees() {
+//    return 0;
+//
+//}
 
 // Default Constructor
 Student::Student() {
     welc();
     readFile();
-    Fee();
+    inputValidation();
 //    Display();
 
 

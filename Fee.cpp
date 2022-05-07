@@ -122,7 +122,7 @@ double Fee::calcMealFee() {
     }
 
     return mealFee;
-};
+}
 
 // Get Vaccinated Status
 bool Fee::getVaccinationStatus() {

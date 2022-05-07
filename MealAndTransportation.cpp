@@ -33,12 +33,15 @@ double MealAndTransportation::calcMealFee(int mp) {
     }
 
     return mealFee;
-};
+}
 
 // Transportation Fee
 double MealAndTransportation::calcTransportationFee(bool isTransportation){
     const double monthlyBusFee = 30;
+    transportationFee = monthlyBusFee * 5; // Transportation Fee for 5 months (a semester)
+
     if (isTransportation) return transportationFee;
+    else return 0;
 
 }
 

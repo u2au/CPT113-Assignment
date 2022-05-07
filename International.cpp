@@ -3,28 +3,44 @@
 //
 
 #include "International.h"
-#include <iostream>
 
 // Get Visa Fees
-void International::setVisaFee() {
-    if (f.checkIntl()) visaFee = 1200;
+double International::getVisaFee() {
+    // Only for international students
+    if (isIntl) visaFee = 1200;
     else visaFee = 0;
+
+    return visaFee;
 
 }
 
 
 // Quarantine Fees (if any)
-void International::setQuarantineFee(int days) {
-    
-    //这儿看咋input 隔离天数，，？？？
-    // r: 固定好的，五天.
-    isFullyVaccinated = f.getVaccinationStatus();
-    // If no quarantine is required, then quarantine fees are 0
-    if (isFullyVaccinated == 1) {
-        totalQuarantineFee = 5 * quarantinePerDay;
+double International::getQuarantineFee() {
 
-    } else 
-        totalQuarantineFee=0;
+    // Only for international students
+    if (isIntl) {
+        totalQuarantineFee = 0;
+
+    } else {
+
+        // If no quarantine is required, then quarantine fees are 0
+        if (isFullyVaccinated == 1) {
+            totalQuarantineFee = quarantineDays * quarantinePerDay;
+
+        } else
+            totalQuarantineFee = 0;
+
+    }
+
+
+    return totalQuarantineFee;
 
 }
 
+// Fees for international students
+double International::getTotalIntlFee() {
+    totalIntl = visaFee + totalQuarantineFee;
+
+    return totalIntl;
+}

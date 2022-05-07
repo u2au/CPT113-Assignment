@@ -1,6 +1,6 @@
 //tuition fee and insurance fee
 #include"TuitionAndInsuranceFee.h"
-void TuitionAndInsuranceFee::calcInsuranceFee(int insuranceLevel) {
+double TuitionAndInsuranceFee::calcInsuranceFee() {
 
     switch (insuranceLevel)
     {
@@ -30,12 +30,24 @@ void TuitionAndInsuranceFee::calcInsuranceFee(int insuranceLevel) {
 
     }
 
+    return insuranceFee;
    
 }
 
-void TuitionAndInsuranceFee::calcTuitionPerSem(int numOfMajor){
+double TuitionAndInsuranceFee::calcTuitionPerSem(){
 
-    //学费也是一个switch，然后不同专业代号读不同学费
-   
+    // 学费也是一个switch，然后不同专业代号读不同学费
+    // 暂时按照 cs 的来，其他专业后弄
+    if (isInternational) tuitionFee = 12910;
+    else tuitionFee = 1320;
+
+    return tuitionFee;
+
+}
+
+double TuitionAndInsuranceFee::getTotalTI() {
+    total = tuitionFee + insuranceFee;
+
+    return total;
 
 }

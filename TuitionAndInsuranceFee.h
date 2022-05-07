@@ -2,34 +2,32 @@
 #ifndef TAI_H
 #define TAI_H
 
-class TuitionAndInsuranceFee{
+#include "Student.h"
+
+class TuitionAndInsuranceFee : public Student {
+
     private:
         //int sem; //用student里的sem
-        int majorNum;
-        double tuitionFee;
-        double insuranceFee;
-        int levelOfInsurance;
-        double total;
+        int majorNum = 0;
+
+        double tuitionFee = 0,
+               insuranceFee = 0,
+               total = 0;
 
     public:
          // Default constructor: Initialization
-         TuitionAndInsuranceFee(){
-             majorNum = 0;
-             tuitionFee = 0.0;
-             levelOfInsurance = 0;
-             insuranceFee = 0.0;
-             total = 0.0;
+         TuitionAndInsuranceFee() {
+             calcTuitionPerSem();
+             calcInsuranceFee();
+             getTotalTI();
          }
 
          // Prototype
-         void calcInsuranceFee(int);
-         void calcTuitionPerSem(int); //parameter里de具体看cpp
+         double calcTuitionPerSem();
+         double calcInsuranceFee();
 
-         // Get Total Fees
-         double getTotal(){
-             total = tuitionFee + insuranceFee;
-             return total;
-         }
+         // Get Total Fees of tuition fees and insurance fees
+         double getTotalTI();
          
 };
 #endif

@@ -1,9 +1,5 @@
 //HostelAndOtherFee cpp
 #include "HostelAndOtherFee.h"
-#include "MealAndTransportation.h"
-#include <iostream>
-
-using namespace std;
 
 // Calculate the total hostel fee
 void HostelAndOtherFee::setHostelFee() {
