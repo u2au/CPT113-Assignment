@@ -1,6 +1,6 @@
 #ifndef MAT_H
 #define MAT_H
-class HostelAndOtherFee;//forward declaration of HostelFee class
+class HostelAndOtherFee;// Forward declaration of HostelFee class
 
 class MealAndTransportation{
     private:
@@ -9,14 +9,16 @@ class MealAndTransportation{
         bool isTransportation;
         double transportationFee;
         double total;
+
     public:
-        //default constructor
+        //Default constructor
         MealAndTransportation(){
-            mealPlan =0;
+            mealPlan = 0;
             mealFee = 0.0;
             transportationFee = 0.0;
             total = 0.0;
         }
+
         //cal meal fee
          double calcMealFee(int);
          //calc transportationFee

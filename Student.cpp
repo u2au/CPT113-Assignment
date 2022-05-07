@@ -18,8 +18,8 @@ void Student::readFile(){
     ifstream file;
     file.open("student.txt");
     if (file.is_open()){
-        file >> matricNum; // Matric Number
-        file >> livesInHostel;
+        file >> matricNum;
+        file >> hostelType;
         file >> isInternational;
         file >> insuranceLevel;
         file >> isFullyVaccinated;
@@ -35,63 +35,69 @@ void Student::readFile(){
 
 // Input Validation
 void Student::inputValidation() {
-    // Hostel
-     if (matricNum < 0 || matricNum > 999999) {
+
+    // Initialization
+    ofstream correctData;
+    correctData.open("student.txt");
+
+    // Matric Num (double, 0-999999)
+     while (matricNum < 0 || matricNum > 999999) {
         cout << "Invalid matriculation number. Please re-enter: "; 
         cin >> matricNum;  // Re-enter the matriculation number
-        ofstream outFile;
-        outFile.open("student.txt");
-        outFile << matricNum << endl;
-        outFile.close();
+        correctData << matricNum;
     }
-    if (livesInHostel < 0 || livesInHostel > 4) {
-        cout << "Invalid lives in hostel. Please re-enter: ";
-        cin >> livesInHostel;  // Re-enter the lives in hostel
-        ofstream outFile;
-        outFile.open("student.txt");
-        outFile << livesInHostel << endl;
-        outFile.close();
+
+
+     // Hostel Type (int, 0, 1-4)
+    while (hostelType < 0 || hostelType > 4) {
+        cout << "Invalid hostel level for " << matricNum << ". Please re-enter: ";
+        cin >> hostelType;  // Re-enter the hostel type
+        correctData << hostelType;
     }
-    if (insuranceLevel < 0 || insuranceLevel > 5) {
+
+
+    // Insurance Level (int, 0, 1-5)
+    while (insuranceLevel < 0 || insuranceLevel > 5) {
         cout << "Invalid insurance level. Please re-enter: ";
         cin >> insuranceLevel;  // Re-enter the insurance level
-        ofstream outFile;
-        outFile.open("student.txt");
-        outFile << insuranceLevel << endl;
-        outFile.close();
+        correctData << insuranceLevel;
     }
-    if (mealPlan < 0 || mealPlan > 5) {
+
+
+    // Meal Plan (int, 0, 1-5)
+    while (mealPlan < 0 || mealPlan > 5) {
         cout << "Invalid meal plan. Please re-enter: ";
         cin >> mealPlan;  // Re-enter the meal plan
-        ofstream outFile;
-        outFile.open("student.txt");
-        outFile << mealPlan << endl;
-        outFile.close();
+        correctData << mealPlan;
     }
-    if (isFreshman < 0 || isFreshman > 1) {
+
+
+    // Freshman? (bool, 0/1)
+    while (isFreshman < 0 || isFreshman > 1) {
         cout << "Invalid is freshman. Please re-enter: ";
-        cin >> isFreshman;  // Re-enter the is freshman
-        ofstream outFile;
-        outFile.open("student.txt");
-        outFile << isFreshman << endl;
-        outFile.close();
+        cin >> isFreshman;  // Re-enter whether a freshman
+        correctData << isFreshman;
     }
-    if (isInternational < 0 || isInternational > 1) {
+
+
+    // International student? (bool, 0/1)
+    while (isInternational < 0 || isInternational > 1) {
         cout << "Invalid is international. Please re-enter: ";
-        cin >> isInternational;  // Re-enter the is international
-        ofstream outFile;
-        outFile.open("student.txt");
-        outFile << isInternational << endl;
-        outFile.close();
+        cin >> isInternational;  // Re-enter whether international student
+        correctData << isInternational;
     }
-    if (isFullyVaccinated < 0 || isFullyVaccinated > 1) {
+
+
+    // Is Fully Vaccinated? (bool, 0/1)
+    while (isFullyVaccinated < 0 || isFullyVaccinated > 1) {
         cout << "Invalid is fully vaccinated. Please re-enter: ";
-        cin >> isFullyVaccinated;  // Re-enter the is fully vaccinated
-        ofstream outFile;
-        outFile.open("student.txt");
-        outFile << isFullyVaccinated << endl;
-        outFile.close();
+        cin >> isFullyVaccinated;  // Re-enter whether fully vaccinated
+        correctData << isFullyVaccinated;
     }
+
+
+    // Close the original data file after the input validation
+    correctData.close();
 
 };
 
@@ -99,10 +105,10 @@ void Student::inputValidation() {
 
 }
 
-// Display the information
+// Display the information (DEBUG)
 void Student::Display() {
     cout << "Matric Num: " << matricNum << "\n"
-         << "Hostel Type: " << livesInHostel << "\n"
+         << "Hostel Type: " << hostelType << "\n"
          << "International Student? " << isInternational << "\n"
          << "Insurance Level: " << insuranceLevel << "\n"
          << "Fully Vaccinated? " << isFullyVaccinated << "\n"

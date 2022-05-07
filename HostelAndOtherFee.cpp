@@ -7,7 +7,7 @@ using namespace std;
 void HostelAndOtherFee ::setHostelFee() {
     
     // If the student doesn't live in a hostel, terminate the function
-    if (livesInHostel == 0) hostelFee =0;
+    if (livesInHostel == 0) hostelFee = 0;
 
     else {
         switch (livesInHostel) {
@@ -31,9 +31,9 @@ void HostelAndOtherFee ::setHostelFee() {
                 hostelFee = 450;
                 break;
 
+            // The student won't live in a hostel
             default:
                 hostelFee = 0;
-                cout << "Error\n";
                 break;
 
         }

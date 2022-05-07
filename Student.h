@@ -11,7 +11,7 @@ private:
     double matricNum;
 
 protected:
-    int livesInHostel,
+    int hostelType,
         insuranceLevel,
         mealPlan;
     int semester;
