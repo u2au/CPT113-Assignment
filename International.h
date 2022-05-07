@@ -2,7 +2,7 @@
 #ifndef INTERNATIONAL_H
 #define INTERNATIONAL_H
 #include "TuitionAndInsuranceFee.h"
-
+#include"Student.h"//用student里的semster
 
 class International {
 private:
@@ -44,6 +44,7 @@ public:
     void setInternationalTAndI(int numInsurance,int numMajor)
     {
       //这里用fstream读insurance num 和 major num，还是用户手动输入？
+      //这两个应该在student里说实话，，等下改
         TAndIFee.calcInsuranceFee(numInsurance);
         TAndIFee.calcTuitionPerSem(numMajor);
 
@@ -55,13 +56,20 @@ public:
         return internationalTAndI;
     }
 
-    double getVisaFee();
+    void setVisaFee();
     
-    double getQuarantineFee(int daysQuarantine);//daysQuarantine 让user input还是读文件？
-    
-    double getTotalInternationalFee()const
+    void setQuarantineFee(int daysQuarantine);//daysQuarantine 让user input还是读文件？
+
+
+//以下两个function都要被叫到！
+    double getQuarantineFee()const//这个只在totalFee class里叫一次
     {
-        return visaFee+totalQuarantineFee+(internationalTAndI*5);
+        return totalQuarantineFee;
+    }
+    
+    double getTotalInternationalFee()const//这个在 totalFee class里用int semster num当array num来叫
+    {
+        return visaFee+(internationalTAndI*5);
 
     }
 

@@ -7,25 +7,24 @@
 #include<fstream>
 
 // Get Visa Fees
-double International::getVisaFee() {
+void International::setVisaFee() {
     if (f.checkIntl()) visaFee = 1200;
     else visaFee = 0;
-
-    return visaFee;
 
 }
 
 
 // Quarantine Fees (if any)
-double International::getQuarantineFee(int days) {
+void International::setQuarantineFee(int days) {
+    
     //这儿看咋input 隔离天数，，？？？
     isFullyVaccinated = f.getVaccinationStatus();
-    totalQuarantineFee=days*quarantinePerDay;
     // If no quarantine is required, then quarantine fees are 0
     if (isFullyVaccinated == 1) {
-        return totalQuarantineFee;
+        totalQuarantineFee=days*quarantinePerDay;
 
-    } else return 0;
+    } else 
+        totalQuarantineFee=0;
 
 }
 

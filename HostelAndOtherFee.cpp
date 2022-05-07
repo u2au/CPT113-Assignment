@@ -4,31 +4,31 @@
 #include<iostream>
 using namespace std;
 // Calculate the total hostel fee
-double HostelAndOtherFee ::calcHostelFee(int month) {
+void HostelAndOtherFee ::setHostelFee() {
     
     // If the student doesn't live in a hostel, terminate the function
-    if (livesInHostel == 0) return 0;
+    if (livesInHostel == 0) hostelFee =0;
 
     else {
         switch (livesInHostel) {
             // Sharing Room
             case 1:
-                hostelFee = 120 * month; // RM 120 per month, six months per semester
+                hostelFee = 120; // RM 120 per month, six months per semester
                 break;
 
             // Sharing Room
             case 2:
-                hostelFee = 240 * month;
+                hostelFee = 240;
                 break;
 
             // Family Accommodation with One Room
             case 3:
-                hostelFee = 350 * month;
+                hostelFee = 350;
                 break;
 
             // Family Accommodation with Two Rooms
             case 4:
-                hostelFee = 450 * month;
+                hostelFee = 450;
                 break;
 
             default:
@@ -39,5 +39,5 @@ double HostelAndOtherFee ::calcHostelFee(int month) {
         }
 
     }
-    return hostelFee;
+   
 }
