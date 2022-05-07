@@ -43,7 +43,7 @@ double MealAndTransportation::calcTransportationFee(bool isTransportation){
 }
 
 // Add the meal fee and the Transportation Fee to otherFees in HostelFee class
-void  MealAndTransportation::addToOtherFee(double totalfee, HostelAndOtherFee &OF){
+void MealAndTransportation::addToOtherFee(double totalfee, HostelAndOtherFee &OF){
     OF.otherFees += totalfee;
 
  }

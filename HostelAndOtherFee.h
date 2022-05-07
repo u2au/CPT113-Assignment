@@ -7,9 +7,9 @@
 class HostelAndOtherFee : public Student {
     private:
     //int month;从student里来
-       double hostelFee;
-       static double otherFees;
-       double total;
+       double hostelFee,
+              otherFees,
+              total;
 
     public:
     // Default Constructor
@@ -18,7 +18,6 @@ class HostelAndOtherFee : public Student {
             hostelFee = 0.0;
             otherFees = 0.0;
             total = 0.0;
-
         }
 
     // Set hostelFee

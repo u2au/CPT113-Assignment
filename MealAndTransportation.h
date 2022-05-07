@@ -13,7 +13,7 @@ class MealAndTransportation {
 
     public:
         // Default constructor
-        MealAndTransportation(){
+        MealAndTransportation() {
             mealPlan = 0;
             mealFee = 0.0;
             transportationFee = 0.0;

@@ -15,22 +15,22 @@ void HostelAndOtherFee::setHostelFee() {
         switch (hostelType) {
             // Sharing Room
             case 1:
-                hostelFee = 120; // RM 120 per month, six months per semester
+                hostelFee = 120 * 5; // RM 120 per month, five months per semester
                 break;
 
             // Sharing Room
             case 2:
-                hostelFee = 240;
+                hostelFee = 240 * 5;
                 break;
 
             // Family Accommodation with One Room
             case 3:
-                hostelFee = 350;
+                hostelFee = 350 * 5;
                 break;
 
             // Family Accommodation with Two Rooms
             case 4:
-                hostelFee = 450;
+                hostelFee = 450 * 5;
                 break;
 
             // The student won't live in a hostel
