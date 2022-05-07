@@ -1,16 +1,18 @@
 //HostelAndOtherFee cpp
-#include"HostelAndOtherFee.h"
-#include"MealAndTransportation.h"
-#include<iostream>
+#include "HostelAndOtherFee.h"
+#include "MealAndTransportation.h"
+#include <iostream>
+
 using namespace std;
+
 // Calculate the total hostel fee
-void HostelAndOtherFee ::setHostelFee() {
+void HostelAndOtherFee::setHostelFee() {
     
     // If the student doesn't live in a hostel, terminate the function
-    if (livesInHostel == 0) hostelFee = 0;
+    if (hostelType == 0) hostelFee = 0;
 
     else {
-        switch (livesInHostel) {
+        switch (hostelType) {
             // Sharing Room
             case 1:
                 hostelFee = 120; // RM 120 per month, six months per semester

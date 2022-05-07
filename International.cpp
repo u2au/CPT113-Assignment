@@ -4,7 +4,6 @@
 
 #include "International.h"
 #include <iostream>
-#include<fstream>
 
 // Get Visa Fees
 void International::setVisaFee() {
@@ -18,10 +17,11 @@ void International::setVisaFee() {
 void International::setQuarantineFee(int days) {
     
     //这儿看咋input 隔离天数，，？？？
+    // r: 固定好的，五天.
     isFullyVaccinated = f.getVaccinationStatus();
     // If no quarantine is required, then quarantine fees are 0
     if (isFullyVaccinated == 1) {
-        totalQuarantineFee=days*quarantinePerDay;
+        totalQuarantineFee = 5 * quarantinePerDay;
 
     } else 
         totalQuarantineFee=0;

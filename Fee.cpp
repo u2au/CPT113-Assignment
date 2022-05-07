@@ -10,10 +10,10 @@ using namespace std;
 // Calculate the total hostel fee
 double Fee::calcHostelFee() {
     // If the student doesn't live in a hostel, terminate the function
-    if (livesInHostel == 0) return 0;
+    if (hostelFee == 0) return 0;
 
     else {
-        switch (livesInHostel) {
+        switch (hostelType) {
             // Sharing Room
             case 1:
                 hostelFee = 120 * 6; // RM 120 per month, six months per semester

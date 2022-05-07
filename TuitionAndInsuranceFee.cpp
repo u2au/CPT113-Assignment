@@ -1,6 +1,7 @@
 //tuition fee and insurance fee
 #include"TuitionAndInsuranceFee.h"
 void TuitionAndInsuranceFee::calcInsuranceFee(int insuranceLevel) {
+
     switch (insuranceLevel)
     {
         case 1:
@@ -31,6 +32,7 @@ void TuitionAndInsuranceFee::calcInsuranceFee(int insuranceLevel) {
 
    
 }
+
 void TuitionAndInsuranceFee::calcTuitionPerSem(int numOfMajor){
 
     //学费也是一个switch，然后不同专业代号读不同学费

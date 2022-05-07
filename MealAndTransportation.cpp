@@ -1,7 +1,8 @@
-//MealAndTransportation cpp
-#include"MealAndTransportation.h"
-#include"HostelAndOtherFee.h"
-//meal plan&meal fee
+// MealAndTransportation cpp
+#include "MealAndTransportation.h"
+#include "HostelAndOtherFee.h"
+
+// Meal Fee
 double MealAndTransportation::calcMealFee(int mp) {
     switch (mp)
     {
@@ -33,17 +34,17 @@ double MealAndTransportation::calcMealFee(int mp) {
 
     return mealFee;
 };
-//transportationFee
-double  MealAndTransportation::calcTransportationFee(bool isTransportation){
-    const double monthlyBusFee=30;
-    if(isTransportation){
-        return transportationFee;
-    }
+
+// Transportation Fee
+double MealAndTransportation::calcTransportationFee(bool isTransportation){
+    const double monthlyBusFee = 30;
+    if (isTransportation) return transportationFee;
 
 }
-//add meal fee and transportationFee to otherFees in HostelFee class
-void  MealAndTransportation::addToOtherFee(double totalfee,HostelAndOtherFee&OF){
-    OF.otherFees+=totalfee;
+
+// Add the meal fee and the Transportation Fee to otherFees in HostelFee class
+void  MealAndTransportation::addToOtherFee(double totalfee, HostelAndOtherFee &OF){
+    OF.otherFees += totalfee;
 
  }
 

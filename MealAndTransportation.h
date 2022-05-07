@@ -2,7 +2,8 @@
 #define MAT_H
 class HostelAndOtherFee;// Forward declaration of HostelFee class
 
-class MealAndTransportation{
+class MealAndTransportation {
+
     private:
         int mealPlan;
         double mealFee;
@@ -11,7 +12,7 @@ class MealAndTransportation{
         double total;
 
     public:
-        //Default constructor
+        // Default constructor
         MealAndTransportation(){
             mealPlan = 0;
             mealFee = 0.0;
@@ -19,11 +20,10 @@ class MealAndTransportation{
             total = 0.0;
         }
 
-        //cal meal fee
-         double calcMealFee(int);
-         //calc transportationFee
-         double calcTransportationFee(bool);
-         void addToOtherFee(double,HostelAndOtherFee&);//a friend function of HostelFee class
+        // Prototype
+        double calcMealFee(int);
+        double calcTransportationFee(bool);
+        void addToOtherFee(double, HostelAndOtherFee&); // a friend function of HostelFee class
 
 };
 #endif
