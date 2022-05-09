@@ -10,7 +10,12 @@
 class Student {
 private:
     double matricNum = 111111,
-           totalFees = 0;
+        //这三个新加的oo要用
+           HostelPerSem, 
+           tuitionPerSem,
+           intlFee,
+
+           totalFees;
 
 protected:
     int hostelType = 0,
@@ -41,6 +46,40 @@ public:
 //    void outputData();
 
     double calcTotalFee();
+
+    //operator overloaded
+    Student operator+(const Student&object)
+    {
+        Student temp;
+        temp.HostelPerSem=HostelPerSem+object.HostelPerSem;
+        temp.tuitionPerSem=tuitionPerSem+object.tuitionPerSem;
+        temp.intlFee=intlFee+object.intlFee;
+        return temp;
+    }
+
+
+    //accessor function
+    double gethostelPerSem()const
+    {
+        return HostelPerSem;
+    }
+
+    double getTuitionPerSem()const
+    {
+         return tuitionPerSem;
+    }
+
+    double getIntlFee()const
+    {
+        return intlFee;
+    }
+
+    double getTotalFees()
+    {
+        totalFees=HostelPerSem+tuitionPerSem+intlFee;
+        return totalFees;
+    }
+    
 
 
 };

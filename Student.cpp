@@ -60,7 +60,7 @@ void Student::inputValidation() {
 
      // Hostel Type (int, 0, 1-4)
     while (hostelType < 0 || hostelType > 4) {
-        cout << "Invalid hostel level for " << matricNum << ". Please re-enter: ";
+        cout << "Invalid hostel type for " << matricNum << ". Please re-enter: ";
         cin >> hostelType;  // Re-enter the hostel type
         correctData << hostelType;
     }
@@ -153,5 +153,6 @@ Student::Student() {
     inputValidation();
 //    Display();
 
-
 }
+
+
