@@ -31,7 +31,7 @@ int main() {
     //getTotalFee for all sem
     totalFeeTotalSem=example[0].getTotalFees();
 
-    cout<<"print到目前为止的各项费用和总费用,看看谁写这里";
+    cout<<"";
         
 
     

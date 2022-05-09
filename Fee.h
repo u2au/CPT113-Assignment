@@ -7,10 +7,11 @@
 
 #include "Student.h"
 /*fee 分开，拆成:5个class，
-    1：hostelAndOtherFee，hostel：住宿类型和水电费 ；other：见4
-        （done）2：学费和保险，          
-        （90%done，缺隔离天数input方式）3：international，学费和保险当composition（国际生翻几倍），然后额外加visaFee和隔离费
-    4. MealAndTransportationFee，给1当friend function，费用记到1的totalFee里
+POV：student class是每个class的base class！！！！！
+    1：hostelAndOtherFee，hostel：住宿类型和水电费 ；other：见4(按month算)
+        （done）2：学费和保险， （按sem算）
+        （90%done，缺隔离天数input方式）3：international，学费和保险当composition（国际生翻几倍），然后额外加visaFee和隔离费（输入天数）
+    4. MealAndTransportationFee，给1当friend function，费用记到1的totalFee里（按month算）
 
     5.totalFee，是student class 的dervied class。
         *用operator+ overloaded function来算总共fee。
@@ -21,23 +22,23 @@
         student hana【totalSemNum】；
         用operator + overloaded function来计算总费用
 
-*/
+
 class Fee : public Student {
 private:
     double hostelFee,
            tuitionPerSem,
            recurrent, nonRecurrent,
            insuranceFee,
-           mealFee;
+          
 
 public:
     Fee(); // Default Constructor
 
     // Prototype
-    double calcHostelFee();
+    //double calcHostelFee();
     double calcTuitionPerSem();
-    double calcInsuranceFee();
-    double calcMealFee();
+    //double calcInsuranceFee();
+    //double calcMealFee();
 
     bool getVaccinationStatus();
     bool checkIntl();
@@ -46,5 +47,5 @@ public:
 
 };
 
-
+*/
 #endif //CPT113_ASSIGNMENT_FEE_H

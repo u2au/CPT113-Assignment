@@ -14,14 +14,16 @@ private:
            HostelPerSem, 
            tuitionPerSem,
            intlFee,
-
            totalFees;
-
-protected:
+           
     int hostelType = 0,
         insuranceLevel = 0,
         mealPlan = 0,
-        sem = 0;
+        sem = 0,
+        courseNum=0;
+
+protected:
+    
 
     bool isFreshman,
          isInternational,
@@ -38,6 +40,9 @@ public:
     // Prototype
     int getSem() const;
     int getMealPlan() const;
+
+    int getInsuranceLevel()const;
+    int getCourseNum()const;
 
     void readFile(); // Read From File
     void inputValidation();

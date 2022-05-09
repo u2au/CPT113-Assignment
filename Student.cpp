@@ -145,6 +145,13 @@ int Student::getMealPlan() const {
 //    return 0;
 //
 //}
+int Student::getInsuranceLevel()const{
+    return insuranceLevel;
+}
+
+int Student::getCourseNum() const {
+    return courseNum;
+}
 
 // Default Constructor
 Student::Student() {
