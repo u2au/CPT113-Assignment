@@ -19,14 +19,18 @@ class HostelAndOtherFee : public Student {
             total = 0.0;
         }
 
+    //mutator
+        void setHostelFee();
+
     // Friend function
     friend void MealAndTransportation::addToOtherFee(double, HostelAndOtherFee&);
 
-    // 在totalFee class里叫这个
+    // accessor
     double getTotalFee(){
         total = hostelFee + otherFees;
         return total;
     }
+
 
 
 };
