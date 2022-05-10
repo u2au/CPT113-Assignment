@@ -20,7 +20,7 @@ void welc() {
 // Read from file
 void Student::readFile(){
     ifstream file;
-    file.open("./student.txt");
+    file.open("./Student.txt");
     if (file.is_open()){
         file >> matricNum;
         file >> sem;
