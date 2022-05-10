@@ -10,12 +10,7 @@ using namespace std;
               */
 int main() {
     int sem;
-    //sem 咋来？
-    //结合student看下sem咋读，，，，，，，速度速度5555555555555
-    double totalTuitionFee=0.0;
-    double totalHostelFee=0.0;
-    double totalIntl=0.0;
-    double totalFeeTotalSem=0.0;
+    
 
     Student example[sem];//object array
     for(int i=0;i<sem;i++)
@@ -24,19 +19,13 @@ int main() {
 
     }
     
-    //get each term (HostelPerSem, tuitionPerSem and intlFee) of all sems 
-    totalHostelFee=example[0].gethostelPerSem();
-    totalTuitionFee=example[0].getTuitionPerSem();
-    totalIntl=example[0].getIntlFee();
-
-    //getTotalFee for all sem
-    totalFeeTotalSem=example[0].getTotalFees();
-
     cout<<"学生姓名,matric number ";
-    cout<<"The total tuition fee of all semester is: "<<totalTuitionFee<<endl;
-    cout<<"The total hostel fee of all semester is: "<<totalHostelFee<<endl;
-    cout<<"The total international fee of all semester is: "<<totalIntl<<endl;
-    cout<<"The total fee of all semester is: "<<totalFeeTotalSem<<endl;
+    //get each term (HostelPerSem, tuitionPerSem and intlFee) of all sems 
+    cout<<"The total tuition fee of all semester is: "<<example[0].getTuitionPerSem()<<endl;
+    cout<<"The total hostel fee of all semester is: "<<example[0].gethostelPerSem()<<endl;
+    cout<<"The total international fee of all semester is: "<<example[0].getIntlFee()<<endl;
+    //getTotalFee for all sem
+    cout<<"The total fee of all semester is: "<<example[0].getTotalFees()<<endl;
     
 
         
