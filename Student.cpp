@@ -1,35 +1,26 @@
 //
-// Created by rinsuki on 29/04/2022.
+// Created by rinsuki on 11/05/2022.
 //
 
-#include <iostream>
+#include "Student.h"
 #include <fstream>
 
-#include "Student.h"
-#include "HostelAndOtherFee.h"
-#include "TuitionAndInsuranceFee.h"
-#include "International.h"
-
-using namespace std;
-
-// Welcome
-void welc() {
-    cout << "Welcome to use Fee Calculator! \n";
-}
-
+// Get data
 // Read from file
-void Student::readFile(){
+void Student::getData(){
     ifstream file;
     file.open("./Student.txt");
+
     if (file.is_open()){
         file >> matricNum;
-        file >> sem;
-        file >> hostelType;
-        file >> isInternational;
-        file >> insuranceLevel;
-        file >> isFullyVaccinated;
-        file >> mealPlan;
         file >> isFreshman;
+
+        file >> desa;
+        file >> insuranceLevel;
+        file >> parkingTimes;
+
+        file >> isInt;
+        file >> isFullyVaccinated;
 
     }
     else {
@@ -38,45 +29,23 @@ void Student::readFile(){
 
 }
 
-bool Student::getIntl() const {
-    return isInternational;
-
-}
-
-bool Student::getVacStat() const {
-    return isFullyVaccinated;
-
-}
-
-// Input Validation
 void Student::inputValidation() {
-
     // Matric Num (double, 0-999999)
-     while (matricNum < 0 || matricNum > 999999) {
-        cout << "Invalid matriculation number. Please re-enter: "; 
+    while (matricNum < 0 || matricNum > 999999) {
+        cout << "Invalid matriculation number. Please re-enter: ";
         cin >> matricNum;  // Re-enter the matriculation number
-//        correctData << matricNum;
     }
 
-     // NEW! Sem
-     while (sem < 0 || sem > 8) {
-         cout << "Invalid semester for " << matricNum << ". Please re-enter: ";
-         cin >> sem;
-//         correctData << sem;
-     }
-
-     // Hostel Type (int, 0, 1-4)
-    while (hostelType < 0 || hostelType > 4) {
-        cout << "Invalid hostel type for " << matricNum << ". Please re-enter: ";
-        cin >> hostelType;  // Re-enter the hostel type
-//        correctData << hostelType;
+    // Freshman? (bool, 0/1)
+    while (isFreshman != 0 && isFreshman != 1) {
+        cout << "Invalid is freshman. Please re-enter: ";
+        cin >> isFreshman;  // Re-enter whether a freshman
     }
 
-    // Meal Plan (int, 0, 1-5)
-    while (mealPlan < 0 || mealPlan > 5) {
-        cout << "Invalid meal plan. Please re-enter: ";
-        cin >> mealPlan;  // Re-enter the meal plan
-//        correctData << mealPlan;
+    // Hostel Type (int, 0, 1-4)
+    while (desa < 0 || desa > 4) {
+        cout << "Invalid desa type for " << matricNum << ". Please re-enter: ";
+        cin >> desa;  // Re-enter the hostel type
     }
 
     // Insurance Level (int, 0, 1-5)
@@ -86,83 +55,17 @@ void Student::inputValidation() {
 //        correctData << insuranceLevel;
     }
 
-    // Freshman? (bool, 0/1)
-    while (isFreshman != 0 && isFreshman != 1) {
-        cout << "Invalid is freshman. Please re-enter: ";
-        cin >> isFreshman;  // Re-enter whether a freshman
-//        correctData << isFreshman;
-    }
-
     // International student? (bool, 0/1)
-    while (isInternational != 0 && isInternational != 1) {
-        cout << "Invalid is international. Please re-enter: ";
-        cin >> isInternational;  // Re-enter whether international student
-//        correctData << isInternational;
+    while (isInt != 0 && isInt != 1) {
+        cout << "Invalid isInt. Is this an international student? Please re-enter (0 - No, 1 - Yes): ";
+        cin >> isInt;  // Re-enter whether international student
     }
-
 
     // Is Fully Vaccinated? (bool, 0/1)
     while (isFullyVaccinated != 0 && isFullyVaccinated != 1) {
-        cout << "Invalid is fully vaccinated. Please re-enter: ";
+        cout << "Invalid vaccination status. Please re-enter (0 - Not Completed, 1 - Full): ";
         cin >> isFullyVaccinated;  // Re-enter whether fully vaccinated
-//        correctData << isFullyVaccinated;
     }
 
-};
-
-// Display the information (DEBUG)
-//void Student::Display() {
-//    cout << "Matric Num: " << matricNum << "\n"
-//         << "Hostel Type: " << hostelType << "\n"
-//         << "International Student? " << isInternational << "\n"
-//         << "Insurance Level: " << insuranceLevel << "\n"
-//         << "Fully Vaccinated? " << isFullyVaccinated << "\n"
-//         << "Meal Plan: " << mealPlan << "\n"
-//         << "Freshman? " << isFreshman << endl;
-//
-//}
-
-
-// Output the data
-//void Student::outputData() {
-//
-//
-//}
-
-//// Get Sem
-//int Student::getSem() const {
-//    return sem;
-//}
-
-// Get Meal Plan
-int Student::getMealPlan() const {
-    return mealPlan;
 }
-
-//// Calculate Total Fees
-//double Student::calcTotalFees() {
-//    return 0;
-//
-//}
-//int Student::getInsuranceLevel()const{
-//    return insuranceLevel;
-//}
-//
-//int Student::getCourseNum() const {
-//    return courseNum;
-//}
-
-// Default Constructor
-Student::Student() {
-//    welc();
-    readFile();
-    inputValidation();
-
-    HostelAndOtherFee();
-//    MealAndTransportation();
-//    TuitionAndInsuranceFee();
-//    International();
-
-}
-
 

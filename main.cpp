@@ -1,39 +1,22 @@
 //
-// Created by rinsuki on 29/04/2022.
+// Created by rinsuki on 11/05/2022.
 //
-
-#include <iostream>
 #include "Student.h"
+#include "Desa.h"
+#include "Intl.h"
+#include "Tuition.h"
+#include <iostream>
 
 using namespace std;
 
-int main() {
+int main()
+{
     // Variable Definition
-    int sem;
-
-    double totalTuitionFee = 0.0,
-           totalHostelFee = 0.0,
-           totalIntl = 0.0,
-           totalFeeTotalSem = 0.0;
-
-    // Start to calculate
     Student();
+    Desa();
+    Intl();
+    Tuition();
 
-    Student example[sem]; // Object Array
-
-    for (int i = 0; i < sem; i++) example[0] = example[0] + example[i];
-
-    // Get each term (HostelPerSem, tuitionPerSem and intlFee) of all semesters
-    totalHostelFee = example[0].gethostelPerSem();
-    totalTuitionFee = example[0].getTuitionPerSem();
-    totalIntl = example[0].getIntlFee();
-
-    // getTotalFee for all sem
-    cout << "Matric number: " << endl;
-    cout << "The total hostel fee of all semester is: " << totalHostelFee << endl;
-    cout << "The total tuition fee and insurance fee of all semester is: " << totalTuitionFee << endl;
-    cout << "The total international fee of all semester is: " << totalIntl << endl;
-    cout << "The total fee of all semester is: " << totalFeeTotalSem << endl;
 
     return 0;
 }
