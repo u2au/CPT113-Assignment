@@ -69,19 +69,11 @@ void Student::inputValidation() {
 //         correctData << sem;
      }
 
-
      // Hostel Type (int, 0, 1-4)
     while (hostelType < 0 || hostelType > 4) {
         cout << "Invalid hostel type for " << matricNum << ". Please re-enter: ";
         cin >> hostelType;  // Re-enter the hostel type
 //        correctData << hostelType;
-    }
-
-    // Insurance Level (int, 0, 1-5)
-    while (insuranceLevel < 0 || insuranceLevel > 5) {
-        cout << "Invalid insurance level. Please re-enter: ";
-        cin >> insuranceLevel;  // Re-enter the insurance level
-//        correctData << insuranceLevel;
     }
 
     // Meal Plan (int, 0, 1-5)
@@ -91,13 +83,19 @@ void Student::inputValidation() {
 //        correctData << mealPlan;
     }
 
+    // Insurance Level (int, 0, 1-5)
+    while (insuranceLevel < 0 || insuranceLevel > 5) {
+        cout << "Invalid insurance level. Please re-enter: ";
+        cin >> insuranceLevel;  // Re-enter the insurance level
+//        correctData << insuranceLevel;
+    }
+
     // Freshman? (bool, 0/1)
     while (isFreshman != 0 && isFreshman != 1) {
         cout << "Invalid is freshman. Please re-enter: ";
         cin >> isFreshman;  // Re-enter whether a freshman
 //        correctData << isFreshman;
     }
-
 
     // International student? (bool, 0/1)
     while (isInternational != 0 && isInternational != 1) {
@@ -113,7 +111,6 @@ void Student::inputValidation() {
         cin >> isFullyVaccinated;  // Re-enter whether fully vaccinated
 //        correctData << isFullyVaccinated;
     }
-
 
     // Close the original data file after the input validation
     correctData.close();
