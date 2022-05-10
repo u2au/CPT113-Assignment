@@ -20,7 +20,7 @@ void welc() {
 // Read from file
 void Student::readFile(){
     ifstream file;
-    file.open("student.txt");
+    file.open("./student.txt");
     if (file.is_open()){
         file >> matricNum;
         file >> sem;
@@ -51,10 +51,6 @@ bool Student::getVacStat() const {
 // Input Validation
 void Student::inputValidation() {
 
-    // Initialization
-    ofstream correctData;
-    correctData.open("student.txt");
-
     // Matric Num (double, 0-999999)
      while (matricNum < 0 || matricNum > 999999) {
         cout << "Invalid matriculation number. Please re-enter: "; 
@@ -63,7 +59,7 @@ void Student::inputValidation() {
     }
 
      // NEW! Sem
-     while (sem < 0 || sem > 6) {
+     while (sem < 0 || sem > 8) {
          cout << "Invalid semester for " << matricNum << ". Please re-enter: ";
          cin >> sem;
 //         correctData << sem;
@@ -112,9 +108,6 @@ void Student::inputValidation() {
 //        correctData << isFullyVaccinated;
     }
 
-    // Close the original data file after the input validation
-    correctData.close();
-
 };
 
 // Display the information (DEBUG)
@@ -161,14 +154,14 @@ int Student::getMealPlan() const {
 
 // Default Constructor
 Student::Student() {
-    welc();
+//    welc();
     readFile();
     inputValidation();
 
     HostelAndOtherFee();
-    MealAndTransportation();
-    TuitionAndInsuranceFee();
-    International();
+//    MealAndTransportation();
+//    TuitionAndInsuranceFee();
+//    International();
 
 }
 

@@ -19,6 +19,8 @@ class HostelAndOtherFee : public Student {
             total = 0.0;
         }
 
+        void setHostelFee();
+
     // Friend function
     friend void MealAndTransportation::addToOtherFee(double, HostelAndOtherFee&);
 
