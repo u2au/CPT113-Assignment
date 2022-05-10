@@ -4,26 +4,24 @@
 
 #ifndef CPT113_ASSIGNMENT_STUDENT_H
 #define CPT113_ASSIGNMENT_STUDENT_H
-//student class 是 base class
-//student class 要有year num和sem num，是从文件读还是用户输入？
-// r: 从文件读取，若有异常值则通过 inputValidation 要求用户 correct the data
+
 class Student {
-private:
+protected:
+    //这三个新加的oo要用
     double matricNum = 111111,
-        //这三个新加的oo要用
-           HostelPerSem, 
-           tuitionPerSem,
+           HostelPerSem,
+           tuitionPerSem;
+
+    // Fee Related
+    double insuranceFee,
+           totalTIFee,
            intlFee,
            totalFees;
-           
+
     int hostelType = 0,
         insuranceLevel = 0,
         mealPlan = 0,
-        sem = 0,
-        courseNum=0;
-
-protected:
-    
+        sem = 0;
 
     bool isFreshman,
          isInternational,
@@ -34,54 +32,54 @@ public:
     // Default Constructor
     Student();
 
+    // Prototype
     bool getIntl() const;
     bool getVacStat() const;
-
-    // Prototype
-    int getSem() const;
+//    int getSem() const;
     int getMealPlan() const;
-
-    int getInsuranceLevel()const;
-    int getCourseNum()const;
+//    int getInsuranceLevel() const;
+//    int getCourseNum() const;
 
     void readFile(); // Read From File
     void inputValidation();
-
 //    void Display();
 //    void outputData();
+//    double calcTotalFee();
 
-    double calcTotalFee();
+//    HostelAndOtherFee::HostelAndOtherFee();
 
-    //operator overloaded
+
+
+    // Operator overloading
     Student operator+(const Student&object)
     {
         Student temp;
-        temp.HostelPerSem=HostelPerSem+object.HostelPerSem;
-        temp.tuitionPerSem=tuitionPerSem+object.tuitionPerSem;
-        temp.intlFee=intlFee+object.intlFee;
+        temp.HostelPerSem = HostelPerSem + object.HostelPerSem;
+        temp.tuitionPerSem = tuitionPerSem + object.tuitionPerSem;
+        temp.intlFee = intlFee + object.intlFee;
         return temp;
     }
 
 
-    //accessor function
-    double gethostelPerSem()const
+    // Accessor functions
+    double gethostelPerSem() const
     {
         return HostelPerSem;
     }
 
-    double getTuitionPerSem()const
+    double getTuitionPerSem() const
     {
          return tuitionPerSem;
     }
 
-    double getIntlFee()const
+    double getIntlFee() const
     {
         return intlFee;
     }
 
     double getTotalFees()
     {
-        totalFees=HostelPerSem+tuitionPerSem+intlFee;
+        totalFees = HostelPerSem + tuitionPerSem + intlFee;
         return totalFees;
     }
     

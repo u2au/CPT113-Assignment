@@ -1,6 +1,7 @@
 // International.h, composition of class Student
 #ifndef INTERNATIONAL_H
 #define INTERNATIONAL_H
+
 #include "TuitionAndInsuranceFee.h"
 #include "Student.h"
 
@@ -22,9 +23,12 @@ private:
 public:
     // Default constructor
     International() {
-        getVisaFee();
-        getQuarantineFee();
-        getTotalIntlFee();
+        if (isIntl)
+        {
+            getVisaFee();
+            getQuarantineFee();
+            getTotalIntlFee();
+        }
     }
 
 //    // Constructor 1：别删，，这个显示composition的特性，，

@@ -4,31 +4,23 @@
 
 #include "Student.h"
 
-class TuitionAndInsuranceFee: public Student{
+class TuitionAndInsuranceFee : public Student {
 
-    private:
-         Student st;// composition
+private:
        
-        int majorNum =st.getCourseNum();
-        int insuranceLevel=st.getInsuranceLevel();
-
-        double tuitionFee = 0.0,
-               insuranceFee = 0.0,
-               total = 0.0;
-
-       
+//    int majorNum = st.getCourseNum();
 
     public:
          // Default constructor: Initialization
          TuitionAndInsuranceFee() {
-             calcTuitionPerSem(majorNum);
-             calcInsuranceFee(insuranceLevel);
+             calcTuitionPerSem();
+             calcInsuranceFee();
              getTotalTI();
          }
 
          // Prototype
-         double calcTuitionPerSem(int);
-         double calcInsuranceFee(int);
+         double calcTuitionPerSem();
+         double calcInsuranceFee();
 
          // Get Total Fees of tuition fees and insurance fees
          double getTotalTI();

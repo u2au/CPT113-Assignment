@@ -20,13 +20,13 @@ class MealAndTransportation {
     public:
         // Default constructor
         MealAndTransportation() {
-            calcMealFee(mealPlan);
+            calcMealFee();
 //            calcTransportationFee(isTransportation);
 //            addToOtherFee();
         }
 
         // Prototype
-        double calcMealFee(int);
+        double calcMealFee();
         double calcTransportationFee(bool);
         void addToOtherFee(double, HostelAndOtherFee&); // a friend function of HostelFee class
 

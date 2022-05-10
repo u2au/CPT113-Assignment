@@ -1,7 +1,3 @@
-//
-// Created by rinsuki on 30/04/2022.
-//
-
 #include "International.h"
 
 // Get Visa Fees

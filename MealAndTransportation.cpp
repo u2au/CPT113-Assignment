@@ -3,8 +3,8 @@
 #include "HostelAndOtherFee.h"
 
 // Meal Fee
-double MealAndTransportation::calcMealFee(int mp) {
-    switch (mp)
+double MealAndTransportation::calcMealFee() {
+    switch (mealPlan)
     {
         case 1:
             mealFee = 15;

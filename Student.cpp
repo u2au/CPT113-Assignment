@@ -2,9 +2,13 @@
 // Created by rinsuki on 29/04/2022.
 //
 
-#include "Student.h"
 #include <iostream>
 #include <fstream>
+
+#include "Student.h"
+#include "HostelAndOtherFee.h"
+#include "TuitionAndInsuranceFee.h"
+#include "International.h"
 
 using namespace std;
 
@@ -19,6 +23,7 @@ void Student::readFile(){
     file.open("student.txt");
     if (file.is_open()){
         file >> matricNum;
+        file >> sem;
         file >> hostelType;
         file >> isInternational;
         file >> insuranceLevel;
@@ -54,39 +59,43 @@ void Student::inputValidation() {
      while (matricNum < 0 || matricNum > 999999) {
         cout << "Invalid matriculation number. Please re-enter: "; 
         cin >> matricNum;  // Re-enter the matriculation number
-        correctData << matricNum;
+//        correctData << matricNum;
     }
+
+     // NEW! Sem
+     while (sem < 0 || sem > 6) {
+         cout << "Invalid semester for " << matricNum << ". Please re-enter: ";
+         cin >> sem;
+//         correctData << sem;
+     }
 
 
      // Hostel Type (int, 0, 1-4)
     while (hostelType < 0 || hostelType > 4) {
         cout << "Invalid hostel type for " << matricNum << ". Please re-enter: ";
         cin >> hostelType;  // Re-enter the hostel type
-        correctData << hostelType;
+//        correctData << hostelType;
     }
-
 
     // Insurance Level (int, 0, 1-5)
     while (insuranceLevel < 0 || insuranceLevel > 5) {
         cout << "Invalid insurance level. Please re-enter: ";
         cin >> insuranceLevel;  // Re-enter the insurance level
-        correctData << insuranceLevel;
+//        correctData << insuranceLevel;
     }
-
 
     // Meal Plan (int, 0, 1-5)
     while (mealPlan < 0 || mealPlan > 5) {
         cout << "Invalid meal plan. Please re-enter: ";
         cin >> mealPlan;  // Re-enter the meal plan
-        correctData << mealPlan;
+//        correctData << mealPlan;
     }
-
 
     // Freshman? (bool, 0/1)
     while (isFreshman != 0 && isFreshman != 1) {
         cout << "Invalid is freshman. Please re-enter: ";
         cin >> isFreshman;  // Re-enter whether a freshman
-        correctData << isFreshman;
+//        correctData << isFreshman;
     }
 
 
@@ -94,7 +103,7 @@ void Student::inputValidation() {
     while (isInternational != 0 && isInternational != 1) {
         cout << "Invalid is international. Please re-enter: ";
         cin >> isInternational;  // Re-enter whether international student
-        correctData << isInternational;
+//        correctData << isInternational;
     }
 
 
@@ -102,7 +111,7 @@ void Student::inputValidation() {
     while (isFullyVaccinated != 0 && isFullyVaccinated != 1) {
         cout << "Invalid is fully vaccinated. Please re-enter: ";
         cin >> isFullyVaccinated;  // Re-enter whether fully vaccinated
-        correctData << isFullyVaccinated;
+//        correctData << isFullyVaccinated;
     }
 
 
@@ -130,35 +139,39 @@ void Student::inputValidation() {
 //
 //}
 
-// Get Sem
-int Student::getSem() const {
-    return sem;
-}
+//// Get Sem
+//int Student::getSem() const {
+//    return sem;
+//}
 
 // Get Meal Plan
 int Student::getMealPlan() const {
     return mealPlan;
 }
 
-// Calculate Total Fees
+//// Calculate Total Fees
 //double Student::calcTotalFees() {
 //    return 0;
 //
 //}
-int Student::getInsuranceLevel()const{
-    return insuranceLevel;
-}
-
-int Student::getCourseNum() const {
-    return courseNum;
-}
+//int Student::getInsuranceLevel()const{
+//    return insuranceLevel;
+//}
+//
+//int Student::getCourseNum() const {
+//    return courseNum;
+//}
 
 // Default Constructor
 Student::Student() {
     welc();
     readFile();
     inputValidation();
-//    Display();
+
+    HostelAndOtherFee();
+    MealAndTransportation();
+    TuitionAndInsuranceFee();
+    International();
 
 }
 
