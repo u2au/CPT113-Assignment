@@ -64,8 +64,16 @@ void Student::inputValidation() {
         cin >> hostelType;  // Re-enter the hostel type
         correctData << hostelType;
     }
+    
 
+    // International student? (bool, 0/1)
+    while (isInternational != 0 && isInternational != 1) {
+        cout << "Invalid is international. Please re-enter: ";
+        cin >> isInternational;  // Re-enter whether international student
+        correctData << isInternational;
+    }
 
+    
     // Insurance Level (int, 0, 1-5)
     while (insuranceLevel < 0 || insuranceLevel > 5) {
         cout << "Invalid insurance level. Please re-enter: ";
@@ -73,6 +81,14 @@ void Student::inputValidation() {
         correctData << insuranceLevel;
     }
 
+    
+    // Is Fully Vaccinated? (bool, 0/1)
+    while (isFullyVaccinated != 0 && isFullyVaccinated != 1) {
+        cout << "Invalid is fully vaccinated. Please re-enter: ";
+        cin >> isFullyVaccinated;  // Re-enter whether fully vaccinated
+        correctData << isFullyVaccinated;
+    }
+    
 
     // Meal Plan (int, 0, 1-5)
     while (mealPlan < 0 || mealPlan > 5) {
@@ -87,22 +103,6 @@ void Student::inputValidation() {
         cout << "Invalid is freshman. Please re-enter: ";
         cin >> isFreshman;  // Re-enter whether a freshman
         correctData << isFreshman;
-    }
-
-
-    // International student? (bool, 0/1)
-    while (isInternational != 0 && isInternational != 1) {
-        cout << "Invalid is international. Please re-enter: ";
-        cin >> isInternational;  // Re-enter whether international student
-        correctData << isInternational;
-    }
-
-
-    // Is Fully Vaccinated? (bool, 0/1)
-    while (isFullyVaccinated != 0 && isFullyVaccinated != 1) {
-        cout << "Invalid is fully vaccinated. Please re-enter: ";
-        cin >> isFullyVaccinated;  // Re-enter whether fully vaccinated
-        correctData << isFullyVaccinated;
     }
 
 
