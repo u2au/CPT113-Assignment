@@ -12,7 +12,7 @@ using namespace std;
 class Desa {
 
 private:
-    Student s;
+    Student s; // Composition of class Student (of type private)
     int month = 0;
 
     double desaFee = 0.0,
@@ -32,6 +32,16 @@ public:
     double calcDesaFee(int);
     double calcInsurance(int);
     double calcParking(int);
+
+    // Operator Overloading
+    Desa operator+(const Desa &obj) {
+        Desa d;
+        d.desaFee = desaFee + obj.desaFee;
+        d.insuranceFee = insuranceFee + obj.insuranceFee;
+        d.parkingFee = parkingFee + obj.parkingFee;
+
+        return d;
+    }
 
 };
 

@@ -12,11 +12,14 @@ using namespace std;
 
 int main()
 {
+    // Call the default constructors
     Student();
     Desa();
     Intl();
     Tuition();
     Output();
+
+
 
 
 

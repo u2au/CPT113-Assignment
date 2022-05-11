@@ -20,8 +20,8 @@ protected:
 public:
     // Overloading Constructor
     Intl() {
-        if (isInt == true) {
-            if (isFullyVaccinated == false) {
+        if (isInt) {
+            if (!isFullyVaccinated) {
                 cout << "Quarantine Fee: ";
                 quarantineFee = calcQuarantineFee(quarantineFeePerDay, quarantineDays);
                 cout << quarantineFee << endl;
@@ -33,11 +33,13 @@ public:
     }
 
     // Inline Functions
-    double calcVisaFee() const {return visaFee;}
+//    double getVisaFee() const {return visaFee;}
 
     // Prototype
     double calcQuarantineFee(double, double);
-    
+
+
+
 
 };
 
