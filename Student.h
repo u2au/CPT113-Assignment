@@ -50,6 +50,7 @@ public:
     // Prototype
     void getData();
     void inputValidation();
+    void setValue(int);
 
     // Inline Functions
     int whichDesa() const {return desa;}

@@ -5,6 +5,9 @@
 #include "Student.h"
 #include <fstream>
 
+void Student::setValue(int m) {
+    matricNum = m;
+}
 
 // Read from file
 void Student::getData(){

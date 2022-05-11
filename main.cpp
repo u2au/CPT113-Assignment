@@ -9,30 +9,46 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
 // Prototype
 void welc();
+int getFileLines(int &);
+
 void getData(int &, bool &, int &, int &, int &, bool &, bool &);
 void inputValidation(int &, bool &, int &, int &, int &, bool &, bool &);
 
 int main()
 {
     // Variable Definition
-    int matricNum = 111111,
-            desa = 0,
-            insuranceLevel = 0,
-            parkingTimes = 0;
-
-    double desaFee = 0.0;
+    int fileLine = 0,
+        matricNum = 111111,
+        desa = 0,
+        insuranceLevel = 0,
+        parkingTimes = 0;
 
     bool isInt = true,
-            isFullyVaccinated = false,
-            isFreshman = true;
+         isFullyVaccinated = false,
+         isFreshman = true;
 
     // Welcome
     welc();
+
+    // Get the number of lines of the data file
+    getFileLines(fileLine);
+    cout << fileLine << endl;
+
+    // Object of Array
+    Student Output[fileLine];
+
+    // Save the matric num to the obj of array
+    for (int i = 0; i < fileLine; i++) {
+        Output[i].setValue(matricNum);
+    }
+
+    // Not finished...
 
     // Get data and do input validation (with same parameters)
     getData(matricNum, isFreshman, // class Tuition
@@ -44,6 +60,9 @@ int main()
                     isInt, isFullyVaccinated);
 
 
+
+    // Object of Array
+//    Student Output[10];
 
 //    // Call the constructors
 //    Student(true);
@@ -69,6 +88,22 @@ void welc() {
     cin.get();
 }
 
+int getFileLines(int &line) {
+    string temp;
+
+    ifstream file;
+    file.open("./Student.txt");
+
+    while(!file.eof()) {
+        getline(file, temp);
+        line++;
+    }
+
+    file.close();
+
+    return line;
+}
+
 void getData(int &matric, bool &freshman, int &desa, int &insurance, int &parking, bool &intl, bool &vac) {
     ifstream file;
     file.open("./Student.txt");
@@ -85,9 +120,7 @@ void getData(int &matric, bool &freshman, int &desa, int &insurance, int &parkin
         file >> vac;
 
     }
-    else {
-        cout << "Unable to open file\n";
-    }
+    else cout << "Unable to open file\n";
 
 }
 

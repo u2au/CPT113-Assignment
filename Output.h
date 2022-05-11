@@ -6,8 +6,9 @@
 #define CPT113_ASSIGNMENT_OUTPUT_H
 
 #include "Tuition.h"
+#include "Student.h"
 
-class Output {
+class Output : public Student {
 private:
     double necCost = 0.0;
 
