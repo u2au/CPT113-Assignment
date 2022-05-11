@@ -23,10 +23,7 @@ protected:
 
 public:
     // Default Constructor
-    Tuition() {
-        calcTuition(s.checkInt());
-        calcExtraFee(s.checkFreshman());
-    }
+    Tuition() {};
 
     // Overloading Constructor
     Tuition(double &t, double &e) {
