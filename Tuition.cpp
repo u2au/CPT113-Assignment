@@ -20,5 +20,6 @@ double Tuition::calcExtraFee(bool f) {
 }
 
 void Tuition::calcNecCost(Output &OF) {
-    OF.necCost += (tuition + extraFee);
+    necCost += (tuition + extraFee);
+    OF.passNecCost(necCost);
 }

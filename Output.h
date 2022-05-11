@@ -12,7 +12,6 @@ class Output {
 private:
     double necCost = 0.0;
 
-
 public:
     // Default Constructor
     Output() {
@@ -20,7 +19,8 @@ public:
     }
   
     // Prototype
-  friend void Tuition::calcNecCost(Output&); // a friend function of class Output
+    friend void Tuition::calcNecCost(Output&); // a friend function of class Output
+    void passNecCost(double);
 
 
 

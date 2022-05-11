@@ -10,16 +10,18 @@
 #include <iostream>
 
 using namespace std;
+class Output;
 
 class Tuition {
 private:
     Student s;
 
 protected:
-    double tuition = 0,
+    double tuition = 0.0,
            recurrentFee = 112.50,
            nonRecurrentFee = 1330.00,
-           extraFee = 0;
+           extraFee = 0.0,
+           necCost = 0.0;
 
 
 public:
