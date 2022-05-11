@@ -1,10 +1,14 @@
-//
-// Created by rinsuki on 11/05/2022.
-//
+
 #include "Student.h"
 #include "Desa.h"
 #include "Intl.h"
+#include "output.h"
 #include "Tuition.h"
+#include "Student.cpp"
+#include "Desa.cpp"
+#include "Intl.cpp"
+#include "output.cpp"
+#include "Tuition.cpp"
 #include <iostream>
 using namespace std;
 

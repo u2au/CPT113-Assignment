@@ -4,14 +4,13 @@
 
 #ifndef CPT113_ASSIGNMENT_TUITION_H
 #define CPT113_ASSIGNMENT_TUITION_H
-
 #include "Student.h"
 #include "Output.h"
 #include <iostream>
 
 using namespace std;
-class Output;
 
+class Output;
 class Tuition {
 private:
     Student s;
