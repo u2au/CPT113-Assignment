@@ -12,7 +12,7 @@ using namespace std;
 
 class Tuition {
 private:
-    Student s;
+
 
 protected:
     double tuition = 0.0,
@@ -26,15 +26,16 @@ public:
     Tuition() {};
 
     // Overloading Constructor
-    Tuition(double &t, double &e) {
-        t = tuition;
-        e = extraFee;
+    Tuition(double i, double f, double &tut, double &extra) {
+        calcTuition(i, tut);
+        calcExtraFee(f, extra);
+        displayTuition(f);
     }
 
     // Prototype
-    double calcTuition(bool);
-    double calcExtraFee(bool);
-    void displayTuition();
+    double calcTuition(bool, double &);
+    double calcExtraFee(bool, double &);
+    void displayTuition(bool);
 
 
     // Inline Function

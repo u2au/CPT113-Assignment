@@ -16,33 +16,49 @@ using namespace std;
 void welc();
 void getData(int &, bool &, int &, int &, int &, bool &, bool &);
 void inputValidation(int &, bool &, int &, int &, int &, bool &, bool &);
+void tuition(bool, bool, double &, double &);
+void desa(int, int, int, double &, double &, double &);
+void intl(bool, bool);
 
 int main()
 {
-    // Variable Definition
+    // Variable Definition (Original Data)
     int matricNum = 111111,
-            desa = 0,
-            insuranceLevel = 0,
-            parkingTimes = 0;
-
-    double desaFee = 0.0;
+        desaType = 0,
+        insuranceLevel = 0,
+        parkingTimes = 0;
 
     bool isInt = true,
-            isFullyVaccinated = false,
-            isFreshman = true;
+         isFullyVaccinated = false,
+         isFreshman = true;
+
+    // Variable Definition (Calculated Data)
+    double tuitionFee = 0, extraFee = 0,
+           desaFee = 0, insuranceFee = 0, parkingFee = 0,
+           visaFee = 0, quarantineFee = 0;
 
     // Welcome
     welc();
 
     // Get data and do input validation (with same parameters)
     getData(matricNum, isFreshman, // class Tuition
-            desa, insuranceLevel, parkingTimes, // class Desa
+            desaType, insuranceLevel, parkingTimes, // class Desa
             isInt, isFullyVaccinated); // class Intl
 
     inputValidation(matricNum, isFreshman,
-                    desa, insuranceLevel, parkingTimes,
+                    desaType, insuranceLevel, parkingTimes,
                     isInt, isFullyVaccinated);
 
+    // Calculate tuition
+    tuition(isFreshman, isInt,
+            tuitionFee, extraFee);
+
+    // Calculate desa
+    desa(desaType, insuranceLevel, parkingTimes,
+         desaFee, insuranceFee, parkingFee);
+
+    // Calculate fees for international students
+    intl(isInt, isFullyVaccinated);
 
 
 //    // Call the constructors
@@ -64,7 +80,7 @@ void welc() {
          << "This program may help you convert the choices of students to respective required amounts.\n"
          << "For example, it can convert the initial data '1' for desa to '600', "
          << "which means renting for a semester (5 months estimated), 150 per month.\n"
-         << "Kindly press ENTER to start." << endl;
+         << "Kindly press ENTER to start.\n";
 
     cin.get();
 }
@@ -73,7 +89,7 @@ void getData(int &matric, bool &freshman, int &desa, int &insurance, int &parkin
     ifstream file;
     file.open("./Student.txt");
 
-    if (file.is_open()){
+    if (file.is_open()) {
         file >> matric;
         file >> freshman;
 
@@ -84,10 +100,11 @@ void getData(int &matric, bool &freshman, int &desa, int &insurance, int &parkin
         file >> intl;
         file >> vac;
 
+    } else {
+        cout << "Unable to open file. Please check if student.txt exists,"
+             << " and if the program has permission to read it.\n";
     }
-    else {
-        cout << "Unable to open file\n";
-    }
+
 
 }
 
@@ -134,4 +151,19 @@ void inputValidation(int &matric, bool &freshman, int &desa, int &insurance, int
         cin >> vac;  // Re-enter whether fully vaccinated
     }
 
+}
+
+// Tuition
+void tuition(bool i, bool f, double &tut, double &extra) {
+    Tuition(i, f, tut, extra);
+}
+
+// Desa
+void desa(int d, int i, int p, double &ds, double &insur, double &parking) {
+    Desa(d, i, p);
+}
+
+// Intl
+void intl(bool i, bool vac) {
+    Intl(i, vac);
 }

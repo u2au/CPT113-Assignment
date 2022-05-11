@@ -18,8 +18,16 @@ protected:
     int quarantineDays = 5;
 
 public:
+    // Default Constructor
+    Intl() {}
+
     // Overloading Constructor
-    Intl() {
+    Intl(bool i, bool vac) {
+
+        // Variable Definition
+        isInt = i;
+        isFullyVaccinated = vac;
+
         if (isInt) {
             if (!isFullyVaccinated) {
                 cout << "Quarantine Fee: ";

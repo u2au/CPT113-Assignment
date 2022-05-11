@@ -5,23 +5,23 @@
 #include "Tuition.h"
 #include "Output.h"
 
-double Tuition::calcTuition(bool i) {
-    if (i == true) tuition = 12910;
-    else tuition = 1030;
+double Tuition::calcTuition(bool i, double &tut) {
+    if (i) tut = 12910;
+    else tut = 1030;
 
-    return tuition;
+    return tut;
 }
 
-double Tuition::calcExtraFee(bool f) {
-    if (f == true) extraFee = nonRecurrentFee;
-    else extraFee = recurrentFee;
+double Tuition::calcExtraFee(bool f, double &extra) {
+    if (f) extra = nonRecurrentFee;
+    else extra = recurrentFee;
 
-    return extraFee;
+    return extra;
 }
 
-void Tuition::displayTuition() {
+void Tuition::displayTuition(bool f) {
     cout << "Tuition: " << tuition << endl;
-    if (s.checkFreshman()) cout << "Non-recurrent Fees: " << nonRecurrentFee << endl;
+    if (f) cout << "Non-recurrent Fees: " << nonRecurrentFee << endl;
     else cout << "Recurrent Fees: " << recurrentFee << endl;
 
 }
