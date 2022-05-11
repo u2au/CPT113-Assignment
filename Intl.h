@@ -10,33 +10,45 @@
 
 class Intl : public Student {
 protected:
-    double visaFee = 1200,
-           quarantineFeePerDay = 150,
-           quarantineFee = 0,
-           intFee = 0;
+    double visaFee = 1200.0,
+           quarantineFeePerDay = 150.0,
+           quarantineFee = 0.0,
+           intFee = 0.0,
+           totalIntl = 0.0;
 
-    int quarantineDays = 5;
+    const int quarantineDays = 5;
 
 public:
-    // Overloading Constructor
+    // Default Constructor
     Intl() {
+//        if (isInt) {
+//            if (!isFullyVaccinated) {
+//                cout << "Quarantine Fee: ";
+//                quarantineFee = calcQuarantineFee(quarantineFeePerDay, quarantineDays);
+//                cout << quarantineFee << endl;
+//            }
+//
+//            intFee = visaFee + quarantineFee;
+//            cout << "Quarantine Fee, Visa Fee, Total: \n"
+//                  << quarantineFee << " " << visaFee << " " << intFee << endl;
+//        }
+    }
+
+    // Overloading Constructor
+    Intl(int) {
         if (isInt) {
-            if (!isFullyVaccinated) {
-                cout << "Quarantine Fee: ";
-                quarantineFee = calcQuarantineFee(quarantineFeePerDay, quarantineDays);
-                cout << quarantineFee << endl;
-            }
-            intFee = visaFee + quarantineFee;
-            cout << "Quarantine Fee, Visa Fee, Total: \n"
-                  << quarantineFee << " " << visaFee << " " << intFee << endl;
+            if(!isFullyVaccinated) calcQuarantineFee(quarantineFee, quarantineDays);
+            calcTotalIntl();
         }
     }
 
-    // Inline Functions
-//    double getVisaFee() const {return visaFee;}
-
     // Prototype
-    double calcQuarantineFee(double, double);
+    static double calcQuarantineFee(double, double); // Mutator
+    void calcTotalIntl(); // Mutator
+
+    // Inline Functions
+    double getVisaFee() const {return visaFee;} // Accessor
+    double getTotalIntl() const {return totalIntl;} // Accessor
 
 
 

@@ -9,7 +9,7 @@ double Intl::calcQuarantineFee(double fee, double days) {
     return (fee * days);
 }
 
-//accessor
-double Intl::getIntlTotal(){
-   return  intFee;
+// Calculate the visa fee and quarantine fee (if any) for international students
+void Intl::calcTotalIntl(){ // Mutator
+    intFee = visaFee + quarantineFee;
 }

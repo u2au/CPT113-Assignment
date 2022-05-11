@@ -19,7 +19,8 @@ private:
            insuranceFee = 0.0,
            parkingFee = 0.0, // to be used in other classes
            monthlyParkingCard = 500.00; // No longer be afraid of cars being locked
-    double totalCost = 0.0;
+
+    double basicCost = 0.0;
 
 
 public:
@@ -36,7 +37,10 @@ public:
     double calcDesaFee(int);
     double calcInsurance(int);
     double calcParking(int);
-    double getDesaTotal();//accessor
+    void calcBasicCost(); // Mutator
+
+    // Inline Functions
+    double getBasicCost() const {return basicCost;}
 
     
 };
