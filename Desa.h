@@ -1,6 +1,6 @@
-//
-// Created by rinsuki on 11/05/2022.
-//
+/*composition of studnet class
+
+*/
 
 #ifndef CPT113_ASSIGNMENT_DESA_H
 #define CPT113_ASSIGNMENT_DESA_H
@@ -19,11 +19,13 @@ private:
            insuranceFee = 0.0,
            parkingFee = 0.0, // to be used in other classes
            monthlyParkingCard = 500.00; // No longer be afraid of cars being locked
+    double totalCost = 0.0;
+
 
 public:
     Desa() {};
 
-    // Default Constructor
+    // Constructor
     Desa(int) {
         cout << "Desa Fee: " << calcDesaFee(s.whichDesa()) << endl;
         cout << "Insurance Fee: " << calcInsurance(s.getInsuranceLevel()) << endl;
@@ -34,17 +36,9 @@ public:
     double calcDesaFee(int);
     double calcInsurance(int);
     double calcParking(int);
+    double getDesaTotal();//accessor
 
-    // Operator Overloading
-    Desa operator+(const Desa &obj) {
-        Desa d;
-        d.desaFee = desaFee + obj.desaFee;
-        d.insuranceFee = insuranceFee + obj.insuranceFee;
-        d.parkingFee = parkingFee + obj.parkingFee;
-
-        return d;
-    }
-
+    
 };
 
 

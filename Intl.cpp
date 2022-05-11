@@ -8,3 +8,8 @@
 double Intl::calcQuarantineFee(double fee, double days) {
     return (fee * days);
 }
+
+//accessor
+double Intl::getIntlTotal(){
+   return  intFee;
+}

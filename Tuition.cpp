@@ -25,3 +25,13 @@ void Tuition::displayTuition() {
     else cout << "Recurrent Fees: " << recurrentFee << endl;
 
 }
+
+//accessor 
+ double Tuition::getTuitionTotal(){
+    if (s.checkFreshman())
+           totalCost= tuition+extraFee+nonRecurrentFee;
+    else 
+        totalCost= tuition+extraFee+recurrentFee;
+    
+    return totalCost;
+ }
