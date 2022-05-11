@@ -24,6 +24,7 @@ protected:
 
 
 public:
+    // Default Constructor
     Student() {
         getData();
         inputValidation();

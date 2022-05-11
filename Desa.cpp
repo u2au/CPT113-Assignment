@@ -15,17 +15,17 @@ double Desa::calcDesaFee(int desa) {
             desaFee = 120 * month; // RM 120 per month, six months per semester
             break;
 
-            // Sharing Room
+        // Sharing Room
         case 2:
             desaFee = 240 * month;
             break;
 
-            // Family Accommodation with One Room
+        // Family Accommodation with One Room
         case 3:
             desaFee = 350 * month;
             break;
 
-            // Family Accommodation with Two Rooms
+        // Family Accommodation with Two Rooms
         case 4:
             desaFee = 450 * month;
             break;
