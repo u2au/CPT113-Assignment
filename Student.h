@@ -25,21 +25,12 @@ protected:
 
 public:
     // Default Constructor
-    Student() {
-        cout << "Default Constructor is called" << endl;
-//        getData();
-//        inputValidation();
-        cout << matricNum << " " << desa << " " << insuranceLevel << " " << parkingTimes << endl;
-
-    }
+    Student() {}
 
 
     // Overloading Constructor
     Student(bool) {
-        cout << "Overloading Constructor is called" << endl;
-        getData();
-        inputValidation();
-        cout << matricNum << " " << desa << " " << insuranceLevel << " " << parkingTimes << endl;
+
     }
 
     ~Student() {
@@ -48,8 +39,6 @@ public:
 
 
     // Prototype
-    void getData();
-    void inputValidation();
     void setValue(int);
 
     // Inline Functions

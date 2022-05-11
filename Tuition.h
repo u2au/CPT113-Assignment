@@ -41,8 +41,6 @@ public:
     double getTuition() const {return tuition;}
     double getExtraFee() const {return extraFee;}
 
-
-
 };
 
 

@@ -40,13 +40,13 @@ int main()
     getFileLines(fileLine);
     cout << fileLine << endl;
 
-    // Object of Array
+    // Array of object
     Student Output[fileLine];
 
-    // Save the matric num to the obj of array
-    for (int i = 0; i < fileLine; i++) {
-        Output[i].setValue(matricNum);
-    }
+//    // Save the matric num to the array of obj
+//    for (int i = 0; i < fileLine; i++) {
+//        Output[i].setValue(matricNum);
+//    }
 
     // Not finished...
 
