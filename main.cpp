@@ -6,12 +6,10 @@
 #include "Intl.h"
 #include "Tuition.h"
 #include <iostream>
-
 using namespace std;
 
 int main()
 {
-    // Variable Definition
     Student();
     Desa();
     Intl();

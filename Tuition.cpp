@@ -3,6 +3,7 @@
 //
 
 #include "Tuition.h"
+#include "Output.h"
 
 double Tuition::calcTuition(bool i) {
     if (i == true) tuition = 12910;
@@ -16,4 +17,8 @@ double Tuition::calcExtraFee(bool f) {
     else extraFee = recurrentFee;
 
     return extraFee;
+}
+
+void Tuition::calcNecCost(Output &OF) {
+    OF.necCost += (tuition + extraFee);
 }

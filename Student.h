@@ -16,7 +16,7 @@ protected:
         insuranceLevel = 0,
         parkingTimes = 0;
 
-    double desaFee = 1.0;
+    double desaFee = 0.0;
 
     bool isInt = true,
          isFullyVaccinated = false,
@@ -26,6 +26,7 @@ protected:
 public:
     Student() {
         getData();
+        inputValidation();
     }
 
     // Prototype
@@ -33,7 +34,7 @@ public:
     void inputValidation();
 
     // Inline Functions
-    double whichDesa() const {return desa;}
+    int whichDesa() const {return desa;}
     bool checkInt() const {return isInt;}
     bool checkFreshman() const {return isFreshman;}
     int getInsuranceLevel() const {return insuranceLevel;}

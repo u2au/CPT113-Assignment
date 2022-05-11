@@ -37,7 +37,7 @@ public:
 
     // Prototype
     double calcQuarantineFee(double, double);
-
+    
 
 };
 
