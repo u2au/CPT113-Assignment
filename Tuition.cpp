@@ -19,7 +19,9 @@ double Tuition::calcExtraFee(bool f) {
     return extraFee;
 }
 
-void Tuition::calcNecCost(Output &OF) {
-    necCost += (tuition + extraFee);
-    OF.passNecCost(necCost);
+void Tuition::displayTuition() {
+    cout << "Tuition: " << tuition << endl;
+    if (s.checkFreshman()) cout << "Non-recurrent Fees: " << nonRecurrentFee << endl;
+    else cout << "Recurrent Fees: " << recurrentFee << endl;
+
 }

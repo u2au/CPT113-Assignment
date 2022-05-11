@@ -5,7 +5,18 @@
 #include "Output.h"
 #include "Tuition.h"
 
-// Pass the Necessary Cost from class Tuition to class Output
-void Output::passNecCost(double n) {
-    necCost = n;
+#include <iostream>
+
+double calcNecCost() {
+    Tuition t;
+    t.displayTuition();
+    return (t.getTuition() + t.getExtraFee());
+}
+
+double Output::getNecCost() {
+    necCost = calcNecCost();
+
+    // Display necessary costs
+    cout << "Necessary Costs: " << necCost << endl;
+    return necCost;
 }

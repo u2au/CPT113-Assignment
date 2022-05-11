@@ -10,7 +10,6 @@
 
 using namespace std;
 
-class Output;
 class Tuition {
 private:
     Student s;
@@ -19,26 +18,25 @@ protected:
     double tuition = 0.0,
            recurrentFee = 112.50,
            nonRecurrentFee = 1330.00,
-           extraFee = 0.0,
-           necCost = 0.0;
+           extraFee = 0.0;
 
 
 public:
     // Default Constructor
     Tuition() {
-        cout << "Tuition: " << calcTuition(s.checkInt()) << "\n"
-             << "Extra Fee: (non-)recurrent fee: " << calcExtraFee(s.checkFreshman()) << endl;
-
+        calcTuition(s.checkInt());
+        calcExtraFee(s.checkFreshman());
     }
 
     // Prototype
     double calcTuition(bool);
     double calcExtraFee(bool);
-    void calcNecCost(Output&); // a friend function of class Tuition
+    void displayTuition();
+
 
     // Inline Function
-//    double getTuition() const {return tuition;}
-//    double getExtraFee() const {return extraFee;}
+    double getTuition() const {return tuition;}
+    double getExtraFee() const {return extraFee;}
 
 
 

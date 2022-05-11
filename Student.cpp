@@ -55,6 +55,12 @@ void Student::inputValidation() {
 //        correctData << insuranceLevel;
     }
 
+    // Parking Times (int, 0, 1-100)
+    while (parkingTimes < 0 || parkingTimes > 100) {
+        cout << "Invalid parking times. Please re-enter (0-100): ";
+        cin >> parkingTimes;
+    }
+
     // International student? (bool, 0/1)
     while (isInt != 0 && isInt != 1) {
         cout << "Invalid isInt. Is this an international student? Please re-enter (0 - No, 1 - Yes): ";
