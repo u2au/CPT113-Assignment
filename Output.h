@@ -22,8 +22,7 @@ public:
 
     // Prototype
     double getNecCost();
-
-
+//    void outputFile();
 
 
 };

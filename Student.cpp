@@ -5,6 +5,7 @@
 #include "Student.h"
 #include <fstream>
 
+
 // Read from file
 void Student::getData(){
     ifstream file;

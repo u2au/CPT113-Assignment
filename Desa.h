@@ -21,8 +21,10 @@ private:
            monthlyParkingCard = 500.00; // No longer be afraid of cars being locked
 
 public:
+    Desa() {};
+
     // Default Constructor
-    Desa() {
+    Desa(int) {
         cout << "Desa Fee: " << calcDesaFee(s.whichDesa()) << endl;
         cout << "Insurance Fee: " << calcInsurance(s.getInsuranceLevel()) << endl;
         cout << "Parking Fee: " << calcParking(s.getParkingTimes()) << endl;

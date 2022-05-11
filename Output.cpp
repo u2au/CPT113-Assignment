@@ -6,6 +6,7 @@
 #include "Tuition.h"
 
 #include <iostream>
+#include <fstream>
 
 double calcNecCost() {
     Tuition t;
@@ -20,3 +21,20 @@ double Output::getNecCost() {
     cout << "Necessary Costs: " << necCost << endl;
     return necCost;
 }
+
+//// Output the tuition, NonRecurrent, Recurrent fee to the file
+//void Output::outputFile() {
+//    ofstream file;
+//    file.open("./Output.txt");
+//
+//    if (file.is_open()) {
+//        file << "Tuition: " << t.getTuition() << endl;
+//        file << "NonRecurrentFee: " << t.getNonRecurrentFee() << endl;
+//        file << "RecurrentFee: " << t.getRecurrentFee() << endl;
+//    }
+//    else {
+//        cout << "Unable to open file\n";
+//    }
+//
+//    file.close();
+//}

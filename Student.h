@@ -26,9 +26,26 @@ protected:
 public:
     // Default Constructor
     Student() {
+        cout << "Default Constructor is called" << endl;
+//        getData();
+//        inputValidation();
+        cout << matricNum << " " << desa << " " << insuranceLevel << " " << parkingTimes << endl;
+
+    }
+
+
+    // Overloading Constructor
+    Student(bool) {
+        cout << "Overloading Constructor is called" << endl;
         getData();
         inputValidation();
+        cout << matricNum << " " << desa << " " << insuranceLevel << " " << parkingTimes << endl;
     }
+
+    ~Student() {
+        cout << "Destructor is called" << endl;
+    }
+
 
     // Prototype
     void getData();

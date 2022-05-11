@@ -28,6 +28,12 @@ public:
         calcExtraFee(s.checkFreshman());
     }
 
+    // Overloading Constructor
+    Tuition(double &t, double &e) {
+        t = tuition;
+        e = extraFee;
+    }
+
     // Prototype
     double calcTuition(bool);
     double calcExtraFee(bool);
@@ -37,7 +43,6 @@ public:
     // Inline Function
     double getTuition() const {return tuition;}
     double getExtraFee() const {return extraFee;}
-
 
 
 

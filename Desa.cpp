@@ -32,7 +32,6 @@ double Desa::calcDesaFee(int desa) {
 
         default:
             desaFee = 0;
-            cout << "Error\n";
             break;
 
     }

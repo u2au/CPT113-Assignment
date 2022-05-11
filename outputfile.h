@@ -14,7 +14,8 @@ private:
     Tuition &Tuition;
     double &nonRecurrentFee;
     double &recurrentFee;
+
 public:
     outputfile(Tuition &t, double &nonRecurrentFee, double &recurrentFee);
     void output();
-}   
+}
