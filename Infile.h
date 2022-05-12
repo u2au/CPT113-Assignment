@@ -5,6 +5,8 @@
 #ifndef CPT113_ASSIGNMENT_INFILE_H
 #define CPT113_ASSIGNMENT_INFILE_H
 
+#include <iostream>
+using namespace std;
 
 class Infile {
 private:

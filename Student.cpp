@@ -3,9 +3,12 @@
 //
 
 #include "Student.h"
+#include "Tuition.h"
+#include "Desa.h"
+#include "Intl.h"
 
 // Pass acadFee, totalIntl, basicCost to class TotalFee
-void Student::calcTotalFee() {
+void Student::calcTotalFee() { // Mutator
     f1.setAcadFee(acadFee);
     f2.setTotalIntl(totalIntl);
     f3.setBasicCost(basicCost);

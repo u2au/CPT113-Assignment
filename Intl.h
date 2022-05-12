@@ -6,7 +6,6 @@
 #define CPT113_ASSIGNMENT_INTL_H
 
 #include "Student.h"
-#include "Student.cpp"
 #include <iostream>
 
 class Intl : public Student {

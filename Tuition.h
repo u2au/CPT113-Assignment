@@ -4,10 +4,9 @@
 
 #ifndef CPT113_ASSIGNMENT_TUITION_H
 #define CPT113_ASSIGNMENT_TUITION_H
+#include "Infile.h"
 #include "Student.h"
-#include "Output.h"
-#include "Student.cpp"
-#include "Output.cpp"
+
 #include <iostream>
 
 using namespace std;
@@ -25,10 +24,6 @@ public:
     // Default Constructor
     Tuition() {};
 
-    // Overloading Constructor
-    Tuition(int) {
-
-    }
 
     // Prototype
     void calcTuition(bool); // Mutator

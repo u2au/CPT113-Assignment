@@ -7,9 +7,8 @@
 
 #include "Tuition.h"
 #include "Student.h"
-#include "Tuition.cpp"
-#include "Student.cpp"
-class Output : public Student {
+
+class Output {
 private:
     double necCost = 0.0;
 

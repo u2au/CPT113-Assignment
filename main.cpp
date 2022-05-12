@@ -2,15 +2,6 @@
 // Created by rinsuki on 11/05/2022.
 //
 #include "Student.h"
-#include "Desa.h"
-#include "Intl.h"
-#include "Tuition.h"
-#include "Output.h"
-#include "Student.cpp"
-#include "Desa.cpp"
-#include "Intl.cpp"
-#include "Tuition.cpp"
-#include "Output.cpp"
 
 #include <iostream>
 #include <fstream>
@@ -41,30 +32,12 @@ int main()
     // Welcome
     welc();
 
-    // Get the number of lines of the data file
-    getFileLines(fileLine);
-    cout << fileLine << endl;
-
-    // Array of object
-    Student Output[fileLine];
-
 //    // Save the matric num to the array of obj
 //    for (int i = 0; i < fileLine; i++) {
 //        Output[i].setValue(matricNum);
 //    }
 
     // Not finished...
-
-    // Get data and do input validation (with same parameters)
-    getData(matricNum, isFreshman, // class Tuition
-            desa, insuranceLevel, parkingTimes, // class Desa
-            isInt, isFullyVaccinated); // class Intl
-
-    inputValidation(matricNum, isFreshman,
-                    desa, insuranceLevel, parkingTimes,
-                    isInt, isFullyVaccinated);
-
-
 
     // Object of Array
 //    Student Output[10];
@@ -88,23 +61,7 @@ void welc() {
          << "This program may help you convert the choices of students to respective required amounts.\n"
          << "For example, it can convert the initial data '1' for desa to '600', "
          << "which means renting for a semester (5 months estimated), 150 per month.\n"
-         << "Kindly press ENTER to start." << endl;
+         << "Kindly press ENTER to start.";
 
     cin.get();
-}
-
-int getFileLines(int &line) {
-    string temp;
-
-    ifstream file;
-    file.open("./Student.txt");
-
-    while(!file.eof()) {
-        getline(file, temp);
-        line++;
-    }
-
-    file.close();
-
-    return line;
 }

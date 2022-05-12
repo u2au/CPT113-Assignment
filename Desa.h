@@ -5,9 +5,10 @@
 #ifndef CPT113_ASSIGNMENT_DESA_H
 #define CPT113_ASSIGNMENT_DESA_H
 
-#include <iostream>
 #include "Student.h"
-#include "Student.cpp"
+#include <iostream>
+
+
 using namespace std;
 
 class Desa {
@@ -29,16 +30,16 @@ public:
 
     // Constructor
     Desa(int) {
-        cout << "Desa Fee: " << calcDesaFee(s.whichDesa()) << endl;
-        cout << "Insurance Fee: " << calcInsurance(s.getInsuranceLevel()) << endl;
-        cout << "Parking Fee: " << calcParking(s.getParkingTimes()) << endl;
+//        cout << "Desa Fee: " << calcDesaFee(s.whichDesa()) << endl;
+//        cout << "Insurance Fee: " << calcInsurance(s.getInsuranceLevel()) << endl;
+//        cout << "Parking Fee: " << calcParking(s.getParkingTimes()) << endl;
     }
 
     // Prototype
     double calcDesaFee(int);
     double calcInsurance(int);
     double calcParking(int);
-    void setBasicCost(); // Mutator
+    void calcBasicCost(); // Mutator
 
     // Inline Functions
     double getBasicCost() const {return basicCost;}//accessor

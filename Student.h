@@ -1,21 +1,16 @@
-/*
-/
-*/
-
 #ifndef CPT113_ASSIGNMENT_STUDENT_H
 #define CPT113_ASSIGNMENT_STUDENT_H
-#include "Desa.h"
-#include "Tuition.h"
-#include "Intl.h"
+#include "Infile.h"
+//#include "Tuition.h"
 #include "TotalFee.h"
 
 #include <iostream>
 
 using namespace std;
 
-class Student {
+class Student : public Infile {
 private:
-    TotalFee f1, f2, f3, f; // Use composition and operator overloading
+    TotalFee f1, f2, f3, f; // Use composition and operator overloading (privately)
 
 protected:
     int matricNum = 111111,
@@ -39,19 +34,13 @@ public:
     // Default Constructor
     Student() {}
 
-
-    // Overloading Constructor
-    Student(bool) {
-
-    }
-
+    // Destructor
     ~Student() {
         cout << "Destructor is called." << endl;
     }
 
 
     // Prototype
-//    void setValue(int);
     void setFees();
     void calcTotalFee();
 
