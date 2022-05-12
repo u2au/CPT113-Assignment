@@ -14,10 +14,10 @@ private:
 protected:
     // Variable Definition
     int matricNum = 111111,
-            desa = 0,
-            insuranceLevel = 0,
-            parkingTimes = 0,
-            lineOfFile = 0;
+        desa = 0,
+        insuranceLevel = 0,
+        parkingTimes = 0,
+        lineOfFile = 0;
 
     bool isInt = true,
          isFullyVaccinated = false,
@@ -35,11 +35,9 @@ public:
     Student() {}
 
     // Overloading Constructor
-    Student(int) {
-        getFileLines();
-        getData();
-        inputValidation();
-
+    Student(int matric, bool freshman, int desa, int insurance, int parking, bool intl, bool vac, double &acad, double &basic, double &ttIntl) {
+        // Set the values from main function
+        setValue(matric, freshman, desa, insurance, parking, intl, vac);
         passForTuition();
         passForDesa();
         passForIntl();
@@ -48,22 +46,19 @@ public:
     }
 
     // Destructor
-    ~Student() {
-        cout << "Destructor is called." << endl;
-    }
+    ~Student() {}
 
 
     // Prototype
-    void getFileLines();
-    void getData();
-    void inputValidation();
+    void setValue(int, bool, int, int, int, bool, bool);
 
-//    void setData();
     void passForTuition();
     void passForDesa();
     void passForIntl();
     void setFees();
     void calcTotalFee();
+
+    void setAcadAndBasic();
 
     // Inline Functions
     int whichDesa() const {return desa;}
