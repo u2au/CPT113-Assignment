@@ -9,53 +9,48 @@ this class use compo
 
 class TotalFee {
 private:
-
-
-    double basicCost, // class Desa
-           acadFee, //  class Tuition
-           intlFee, // class Intl
-           totalFee; // 非常坏 double eneennenenenen
+    double acadFee = 0.0, //  class Tuition
+           basicCost = 0.0, // class Desa
+           totalIntl = 0.0, // class Intl
+           totalFee = 0.0;
 
 public:
     // Default Constructor
-    TotalFee() {
-         basicCost = 0.0, 
-           acadFee = 0.0, 
-           intlFee = 0.0, 
-           totalFee = 0.0;
-    }
+    TotalFee() {}
 
     // Overloading Constructor
     TotalFee(int) {
         
     }
 
-    //mutator to set tuition fee 
-    void setTuiFee(double tt) {
-        tt=acadFee;
-    }
-     //mutator to set internation fee 
-    void setInternlFee(double intln) {
-        intlFee = intln;
-    }
-     //mutator to set desa fee 
-    void setDsaFee(double dsa) {
-        basicCost= dsa;
+    // Set Academic Fees
+    void setAcadFee(double acad) { // Mutator
+        acadFee = acad;
     }
 
-    //operator overloading
-    TotalFee operator+(const TotalFee&obj) {
-        TotalFee temp;
-        temp.basicCost=basicCost+obj.basicCost;
-        temp.intlFee=intlFee+obj.intlFee;
-        temp.acadFee=acadFee+obj.acadFee;
-
-        return temp;
+    // Set Total Intl Fees
+    void setTotalIntl(double intl) { // Mutator
+        totalIntl = intl;
     }
 
-    //accessor ,用operator overloading function在studnet class里将三个obj的相加，我们可以用这个来get 总共的费用
-    double getTotal() {
-        totalFee=basicCost+acadFee+intlFee;
+     // Set Basic Cost
+    void setBasicCost(double bsc) { // Mutator
+        basicCost = bsc;
+    }
+
+    // Operator overloading
+    TotalFee operator+(const TotalFee &obj) {
+        TotalFee t;
+        t.basicCost = basicCost + obj.basicCost;
+        t.totalIntl = totalIntl + obj.totalIntl;
+        t.acadFee = acadFee + obj.acadFee;
+
+        return t;
+    }
+
+    // 用 operator overloading function 在 student class 里将三个 obj 的相加，我们可以用这个来 get 总共的费用
+    double getTotal() { // Accessor
+        totalFee = acadFee + basicCost + totalIntl;
         return totalFee;
     }
 

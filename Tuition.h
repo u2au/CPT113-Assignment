@@ -34,7 +34,7 @@ public:
     void calcTuition(bool); // Mutator
     void calcExtraFee(bool); // Mutator
     void displayTuition(); // Mutator
-    void calcAcadFee(); // Mutator
+    void setAcadFee(); // Mutator
 
 
     // Inline Function

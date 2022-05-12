@@ -32,6 +32,7 @@ void Tuition::setAcadFee(){ // Mutator
     acadFee = tuition + extraFee;
 
  }
-  double Tuition::getAcadFee(){
-      return acadFee;
-  }
+
+double Tuition::getAcadFee(){ // Accessor
+    return acadFee;
+}
