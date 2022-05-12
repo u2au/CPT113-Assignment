@@ -11,10 +11,6 @@ using namespace std;
 
 // Prototype
 void welc();
-int getFileLines(int &);
-
-void getData(int &, bool &, int &, int &, int &, bool &, bool &);
-void inputValidation(int &, bool &, int &, int &, int &, bool &, bool &);
 
 int main()
 {
@@ -31,6 +27,12 @@ int main()
 
     // Welcome
     welc();
+
+    Infile(1);
+    Student(1);
+
+
+
 
 //    // Save the matric num to the array of obj
 //    for (int i = 0; i < fileLine; i++) {

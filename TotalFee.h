@@ -54,6 +54,9 @@ public:
         return totalFee;
     }
 
+    // Inline Function
+    double getAcadFee() const {return acadFee;}
+
 
 };
 #endif //CPT113_ASSIGNMENT_TOTALFEE_H

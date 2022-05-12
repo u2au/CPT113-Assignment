@@ -7,6 +7,21 @@
 #include "Desa.h"
 #include "Intl.h"
 
+#include <iostream>
+using namespace std;
+
+// Pass the values for class Tuition
+void Student::passForTuition() {
+    Tuition tt;
+    tt.calcTuition(isInt);
+    tt.calcExtraFee(isFreshman);
+    tt.setAcadFee();
+
+    TotalFee tf;
+    tf.setAcadFee(tt.getAcadFee());
+    cout << tf.getAcadFee() << endl;
+}
+
 // Pass acadFee, totalIntl, basicCost to class TotalFee
 void Student::calcTotalFee() { // Mutator
     f1.setAcadFee(acadFee);

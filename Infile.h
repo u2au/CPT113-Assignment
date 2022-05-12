@@ -9,7 +9,7 @@
 using namespace std;
 
 class Infile {
-private:
+protected:
     // Variable Definition
     int matricNum = 111111,
         desa = 0,
@@ -27,7 +27,9 @@ public:
 
     // Overloading Constructor
     Infile(int) {
-
+        getFileLines();
+        getData();
+        inputValidation();
     }
 
     // Prototype

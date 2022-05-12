@@ -34,6 +34,12 @@ public:
     // Default Constructor
     Student() {}
 
+    // Overloading Constructor
+    Student(int) {
+        passForTuition();
+
+    }
+
     // Destructor
     ~Student() {
         cout << "Destructor is called." << endl;
@@ -41,6 +47,7 @@ public:
 
 
     // Prototype
+    void passForTuition();
     void setFees();
     void calcTotalFee();
 
