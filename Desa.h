@@ -26,14 +26,8 @@ private:
 
 
 public:
+    // Default Constructor
     Desa() {};
-
-    // Constructor
-    Desa(int) {
-//        cout << "Desa Fee: " << calcDesaFee(s.whichDesa()) << endl;
-//        cout << "Insurance Fee: " << calcInsurance(s.getInsuranceLevel()) << endl;
-//        cout << "Parking Fee: " << calcParking(s.getParkingTimes()) << endl;
-    }
 
     // Prototype
     double calcDesaFee(int);

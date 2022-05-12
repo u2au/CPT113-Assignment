@@ -35,7 +35,7 @@ void Student::passForTuition() {
     tt.calcTuition(isInt);
     tt.calcExtraFee(isFreshman);
     tt.setAcadFee(acadFee);
-    cout << acadFee << endl;
+//    cout << acadFee << endl;
 
 //    // Pass the value to class totalFee
 ////    TotalFee tf;
@@ -51,7 +51,7 @@ void Student::passForDesa() {
     d.calcInsurance(insuranceLevel);
     d.calcParking(parkingTimes);
     d.calcBasicCost(basicCost);
-    cout << basicCost << endl;
+//    cout << basicCost << endl;
 }
 
 // Pass the values for class Intl
@@ -60,7 +60,7 @@ void Student::passForIntl() {
     Intl i;
     i.calcQuarantineFee(isInt, isFullyVaccinated);
     i.calcTotalIntl(totalIntl);
-    cout << "Total Intl of class Student: " << totalIntl << endl;
+//    cout << "Total Intl of class Student: " << totalIntl << endl;
 }
 
 
@@ -72,21 +72,9 @@ void Student::calcTotalFee(double &total) { // Mutator
     f2 = f2 + f3;
     f1 = f1 + f2;
     total = f1.getTotal();
-    cout << "The total fee is "<< total << endl;
+//    cout << "The total fee is "<< total << endl;
 
 
-}
-
-// Set the fees from the respective classes: Tuition, Desa, and Intl
-void Student::setFees() { // Mutator
-    Tuition t;
-    acadFee = t.getAcadFee();
-
-    Desa d;
-    basicCost = d.getBasicCost();
-
-    Intl i;
-    totalIntl = i.getTotalIntl();
 }
 
 // Pass the values back to the main function

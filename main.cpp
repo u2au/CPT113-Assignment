@@ -82,9 +82,9 @@ int main()
                 desa, insuranceLevel, parkingTimes,
                 isInt, isFullyVaccinated, acadFee, basicCost, totalIntl, total);
 
-        // Display the values passed back (DEBUG)
-        cout << "The variables passed back from class Student: "
-             << acadFee << " " << basicCost << " " << totalIntl << endl;
+//        // Display the values passed back (DEBUG)
+//        cout << "The variables passed back from class Student: "
+//             << acadFee << " " << basicCost << " " << totalIntl << endl;
 
         // Output the fees
         outfile << "Student #" << numOfStudents + 1 << endl;
@@ -95,6 +95,8 @@ int main()
         outfile << "Totally, the student needs to pay " << total << " MYR for the semester.\n" << endl;
 
     }
+
+    cout << "Completed!" << endl;
 
 
 
