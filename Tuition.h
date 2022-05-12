@@ -7,12 +7,17 @@
 #include "Student.h"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 class Tuition {
 private:
-    Student s;
+    Student s; // Composition (private)
+
+    // Variable Definition
+    int numOfMajors = 5;
+
     double tuition = 0.0,
            recurrentFee = 112.50,
            nonRecurrentFee = 1330.00,
@@ -25,7 +30,7 @@ public:
 
 
     // Prototype
-    void calcTuition(bool); // Mutator
+    void calcTuition(string, bool); // Mutator
     void calcExtraFee(bool); // Mutator
     void displayTuition(); // Mutator
     void setAcadFee(double &); // Mutator

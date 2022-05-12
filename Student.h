@@ -4,6 +4,7 @@
 #include "TotalFee.h"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -28,6 +29,8 @@ protected:
            basicCost = 0.0,
            totalIntl = 0.0; // get perspective total fee from desa class,intl class and tuition class
 
+    string major = "default";
+
 
 
 public:
@@ -35,9 +38,9 @@ public:
     Student() {}
 
     // Overloading Constructor
-    Student(int matric, bool freshman, int desa, int insurance, int parking, bool intl, bool vac, double &acad, double &basic, double &ttIntl, double &tt) {
+    Student(int matric, string maj, bool freshman, int desa, int insurance, int parking, bool intl, bool vac, double &acad, double &basic, double &ttIntl, double &tt) {
         // Set the values from main function
-        setValue(matric, freshman, desa, insurance, parking, intl, vac);
+        setValue(matric, maj, freshman, desa, insurance, parking, intl, vac);
         passForTuition();
         passForDesa();
         passForIntl();
@@ -51,7 +54,7 @@ public:
 
 
     // Prototype
-    void setValue(int, bool, int, int, int, bool, bool);
+    void setValue(int, string, bool, int, int, int, bool, bool);
 
 
     void passForTuition();

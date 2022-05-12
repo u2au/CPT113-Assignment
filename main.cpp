@@ -12,7 +12,7 @@ using namespace std;
 // Prototype
 void welc();
 void getFileLines(int &);
-void inputValidation(int &, bool &, int &, int &, int &, bool &, bool &);
+void inputValidation(int &, string &, bool &, int &, int &, int &, bool &, bool &);
 
 int main()
 {
@@ -31,6 +31,8 @@ int main()
            basicCost = 0.0,
            totalIntl = 0.0,
            total = 0.0;
+
+    string major = "default";
 
     // Welcome
     welc();
@@ -61,6 +63,7 @@ int main()
         // Save the data to the variables
         if (infile.is_open()) {
             infile >> matricNum;
+            infile >> major; // NEW!
             infile >> isFreshman; // class Tuition
 
             infile >> desa;
@@ -73,12 +76,12 @@ int main()
         } else cout << "Unable to open file\n";
 
         // Do the input Validation
-        inputValidation(matricNum, isFreshman,
+        inputValidation(matricNum, major, isFreshman,
                         desa, insuranceLevel, parkingTimes,
                         isInt, isFullyVaccinated);
 
         // Pass the values through the overloading function of class Student
-        Student(matricNum, isFreshman,
+        Student(matricNum, major, isFreshman,
                 desa, insuranceLevel, parkingTimes,
                 isInt, isFullyVaccinated, acadFee, basicCost, totalIntl, total);
 
@@ -87,17 +90,25 @@ int main()
 //             << acadFee << " " << basicCost << " " << totalIntl << endl;
         
         //Output numOfStudents, matrixNum, acadFee, basicCost, totalIntl to a file as an array object
-        TotalFee[numOfStudents].passForTuition();
-        TotalFee[numOfStudents].passForDesa();
-        TotalFee[numOfStudents].passForIntl();
-        TotalFee[numOfStudents].calcTotalFee(total);
+//        TotalFee[numOfStudents].passForTuition();
+//        TotalFee[numOfStudents].passForDesa();
+//        TotalFee[numOfStudents].passForIntl();
+//        TotalFee[numOfStudents].calcTotalFee(total);
         
-        // Output the fees
+        // Output the personal information of the student and the fees
         outfile << "Student #" << numOfStudents + 1 << endl;
         outfile << "Matric Number: " << matricNum << endl;
+        outfile << "Major: " << major << endl;
+
+        outfile << "Student Type: ";
+        if (isInt) {
+            outfile << "International" << endl;
+            outfile << "Visa and quarantine fees (if any): " << totalIntl << " MYR" << endl;
+        }
+        else outfile << "Local" << endl;
+
         outfile << "Academic Fees: " << acadFee << " MYR" << endl;
         outfile << "Basic Costs: " << basicCost << " MYR" << endl;
-        if (isInt) outfile << "Costs For International Students: " << totalIntl << " MYR" << endl;
         outfile << "Totally, the student needs to pay " << total << " MYR for the semester.\n" << endl;
 
     }
@@ -161,11 +172,17 @@ void getFileLines(int &line) {
     file.close();
 }
 
-void inputValidation(int &matric, bool &freshman, int &desa, int &insurance, int &parking, bool &intl, bool &vac) {
+void inputValidation(int &matric, string &maj, bool &freshman, int &desa, int &insurance, int &parking, bool &intl, bool &vac) {
     // Matric Num (int, 0-999999)
     while (matric < 0 || matric > 999999) {
         cout << "Invalid matriculation number. Please re-enter (0-999999): ";
         cin >> matric;  // Re-enter the matriculation number
+    }
+
+    // NEW! Major (string)
+    while (maj == "default") {
+        cout << "Invalid major. Please enter a correct major (For example, CS): ";
+        cin >> maj;
     }
 
     // Freshman? (bool, 0/1)

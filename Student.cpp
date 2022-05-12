@@ -9,14 +9,16 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 // Set values from main function (Mutator)
-void Student::setValue(int matric, bool freshman, // class Tuition
+void Student::setValue(int matric, string maj, bool freshman, // class Tuition
                        int desaType, int insurance, int parking, // class Desa
                        bool intl, bool vac) { // class Intl
 
     matricNum = matric;
+    major = maj;
     isFreshman = freshman;
 
     desa = desaType;
@@ -32,7 +34,7 @@ void Student::setValue(int matric, bool freshman, // class Tuition
 void Student::passForTuition() {
     // Calculation
     Tuition tt;
-    tt.calcTuition(isInt);
+    tt.calcTuition(major, isInt);
     tt.calcExtraFee(isFreshman);
     tt.setAcadFee(acadFee);
 //    cout << acadFee << endl;
