@@ -5,11 +5,11 @@
 #include "Intl.h"
 
 // Calculate Quarantine Fees
-double Intl::calcQuarantineFee(double fee, double days) {
-    return (fee * days);
+void Intl::calcQuarantineFee(bool i, bool vac) {
+    if (i && !vac) quarantineFee = quarantineDays * quarantineFeePerDay;
 }
 
 // Calculate the visa fee and quarantine fee (if any) for international students
-void Intl::calcTotalIntl(){ // Mutator
-    intFee = visaFee + quarantineFee;
+void Intl::calcTotalIntl(double &intl){ // Mutator
+    intl = visaFee + quarantineFee;
 }

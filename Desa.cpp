@@ -81,6 +81,7 @@ double Desa::calcParking(int t) {
 }
 
 // Calculate the basic cost (including desa, insurance, and parking fees)
-void Desa::calcBasicCost() {
-    basicCost = desaFee + insuranceFee + parkingFee;
+void Desa::calcBasicCost(double &basic) {
+    cout << desaFee << " " << insuranceFee << " " << parkingFee << endl;
+    basic = desaFee + insuranceFee + parkingFee;
 }

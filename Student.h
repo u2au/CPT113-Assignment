@@ -1,6 +1,5 @@
 #ifndef CPT113_ASSIGNMENT_STUDENT_H
 #define CPT113_ASSIGNMENT_STUDENT_H
-#include "Infile.h"
 //#include "Tuition.h"
 #include "TotalFee.h"
 
@@ -8,25 +7,26 @@
 
 using namespace std;
 
-class Student : public Infile {
+class Student {
 private:
     TotalFee f1, f2, f3, f; // Use composition and operator overloading (privately)
 
 protected:
+    // Variable Definition
     int matricNum = 111111,
-        desa = 0,
-        insuranceLevel = 0,
-        parkingTimes = 0;
-
-    double desaFee = 0.0;
-
-//    double getDF, getTI, getIntlF;
-    double acadFee, basicCost, totalIntl; // get perspective total fee from desa class,intl class and tuition class
+            desa = 0,
+            insuranceLevel = 0,
+            parkingTimes = 0,
+            lineOfFile = 0;
 
     bool isInt = true,
          isFullyVaccinated = false,
          isFreshman = true;
 
+    //    double getDF, getTI, getIntlF;
+    double acadFee = 0.0,
+           basicCost = 0.0,
+           totalIntl = 0.0; // get perspective total fee from desa class,intl class and tuition class
 
 
 
@@ -36,7 +36,14 @@ public:
 
     // Overloading Constructor
     Student(int) {
+        getFileLines();
+        getData();
+        inputValidation();
+
         passForTuition();
+        passForDesa();
+        passForIntl();
+        calcTotalFee();
 
     }
 
@@ -47,7 +54,14 @@ public:
 
 
     // Prototype
+    void getFileLines();
+    void getData();
+    void inputValidation();
+
+//    void setData();
     void passForTuition();
+    void passForDesa();
+    void passForIntl();
     void setFees();
     void calcTotalFee();
 
@@ -60,14 +74,11 @@ public:
 
 
 
-
-
-
     // Operator overloading
     // Why set fee to classes? typo?
-    void setData() {
-
-    }
+//    void setData() {
+//
+//    }
 
 };
 

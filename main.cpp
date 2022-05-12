@@ -27,8 +27,6 @@ int main()
 
     // Welcome
     welc();
-
-    Infile(1);
     Student(1);
 
 

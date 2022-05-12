@@ -4,7 +4,6 @@
 
 #ifndef CPT113_ASSIGNMENT_TUITION_H
 #define CPT113_ASSIGNMENT_TUITION_H
-#include "Infile.h"
 #include "Student.h"
 
 #include <iostream>
@@ -29,7 +28,7 @@ public:
     void calcTuition(bool); // Mutator
     void calcExtraFee(bool); // Mutator
     void displayTuition(); // Mutator
-    void setAcadFee(); // Mutator
+    void setAcadFee(double &); // Mutator
 
 
     // Inline Function

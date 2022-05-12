@@ -39,10 +39,10 @@ public:
     double calcDesaFee(int);
     double calcInsurance(int);
     double calcParking(int);
-    void calcBasicCost(); // Mutator
+    void calcBasicCost(double &); // Mutator
 
     // Inline Functions
-    double getBasicCost() const {return basicCost;}//accessor
+    double getBasicCost() const {return basicCost;} // Accessor
 
     
 };
