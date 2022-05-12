@@ -6,6 +6,7 @@ this class use compo
 #ifndef CPT113_ASSIGNMENT_TOTALFEE_H
 #define CPT113_ASSIGNMENT_TOTALFEE_H
 
+#include <iostream>
 
 class TotalFee {
 private:

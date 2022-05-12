@@ -87,7 +87,14 @@ void Student::setFees() { // Mutator
     totalIntl = i.getTotalIntl();
 }
 
+// Pass the values back to the main function
+void Student::passValueBack(double &acad, double &basic, double &intl) {
+    acad = acadFee;
+    basic = basicCost;
+    intl = totalIntl;
+}
+
 // Set the academic fees and basic costs respectively
-void setAcadAndBasic() {
+void Student::setAcadAndBasic() {
 
 }

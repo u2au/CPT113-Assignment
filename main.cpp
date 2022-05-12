@@ -38,7 +38,7 @@ int main()
     getFileLines(lineOfFile);
 
     // Array of Object (?
-    Student Obj[1];
+    Student TotalFee[1];
 
     // Open the file
     ifstream file;
@@ -71,9 +71,10 @@ int main()
                 desa, insuranceLevel, parkingTimes,
                 isInt, isFullyVaccinated, acadFee, basicCost, totalIntl);
 
+        // Display the values passed back (DEBUG)
         cout << "The variables passed back from class Student: "
-             << acadFee << basicCost << totalIntl << endl;
-        
+             << acadFee << " " << basicCost << " " << totalIntl << endl;
+
     }
 
 

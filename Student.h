@@ -41,6 +41,7 @@ public:
         passForTuition();
         passForDesa();
         passForIntl();
+        passValueBack(acad, basic, ttIntl);
         calcTotalFee();
 
     }
@@ -52,10 +53,12 @@ public:
     // Prototype
     void setValue(int, bool, int, int, int, bool, bool);
 
+
     void passForTuition();
     void passForDesa();
     void passForIntl();
     void setFees();
+    void passValueBack(double &, double &, double &);
     void calcTotalFee();
 
     void setAcadAndBasic();
