@@ -35,14 +35,14 @@ public:
     Student() {}
 
     // Overloading Constructor
-    Student(int matric, bool freshman, int desa, int insurance, int parking, bool intl, bool vac, double &acad, double &basic, double &ttIntl) {
+    Student(int matric, bool freshman, int desa, int insurance, int parking, bool intl, bool vac, double &acad, double &basic, double &ttIntl, double &tt) {
         // Set the values from main function
         setValue(matric, freshman, desa, insurance, parking, intl, vac);
         passForTuition();
         passForDesa();
         passForIntl();
         passValueBack(acad, basic, ttIntl);
-        calcTotalFee();
+        calcTotalFee(tt);
 
     }
 
@@ -59,7 +59,7 @@ public:
     void passForIntl();
     void setFees();
     void passValueBack(double &, double &, double &);
-    void calcTotalFee();
+    void calcTotalFee(double &);
 
     void setAcadAndBasic();
 

@@ -65,13 +65,15 @@ void Student::passForIntl() {
 
 
 // Pass acadFee, totalIntl, basicCost to class TotalFee
-void Student::calcTotalFee() { // Mutator
+void Student::calcTotalFee(double &total) { // Mutator
     f1.setAcadFee(acadFee);
     f2.setTotalIntl(totalIntl);
     f3.setBasicCost(basicCost);
     f2 = f2 + f3;
     f1 = f1 + f2;
-    cout << "The total fee is "<< f1.getTotal() << endl;
+    total = f1.getTotal();
+    cout << "The total fee is "<< total << endl;
+
 
 }
 
