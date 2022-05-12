@@ -6,6 +6,11 @@
 #include "Intl.h"
 #include "Tuition.h"
 #include "Output.h"
+#include "Student.cpp"
+#include "Desa.cpp"
+#include "Intl.cpp"
+#include "Tuition.cpp"
+#include "Output.cpp"
 
 #include <iostream>
 #include <fstream>

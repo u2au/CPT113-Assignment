@@ -26,9 +26,12 @@ void Tuition::displayTuition() {
 }
 
 // Calculate all the academic fee (including tuition fees, and (non-)recurrent fees)
-void Tuition::calcAcadFee(){ // Mutator (?
+void Tuition::setAcadFee(){ // Mutator 
     // Execute calcExtraFee first, then variable tuition and variable extraFee can save correct value.
     // After that, what we need to do next is adding them together, and return the academic fee (acadFee).
     acadFee = tuition + extraFee;
 
  }
+  double Tuition::getAcadFee(){
+      return acadFee;
+  }

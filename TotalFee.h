@@ -6,42 +6,57 @@ this class use compo
 #ifndef CPT113_ASSIGNMENT_TOTALFEE_H
 #define CPT113_ASSIGNMENT_TOTALFEE_H
 
-#include "Desa.h"
-#include "Tuition.h"
-#include "Intl.h"
 
 class TotalFee {
 private:
 
 
-    double basicCost = 0.0, // class Desa
-           acadFee = 0.0, //  class Tuition
-           intlFee = 0.0, // class Intl
-           totalFee = 0.0; // 非常坏 double
+    double basicCost, // class Desa
+           acadFee, //  class Tuition
+           intlFee, // class Intl
+           totalFee; // 非常坏 double eneennenenenen
 
 public:
     // Default Constructor
     TotalFee() {
-
+         basicCost = 0.0, 
+           acadFee = 0.0, 
+           intlFee = 0.0, 
+           totalFee = 0.0;
     }
 
     // Overloading Constructor
     TotalFee(int) {
-        getRespectiveFee();
+        
     }
 
-    // Since 'TotalFee.cpp' hasn't been uploaded, I put the new function here temporarily.
-    // It'll be better if it could be moved to 'TotalFee.cpp'. (Don't forget to add the prefix 'TotalFee:' yo).
-    // Feel free to use the variables for ur overloading operators! XD
-    void getRespectiveFee() {
-        Desa d;
-        basicCost = d.getBasicCost();
+    //mutator to set tuition fee 
+    void setTuiFee(double tt) {
+        tt=acadFee;
+    }
+     //mutator to set internation fee 
+    void setInternlFee(double intln) {
+        intlFee = intln;
+    }
+     //mutator to set desa fee 
+    void setDsaFee(double dsa) {
+        basicCost= dsa;
+    }
 
-        Tuition t;
-        acadFee = t.getAcadFee();
+    //operator overloading
+    TotalFee operator+(const TotalFee&obj) {
+        TotalFee temp;
+        temp.basicCost=basicCost+obj.basicCost;
+        temp.intlFee=intlFee+obj.intlFee;
+        temp.acadFee=acadFee+obj.acadFee;
 
-        Intl i;
-        intlFee = i.getTotalIntl();
+        return temp;
+    }
+
+    //accessor ,用operator overloading function在studnet class里将三个obj的相加，我们可以用这个来get 总共的费用
+    double getTotal() {
+        totalFee=basicCost+acadFee+intlFee;
+        return totalFee;
     }
 
 

@@ -6,6 +6,8 @@
 #define CPT113_ASSIGNMENT_TUITION_H
 #include "Student.h"
 #include "Output.h"
+#include "Student.cpp"
+#include "Output.cpp"
 #include <iostream>
 
 using namespace std;

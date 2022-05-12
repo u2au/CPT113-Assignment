@@ -1,4 +1,4 @@
-//created by Lxt
+/*created by Lxt
 
 #ifndef CPT113_ASSIGNMENT_OUTPUTFILE_H
 #define CPT113_ASSIGNMENT_OUTPUTFILE_H
@@ -19,3 +19,4 @@ public:
     outputfile(Tuition &t, double &nonRecurrentFee, double &recurrentFee);
     void output();
 }
+*/

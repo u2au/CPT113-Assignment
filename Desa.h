@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "Student.h"
+#include "Student.cpp"
 using namespace std;
 
 class Desa {
@@ -37,10 +38,10 @@ public:
     double calcDesaFee(int);
     double calcInsurance(int);
     double calcParking(int);
-    void calcBasicCost(); // Mutator
+    void setBasicCost(); // Mutator
 
     // Inline Functions
-    double getBasicCost() const {return basicCost;}
+    double getBasicCost() const {return basicCost;}//accessor
 
     
 };
