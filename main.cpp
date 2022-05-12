@@ -85,7 +85,13 @@ int main()
 //        // Display the values passed back (DEBUG)
 //        cout << "The variables passed back from class Student: "
 //             << acadFee << " " << basicCost << " " << totalIntl << endl;
-
+        
+        //Output numOfStudents, matrixNum, acadFee, basicCost, totalIntl to a file as an array object
+        TotalFee[numOfStudents].passForTuition();
+        TotalFee[numOfStudents].passForDesa();
+        TotalFee[numOfStudents].passForIntl();
+        TotalFee[numOfStudents].calcTotalFee(total);
+        
         // Output the fees
         outfile << "Student #" << numOfStudents + 1 << endl;
         outfile << "Matric Number: " << matricNum << endl;
