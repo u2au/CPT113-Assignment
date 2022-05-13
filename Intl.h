@@ -9,34 +9,16 @@
 #include <iostream>
 
 class Intl : public Student {
-protected:
-    double visaFee = 1200.0,
-           quarantineFeePerDay = 150.0,
-           quarantineFee = 0.0,
-           intlFee = 0.0,
-           totalIntl = 0.0;
-
-    const int quarantineDays = 5;
+private:
+    float visaFee = 1200.0;
 
 public:
     // Default Constructor
-    Intl() {}
-
-    // Overloading Constructor
-    Intl(int) {
-
-    }
+    Intl() = default;
 
     // Prototype
     void calcQuarantineFee(bool, bool); // Mutator
     void calcTotalIntl(double &); // Mutator
-
-    // Inline Functions
-    double getVisaFee() const {return visaFee;} // Accessor
-    double getTotalIntl() const {return totalIntl;} // Accessor
-
-
-
 
 };
 

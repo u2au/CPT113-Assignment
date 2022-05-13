@@ -13,33 +13,22 @@ using namespace std;
 
 class Tuition {
 private:
-    Student s; // Composition (private)
-
     // Variable Definition
-    int numOfMajors = 5;
-
     double tuition = 0.0,
-           recurrentFee = 112.50,
-           nonRecurrentFee = 1330.00,
-           extraFee = 0.0,
            acadFee = 0.0;
+
+    float recurrentFee = 112.50,
+          nonRecurrentFee = 1330.00,
+          extraFee = 0.0;
 
 public:
     // Default Constructor
-    Tuition() {};
-
+    Tuition() = default;
 
     // Prototype
     void calcTuition(string, bool); // Mutator
     void calcExtraFee(bool); // Mutator
-    void displayTuition(); // Mutator
     void setAcadFee(double &); // Mutator
-
-
-    // Inline Function
-    double getTuition() const {return tuition;} // Accessor
-    double getExtraFee() const {return extraFee;} // Accessor
-    double getAcadFee() const {return acadFee;}  // Accessor
 
 };
 

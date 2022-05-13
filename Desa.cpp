@@ -5,14 +5,14 @@
 #include "Desa.h"
 
 // Calculate desa fee
-double Desa::calcDesaFee(int desa) {
+float Desa::calcDesaFee(short desa) {
     // How long?
     month = 5;
 
     switch (desa) {
         // Sharing Room
         case 1:
-            desaFee = 120 * month; // RM 120 per month, six months per semester
+            desaFee = 120 * month; // RM 120 per month, five months per semester on campus
             break;
 
         // Sharing Room
@@ -41,7 +41,7 @@ double Desa::calcDesaFee(int desa) {
 }
 
 // Calculate Insurance Fees
-double Desa::calcInsurance(int level) {
+float Desa::calcInsurance(short level) {
     switch (level) {
         case 1:
             insuranceFee = 1000;
@@ -73,7 +73,7 @@ double Desa::calcInsurance(int level) {
 }
 
 // Calculate Parking Fees
-double Desa::calcParking(int t) {
+float Desa::calcParking(short t) {
     if (t < 5) parkingFee = 100 * t;
     else parkingFee = monthlyParkingCard;
 
@@ -82,6 +82,5 @@ double Desa::calcParking(int t) {
 
 // Calculate the basic cost (including desa, insurance, and parking fees)
 void Desa::calcBasicCost(double &basic) {
-//    cout << desaFee << " " << insuranceFee << " " << parkingFee << endl;
     basic = desaFee + insuranceFee + parkingFee;
 }

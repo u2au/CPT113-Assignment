@@ -6,7 +6,7 @@
 
 // Set the tuition fee for international students and local students separately
 void Tuition::calcTuition(string maj, bool i) { // Mutator
-    short serialNum = 0;
+    short serialNum = 0; // Serial Num of the majors
 
     // 1 - Computer Science, 2 - Dental, 3 - Mineral Resources Engineering, 4 - Management, 5 - TESOL
     double intlTuition[] = {0, 8230, 49100, 9800, 10050, 7500},
@@ -18,11 +18,11 @@ void Tuition::calcTuition(string maj, bool i) { // Mutator
     else if (maj == "MRE") serialNum = 3; // Mineral Resources Engineering
     else if (maj == "MNG") serialNum = 4; // Management
     else if (maj == "TSL") serialNum = 5; // TESOL
-    else serialNum = 0;
+    else serialNum = 0; // default
 
     // Set the tuition by the major (serial num)
-    if (i) tuition = intlTuition[serialNum];
-    else tuition = localTuition[serialNum];
+    if (i) tuition = intlTuition[serialNum]; // For Intl Students
+    else tuition = localTuition[serialNum]; // For Local Students
 
 }
 
@@ -30,20 +30,9 @@ void Tuition::calcTuition(string maj, bool i) { // Mutator
 void Tuition::calcExtraFee(bool f) { // Mutator
     if (f) extraFee = nonRecurrentFee;
     else extraFee = recurrentFee;
-
-}
-
-void Tuition::displayTuition() {
-    cout << "Tuition: " << tuition << endl; // Mutator
-    if (s.checkFreshman()) cout << "Non-recurrent Fees: " << nonRecurrentFee << endl;
-    else cout << "Recurrent Fees: " << recurrentFee << endl;
-
 }
 
 // Calculate all the academic fee (including tuition fees, and (non-)recurrent fees)
-void Tuition::setAcadFee(double &acad){ // Mutator
-    // Execute calcExtraFee first, then variable tuition and variable extraFee can save correct value.
-    // After that, what we need to do next is adding them together, and return the academic fee (acadFee).
+void Tuition::setAcadFee(double &acad) { // Mutator
     acad = tuition + extraFee;
-
  }

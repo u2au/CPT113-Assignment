@@ -11,17 +11,20 @@ using namespace std;
 
 // Prototype
 void welc();
-void getFileLines(int &);
-void inputValidation(int &, string &, bool &, int &, int &, int &, bool &, bool &);
+void getFileLines(short &);
+void inputValidation(int &, string &, bool &,
+                     short &, short &, short &,
+                     bool &, bool &);
 
 int main()
 {
     // Variable Definition
-    int matricNum = 111111,
-        desa = 0,
-        insuranceLevel = 0,
-        parkingTimes = 0,
-        lineOfFile = 0;
+    int matricNum = 111111;
+
+    short desa = 0,
+          insuranceLevel = 0,
+          parkingTimes = 0,
+          lineOfFile = 0;
 
     bool isInt = true,
          isFullyVaccinated = false,
@@ -56,14 +59,13 @@ int main()
             << "Costs for international students - Visa Fee, Quarantine Fee.\n"
             << "Designed with love by Group 2 for CPT113.\n" << endl;
 
-
     // Overloading Constructor
     for (int numOfStudents = 0; numOfStudents < lineOfFile; numOfStudents++) {
 
         // Save the data to the variables
         if (infile.is_open()) {
             infile >> matricNum;
-            infile >> major; // NEW!
+            infile >> major;
             infile >> isFreshman; // class Tuition
 
             infile >> desa;
@@ -82,7 +84,7 @@ int main()
 
         // Pass the values through the overloading function of class Student
         // Array of Object 
-        Student[lineOfFile](matricNum, major, isFreshman,
+        Student[lineOfFile](major, isFreshman,
                 desa, insuranceLevel, parkingTimes,
                 isInt, isFullyVaccinated,
                 acadFee, basicCost, totalIntl, total);
@@ -96,7 +98,7 @@ int main()
 //        TotalFee[numOfStudents].passForDesa();
 //        TotalFee[numOfStudents].passForIntl();
 //        TotalFee[numOfStudents].calcTotalFee(total);
-        
+
         // Output the personal information of the student and the fees
         outfile << "Student #" << numOfStudents + 1 << endl;
         outfile << "Matric Number: " << matricNum << endl;
@@ -112,8 +114,10 @@ int main()
         outfile << "Academic Fees: " << acadFee << " MYR" << endl;
         outfile << "Basic Costs: " << basicCost << " MYR" << endl;
         outfile << "Totally, the student needs to pay " << total << " MYR for the semester.\n" << endl;
+        // Output END
 
     }
+
 
     cout << "Completed!" << endl;
 

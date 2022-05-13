@@ -14,31 +14,23 @@ using namespace std;
 class Desa {
 
 private:
-    Student s; // Composition of class Student (of type private)
-    int month = 0;
+    Student s; // Composition of class Student (private)
+    short month = 0;
 
-    double desaFee = 0.0,
-           insuranceFee = 0.0,
-           parkingFee = 0.0, // to be used in other classes
-           monthlyParkingCard = 500.00; // No longer be afraid of cars being locked
-
-    double basicCost = 0.0;
-
+    int desaFee = 0,
+        insuranceFee = 0,
+        parkingFee = 0, // to be used in other classes
+        monthlyParkingCard = 500; // No longer be afraid of cars being locked
 
 public:
     // Default Constructor
     Desa() {};
 
     // Prototype
-    double calcDesaFee(int);
-    double calcInsurance(int);
-    double calcParking(int);
+    float calcDesaFee(short);
+    float calcInsurance(short);
+    float calcParking(short);
     void calcBasicCost(double &); // Mutator
-
-    // Inline Functions
-    double getBasicCost() const {return basicCost;} // Accessor
-
-    
 };
 
 
