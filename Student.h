@@ -43,7 +43,7 @@ public:
         setValue(matric, maj, freshman, desa, insurance, parking, intl, vac);
         passForTuition();
         passForDesa();
-        passForIntl();
+        callForIntl();
         passValueBack(acad, basic, ttIntl);
         calcTotalFee(tt);
 
@@ -59,7 +59,11 @@ public:
 
     void passForTuition();
     void passForDesa();
-    void passForIntl();
+    void callForIntl();
+
+    // Friend Function
+    friend void passForIntl(bool, bool, double &);
+
     void setFees();
     void passValueBack(double &, double &, double &);
     void calcTotalFee(double &);
@@ -72,7 +76,6 @@ public:
     bool checkFreshman() const {return isFreshman;}
     int getInsuranceLevel() const {return insuranceLevel;}
     int getParkingTimes() const {return parkingTimes;}
-
 
 
     // Operator overloading

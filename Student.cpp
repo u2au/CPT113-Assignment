@@ -56,12 +56,18 @@ void Student::passForDesa() {
 //    cout << basicCost << endl;
 }
 
-// Pass the values for class Intl
-void Student::passForIntl() {
+// Call For Intl
+void passForIntl(bool, bool, double &); // Prototype
+void Student::callForIntl() {
+    passForIntl(isInt, isFullyVaccinated, totalIntl);
+}
+
+// Pass the values for class Intl (Friend Function)
+void passForIntl(bool intl, bool vac, double &total) {
     // Calculation
     Intl i;
-    i.calcQuarantineFee(isInt, isFullyVaccinated);
-    i.calcTotalIntl(totalIntl);
+    i.calcQuarantineFee(intl, vac);
+    i.calcTotalIntl(total);
 //    cout << "Total Intl of class Student: " << totalIntl << endl;
 }
 

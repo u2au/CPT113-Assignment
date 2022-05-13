@@ -83,7 +83,8 @@ int main()
         // Pass the values through the overloading function of class Student
         Student(matricNum, major, isFreshman,
                 desa, insuranceLevel, parkingTimes,
-                isInt, isFullyVaccinated, acadFee, basicCost, totalIntl, total);
+                isInt, isFullyVaccinated,
+                acadFee, basicCost, totalIntl, total);
 
 //        // Display the values passed back (DEBUG)
 //        cout << "The variables passed back from class Student: "
@@ -103,7 +104,7 @@ int main()
         outfile << "Student Type: ";
         if (isInt) {
             outfile << "International" << endl;
-            outfile << "Visa and quarantine fees (if any): " << totalIntl << " MYR" << endl;
+            outfile << "Visa, and quarantine fees (if any): " << totalIntl << " MYR" << endl;
         }
         else outfile << "Local" << endl;
 
@@ -114,31 +115,6 @@ int main()
     }
 
     cout << "Completed!" << endl;
-
-
-
-
-
-
-//    // Save the matric num to the array of obj
-//    for (int i = 0; i < fileLine; i++) {
-//        Output[i].setValue(matricNum);
-//    }
-
-    // Not finished...
-
-    // Object of Array
-//    Student Output[10];
-
-//    // Call the constructors
-//    Student(true);
-//    Desa();
-//    Intl();
-//    Tuition();
-//    Output();
-//
-//    // Get the values
-//    Tuition(tuition, extraFee);
 
     return 0;
 }
