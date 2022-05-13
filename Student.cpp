@@ -68,8 +68,9 @@ void Student::calcTotalFee() { // Mutator
 }
 
 // Pass the values back to the main function
-void Student::passValueBack(double &acad, double &basic, double &intl) {
+void Student::passValueBack(double &acad, double &basic, double &intl, double &tt) {
     acad = acadFee;
     basic = basicCost;
     intl = totalIntl;
+    tt = totalFee;
 }

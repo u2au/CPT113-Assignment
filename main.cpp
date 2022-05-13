@@ -84,13 +84,14 @@ int main()
                         desa, insuranceLevel, parkingTimes,
                         isInt, isFullyVaccinated);
 
+        // Array of Object
         obj[numOfStudents].setValue(isFreshman, desa, insuranceLevel, parkingTimes, isInt, isFullyVaccinated);
         obj[numOfStudents].passForTuition(major);
         obj[numOfStudents].passForDesa();
         obj[numOfStudents].callForIntl();
         obj[numOfStudents].calcTotalFee();
-        obj[numOfStudents].passValueBack(acadFee, basicCost, totalIntl);
-        obj[numOfStudents].setTotalFee(total);
+        obj[numOfStudents].passValueBack(acadFee, basicCost, totalIntl, total);
+        // Array of Object END
 
         // Output the personal information of the student and the fees
         outfile << "Student #" << numOfStudents + 1 << endl;
@@ -111,7 +112,8 @@ int main()
 
     }
 
-    cout << "Completed!" << endl;
+    cout << "\nCompleted! Please check the file 'Output.txt'."
+         << "\nThanks for using!" << endl;
 
     return 0;
 }

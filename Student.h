@@ -50,14 +50,11 @@ public:
 
     // Friend Function
     friend void passForIntl(bool, bool, double &);
-    void passValueBack(double &, double &, double &);
+    void passValueBack(double &, double &, double &, double &);
     void calcTotalFee();
 
     // Inline Functions
     bool checkFreshman() const {return isFreshman;}
-    void setTotalFee(double &tt) {
-        tt = totalFee;
-    }
 
 };
 
