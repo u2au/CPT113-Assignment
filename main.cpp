@@ -40,8 +40,8 @@ int main()
     // Get the number of the lines of 'Student.txt', which is the number of the students
     getFileLines(lineOfFile);
 
-    // Array of Object (?
-    Student TotalFee[1];
+    // Array of Object 
+    
 
     // Open the file of data
     ifstream infile;
@@ -81,7 +81,8 @@ int main()
                         isInt, isFullyVaccinated);
 
         // Pass the values through the overloading function of class Student
-        Student(matricNum, major, isFreshman,
+        // Array of Object 
+        Student[lineOfFile](matricNum, major, isFreshman,
                 desa, insuranceLevel, parkingTimes,
                 isInt, isFullyVaccinated,
                 acadFee, basicCost, totalIntl, total);
