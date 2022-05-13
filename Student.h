@@ -22,8 +22,9 @@ private:
             isFreshman = true;
 
     double acadFee = 0.0,
-            basicCost = 0.0,
-            totalIntl = 0.0;
+           basicCost = 0.0,
+           totalIntl = 0.0,
+           totalFee = 0.0;
 
 protected:
     // For class Intl
@@ -36,21 +37,6 @@ protected:
 public:
     // Default Constructor
     Student() = default;
-
-    // Overloading Constructor
-    Student(string maj, bool freshman,
-            short desa, short insurance, short parking,
-            bool intl, bool vac,
-            double &acad, double &basic, double &ttIntl, double &tt) {
-
-        // Set the values from main function
-        setValue(freshman, desa, insurance, parking, intl, vac);
-        passForTuition(maj);
-        passForDesa();
-        callForIntl();
-        passValueBack(acad, basic, ttIntl);
-        calcTotalFee(tt);
-    }
 
     // Destructor
     ~Student() {}
@@ -65,10 +51,13 @@ public:
     // Friend Function
     friend void passForIntl(bool, bool, double &);
     void passValueBack(double &, double &, double &);
-    void calcTotalFee(double &);
+    void calcTotalFee();
 
     // Inline Functions
     bool checkFreshman() const {return isFreshman;}
+    void setTotalFee(double &tt) {
+        tt = totalFee;
+    }
 
 };
 

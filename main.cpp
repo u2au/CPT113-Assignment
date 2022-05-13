@@ -59,6 +59,8 @@ int main()
             << "Costs for international students - Visa Fee, Quarantine Fee.\n"
             << "Designed with love by Group 2 for CPT113.\n" << endl;
 
+    Student obj[lineOfFile];
+
     // Overloading Constructor
     for (int numOfStudents = 0; numOfStudents < lineOfFile; numOfStudents++) {
 
@@ -82,22 +84,13 @@ int main()
                         desa, insuranceLevel, parkingTimes,
                         isInt, isFullyVaccinated);
 
-        // Pass the values through the overloading function of class Student
-        // Array of Object 
-        Student[lineOfFile](major, isFreshman,
-                desa, insuranceLevel, parkingTimes,
-                isInt, isFullyVaccinated,
-                acadFee, basicCost, totalIntl, total);
-
-//        // Display the values passed back (DEBUG)
-//        cout << "The variables passed back from class Student: "
-//             << acadFee << " " << basicCost << " " << totalIntl << endl;
-        
-        //Output numOfStudents, matrixNum, acadFee, basicCost, totalIntl to a file as an array object
-//        TotalFee[numOfStudents].passForTuition();
-//        TotalFee[numOfStudents].passForDesa();
-//        TotalFee[numOfStudents].passForIntl();
-//        TotalFee[numOfStudents].calcTotalFee(total);
+        obj[numOfStudents].setValue(isFreshman, desa, insuranceLevel, parkingTimes, isInt, isFullyVaccinated);
+        obj[numOfStudents].passForTuition(major);
+        obj[numOfStudents].passForDesa();
+        obj[numOfStudents].callForIntl();
+        obj[numOfStudents].calcTotalFee();
+        obj[numOfStudents].passValueBack(acadFee, basicCost, totalIntl);
+        obj[numOfStudents].setTotalFee(total);
 
         // Output the personal information of the student and the fees
         outfile << "Student #" << numOfStudents + 1 << endl;
@@ -118,7 +111,6 @@ int main()
 
     }
 
-
     cout << "Completed!" << endl;
 
     return 0;
@@ -136,7 +128,7 @@ void welc() {
 }
 
 // Get the lines of 'Student.txt'
-void getFileLines(int &line) {
+void getFileLines(short &line) {
     string temp;
 
     ifstream file;
@@ -153,7 +145,10 @@ void getFileLines(int &line) {
     file.close();
 }
 
-void inputValidation(int &matric, string &maj, bool &freshman, int &desa, int &insurance, int &parking, bool &intl, bool &vac) {
+void inputValidation(int &matric, string &maj, bool &freshman,
+                     short &desa, short &insurance, short &parking,
+                     bool &intl, bool &vac) {
+
     // Matric Num (int, 0-999999)
     while (matric < 0 || matric > 999999) {
         cout << "Invalid matriculation number. Please re-enter (0-999999): ";

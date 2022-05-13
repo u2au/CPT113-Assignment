@@ -57,13 +57,13 @@ void Student::callForIntl() {
 }
 
 // Pass acadFee, totalIntl, basicCost to class TotalFee
-void Student::calcTotalFee(double &total) { // Mutator
+void Student::calcTotalFee() { // Mutator
     f1.setAcadFee(acadFee);
     f2.setTotalIntl(totalIntl);
     f3.setBasicCost(basicCost);
     f2 = f2 + f3;
     f1 = f1 + f2;
-    total = f1.getTotal();
+    totalFee = f1.getTotal();
 
 }
 
