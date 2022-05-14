@@ -3,6 +3,12 @@
 //
 
 #include "Tuition.h"
+ void Tuition::setTuition(bool freshman,string maj,bool isInt) {
+ 	calcTuition(maj,isInt);
+ 	calcExtraFee(freshman);
+ 	
+ }
+
 
 // Set the tuition fee for international students and local students separately
 void Tuition::calcTuition(string maj, bool i) { // Mutator

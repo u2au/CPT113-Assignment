@@ -25,6 +25,8 @@ public:
     // Default Constructor
     Tuition() = default;
 
+    //pass value through this member function from derived class student and calculate tuition fee and extra fee.
+    void setTuition(bool,string,bool);
     // Prototype
     void calcTuition(string, bool); // Mutator
     void calcExtraFee(bool); // Mutator

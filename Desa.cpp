@@ -3,6 +3,12 @@
 //
 
 #include "Desa.h"
+void setDesa(short desaType, short insurance, short parking) {
+	clacDesaFee(desaType);
+	calcInsurance(insurance);
+	calcParking(parking);
+		
+}
 
 // Calculate desa fee
 float Desa::calcDesaFee(short desa) {
@@ -80,7 +86,7 @@ float Desa::calcParking(short t) {
     return parkingFee;
 }
 
-// Calculate the basic cost (including desa, insurance, and parking fees)
+// Calculate the basic cost (including desa, insurance, and parking fees) and pass it to totalFee class by reference
 void Desa::calcBasicCost(double &basic) {
     basic = desaFee + insuranceFee + parkingFee;
 }

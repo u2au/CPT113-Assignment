@@ -5,16 +5,19 @@
 #ifndef CPT113_ASSIGNMENT_INTL_H
 #define CPT113_ASSIGNMENT_INTL_H
 
-#include "Student.h"
+
 #include <iostream>
 
-class Intl : public Student {
+class Intl{
 private:
     float visaFee = 1200.0;
 
 public:
     // Default Constructor
     Intl() = default;
+    
+    //pass value through this member function from derived class student and calculate quaratine fee 
+    void setIntl(bool, bool);
 
     // Prototype
     void calcQuarantineFee(bool, bool); // Mutator

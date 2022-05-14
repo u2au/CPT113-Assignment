@@ -45,7 +45,6 @@ public:
         return t;
     }
 
-    // 用 operator overloading function 在 student class 里将三个 obj 的相加，我们可以用这个来 get 总共的费用
     double getTotal() { // Accessor
         totalFee = acadFee + basicCost + totalIntl;
         return totalFee;

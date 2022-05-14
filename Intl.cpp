@@ -4,6 +4,12 @@
 
 #include "Intl.h"
 
+void Intl::setIntl(bool intl, bool vac){
+	calcQuarantineFee(intl, vac);
+}
+
+
+
 // Calculate Quarantine Fees
 void Intl::calcQuarantineFee(bool i, bool vac) {
     if (i && !vac) quarantineFee = quarantineDays * quarantineFeePerDay;

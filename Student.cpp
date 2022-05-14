@@ -10,17 +10,13 @@
 using namespace std;
 
 // Set values from main function (Mutator)
-void Student::setValue(bool freshman, // class Tuition
+void Student::setValue(bool freshman, string major,// class Tuition
                        short desaType, short insurance, short parking, // class Desa
                        bool intl, bool vac) { // class Intl
-    isFreshman = freshman;
-
-    desa = desaType;
-    insuranceLevel = insurance;
-    parkingTimes = parking;
-
-    isInt = intl;
-    isFullyVaccinated = vac;
+        setDesa(desaType,insurance,parking);
+        setIntl(intl,vac);
+        setTuition(freshman,maj,isInt);
+    
 
 }
 
@@ -28,8 +24,7 @@ void Student::setValue(bool freshman, // class Tuition
 void Student::passForTuition(string maj) {
     // Calculation
     Tuition tt;
-    tt.calcTuition(maj, isInt);
-    tt.calcExtraFee(isFreshman);
+   
     tt.setAcadFee(acadFee);
 }
 
@@ -37,17 +32,14 @@ void Student::passForTuition(string maj) {
 void Student::passForDesa() {
     // Calculation
     Desa d;
-    d.calcDesaFee(desa);
-    d.calcInsurance(insuranceLevel);
-    d.calcParking(parkingTimes);
     d.calcBasicCost(basicCost);
 }
 
 // Pass the values for class Intl (Friend Function)
-void passForIntl(bool intl, bool vac, double &total) {
+void passForIntl(double &total) {
     // Calculation
     Intl i;
-    i.calcQuarantineFee(intl, vac);
+   
     i.calcTotalIntl(total);
 }
 
@@ -57,6 +49,7 @@ void Student::callForIntl() {
 }
 
 // Pass acadFee, totalIntl, basicCost to class TotalFee
+ // we use operator overloading function in student class to add three objects togother to claculate the total fee
 void Student::calcTotalFee() { // Mutator
     f1.setAcadFee(acadFee);
     f2.setTotalIntl(totalIntl);
