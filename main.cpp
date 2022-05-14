@@ -43,9 +43,6 @@ int main()
     // Get the number of the lines of 'Student.txt', which is the number of the students
     getFileLines(lineOfFile);
 
-    // Array of Object 
-    
-
     // Open the file of data
     ifstream infile;
     infile.open("./Student.txt");
