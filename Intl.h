@@ -5,12 +5,16 @@
 #ifndef CPT113_ASSIGNMENT_INTL_H
 #define CPT113_ASSIGNMENT_INTL_H
 
-
 #include <iostream>
 
-class Intl{
+class Intl {
 private:
     float visaFee = 1200.0;
+
+    double quarantineFee = 0,
+           quarantineFeePerDay = 150.0;
+
+    const int quarantineDays = 5;
 
 public:
     // Default Constructor

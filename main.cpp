@@ -85,7 +85,10 @@ int main()
                         isInt, isFullyVaccinated);
 
         // Array of Object
-        obj[numOfStudents].setValue(isFreshman, desa, insuranceLevel, parkingTimes, isInt, isFullyVaccinated);
+        obj[numOfStudents].setValue(isFreshman, major, // class Tuition
+                                    desa, insuranceLevel, parkingTimes, // class Desa
+                                    isInt, isFullyVaccinated); // class Intl
+
         obj[numOfStudents].passForTuition(major);
         obj[numOfStudents].passForDesa();
         obj[numOfStudents].callForIntl();

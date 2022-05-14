@@ -4,7 +4,6 @@
 
 #ifndef CPT113_ASSIGNMENT_TUITION_H
 #define CPT113_ASSIGNMENT_TUITION_H
-#include "Student.h"
 
 #include <iostream>
 #include <string>

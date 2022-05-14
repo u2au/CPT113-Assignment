@@ -3,11 +3,11 @@
 //
 
 #include "Desa.h"
-void setDesa(short desaType, short insurance, short parking) {
-	clacDesaFee(desaType);
+
+void Desa::setDesa(short desaType, short insurance, short parking) {
+	calcDesaFee(desaType);
 	calcInsurance(insurance);
 	calcParking(parking);
-		
 }
 
 // Calculate desa fee
