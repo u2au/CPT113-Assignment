@@ -17,40 +17,30 @@ private:
     TotalFee f1, f2, f3; // Use composition and operator overloading (privately)
 
     // Variable Definition
-    short desa = 0,
-          insuranceLevel = 0,
-          parkingTimes = 0;
-
-    bool isInt = true,
-         isFullyVaccinated = false,
-         isFreshman = true;
-
-    double acadFee = 0.0,
-           basicCost = 0.0,
-           totalIntl = 0.0,
-           totalFee = 0.0;
+    double acadFee,
+           basicCost,
+           totalIntl,
+           totalFee;
 
 public:
     // Default Constructor
-    Student() {}
-
-    // Destructor
-    ~Student() {}
-
+    Student() {
+        acadFee = 0.0,
+        basicCost = 0.0,
+        totalIntl = 0.0,
+        totalFee = 0.0;
+    }
 
     // Prototype
     void setValue(bool, string, short, short, short, bool, bool);
-    void passForTuition(string);
+    void passForTuition();
     void passForDesa();
     void callForIntl();
+    void passValueBack(double &, double &, double &, double &) const;
+    void calcTotalFee();
 
     // Friend Function
     friend void passForIntl(double &);
-    void passValueBack(double &, double &, double &, double &);
-    void calcTotalFee();
-
-    // Inline Functions
-    bool checkFreshman() const {return isFreshman;}
 
 };
 

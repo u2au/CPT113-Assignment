@@ -13,7 +13,7 @@ using namespace std;
 void Student::setValue(bool freshman, string maj,// class Tuition
                        short desaType, short insurance, short parking, // class Desa
                        bool intl, bool vac) { // class Intl
-    
+
     setTuition(freshman, maj, intl);
     setDesa(desaType, insurance, parking);
     setIntl(intl, vac);
@@ -21,7 +21,7 @@ void Student::setValue(bool freshman, string maj,// class Tuition
 }
 
 // Pass the values for class Tuition
-void Student::passForTuition(string maj) {
+void Student::passForTuition() {
     setAcadFee(acadFee);
 }
 
@@ -42,10 +42,9 @@ void passForIntl(double &total) {
 void Student::callForIntl() {
     passForIntl(totalIntl);
 }
-*/
 
 // Pass acadFee, totalIntl, basicCost to class TotalFee
-// we use operator overloading function in student class to add three objects togother to claculate the total fee
+// We use operator overloading function in class Student to add three objects together to calculate the total fees
 void Student::calcTotalFee() { // Mutator
     f1.setAcadFee(acadFee);
     f2.setTotalIntl(totalIntl);
@@ -57,7 +56,7 @@ void Student::calcTotalFee() { // Mutator
 }
 
 // Pass the values back to the main function
-void Student::passValueBack(double &acad, double &basic, double &intl, double &tt) {
+void Student::passValueBack(double &acad, double &basic, double &intl, double &tt) const {
     acad = acadFee;
     basic = basicCost;
     intl = totalIntl;

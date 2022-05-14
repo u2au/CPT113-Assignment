@@ -25,7 +25,7 @@ public:
 
     // Prototype
     void calcQuarantineFee(bool, bool); // Mutator
-    void calcTotalIntl(double &); // Mutator
+    void calcTotalIntl(double &) const; // Mutator
 
 };
 

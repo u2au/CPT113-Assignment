@@ -36,7 +36,7 @@ public:
     }
 
     // Operator overloading
-    TotalFee operator+(const TotalFee &obj) {
+    TotalFee operator+(const TotalFee &obj) const {
         TotalFee t;
         t.basicCost = basicCost + obj.basicCost;
         t.totalIntl = totalIntl + obj.totalIntl;

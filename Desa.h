@@ -1,7 +1,3 @@
-/*composition of studnet class
-
-*/
-
 #ifndef CPT113_ASSIGNMENT_DESA_H
 #define CPT113_ASSIGNMENT_DESA_H
 
@@ -13,27 +9,31 @@ using namespace std;
 class Desa {
 
 private:
-    short month = 0;
-
-    float desaFee = 0,
-          insuranceFee = 0,
-          parkingFee = 0, // to be used in other classes
-          monthlyParkingCard = 500; // No longer be afraid of cars being locked
+    float desaFee,
+          insuranceFee,
+          parkingFee,
+          parkingFeePerTime,
+          monthlyParkingCard; // No longer be afraid of cars being locked
   
 
 public:
     // Default Constructor
-    Desa() {};
+    Desa() {
+        desaFee = 0,
+        insuranceFee = 0,
+        parkingFee = 0,
+        parkingFeePerTime = 100,
+        monthlyParkingCard = 500;
+    }
     
     // Pass values through this member function from derived class and calculate desa fee, insurance fee and parking fee
     void setDesa(short, short, short);
-                       
 
     // Prototype
     float calcDesaFee(short);
     float calcInsurance(short);
     float calcParking(short);
-    void calcBasicCost(double &); // Mutator
+    void calcBasicCost(double &) const; // Mutator
 };
 
 

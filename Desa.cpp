@@ -12,28 +12,26 @@ void Desa::setDesa(short desaType, short insurance, short parking) {
 
 // Calculate desa fee
 float Desa::calcDesaFee(short desa) {
-    // How long?
-    month = 5;
 
     switch (desa) {
         // Sharing Room
         case 1:
-            desaFee = 120 * month; // RM 120 per month, five months per semester on campus
+            desaFee = 120.0;
             break;
 
         // Sharing Room
         case 2:
-            desaFee = 240 * month;
+            desaFee = 240.0;
             break;
 
         // Family Accommodation with One Room
         case 3:
-            desaFee = 350 * month;
+            desaFee = 350.0;
             break;
 
         // Family Accommodation with Two Rooms
         case 4:
-            desaFee = 450 * month;
+            desaFee = 450.0;
             break;
 
         default:
@@ -41,6 +39,8 @@ float Desa::calcDesaFee(short desa) {
             break;
 
     }
+
+    desaFee *= 5; // RM 120 per month, five months per semester on campus
 
     return desaFee;
 
@@ -80,13 +80,13 @@ float Desa::calcInsurance(short level) {
 
 // Calculate Parking Fees
 float Desa::calcParking(short t) {
-    if (t < 5) parkingFee = 100 * t;
+    if (t < 5) parkingFee = parkingFeePerTime * t;
     else parkingFee = monthlyParkingCard;
 
     return parkingFee;
 }
 
 // Calculate the basic cost (including desa, insurance, and parking fees) and pass it to totalFee class by reference
-void Desa::calcBasicCost(double &basic) {
+void Desa::calcBasicCost(double &basic) const {
     basic = desaFee + insuranceFee + parkingFee;
 }

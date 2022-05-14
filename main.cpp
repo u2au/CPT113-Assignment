@@ -89,7 +89,7 @@ int main()
                                     desa, insuranceLevel, parkingTimes, // class Desa
                                     isInt, isFullyVaccinated); // class Intl
 
-        obj[numOfStudents].passForTuition(major);
+        obj[numOfStudents].passForTuition();
         obj[numOfStudents].passForDesa();
         obj[numOfStudents].callForIntl();
         obj[numOfStudents].calcTotalFee();
