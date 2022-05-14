@@ -34,9 +34,12 @@ Kindly check it for convenience.
     
 6. Operator Overloading
 
-    In <i>Student.cpp</i>, we use an <b>operator overloading</b> function to calculate the total fees by using objects defined before.
+    In <i>Student.cpp</i> and <i>TotalFee.h</i>, we use an <b>operator overloading</b> function to calculate the total fees by using objects defined before.
     
     <img width="969" alt="image" src="https://user-images.githubusercontent.com/25454024/168419378-97f2119d-57bc-4670-b1dd-5d5223b26641.png">
+    
+    <img width="624" alt="image" src="https://user-images.githubusercontent.com/25454024/168419931-6e125b7d-3c2a-4329-93e3-078532ed47bb.png">
+
     
 7. Read input from a text file
 
