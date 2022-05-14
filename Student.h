@@ -14,7 +14,7 @@ using namespace std;
 class Student : public Tuition, public Desa, public Intl {
 
 private:
-    TotalFee f1, f2, f3; // Use composition and operator overloading (privately)
+    TotalFee f1, f2, f3; // Use composition and operator overloading (of type private)
 
     // Variable Definition
     double acadFee,
@@ -46,3 +46,17 @@ public:
 
 
 #endif //CPT113_ASSIGNMENT_STUDENT_H
+
+
+
+
+
+
+
+
+
+
+
+
+
+

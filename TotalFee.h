@@ -11,14 +11,19 @@ using namespace std;
 
 class TotalFee {
 private:
-    double acadFee = 0.0, //  class Tuition
-           basicCost = 0.0, // class Desa
-           totalIntl = 0.0, // class Intl
-           totalFee = 0.0;
+    double acadFee, //  class Tuition
+           basicCost, // class Desa
+           totalIntl, // class Intl
+           totalFee;
 
 public:
     // Default Constructor
-    TotalFee() = default;
+    TotalFee() {
+        acadFee = 0.0, //  class Tuition
+        basicCost = 0.0, // class Desa
+        totalIntl = 0.0, // class Intl
+        totalFee = 0.0;
+    }
 
     // Set Academic Fees
     void setAcadFee(double acad) { // Mutator

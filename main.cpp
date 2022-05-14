@@ -61,7 +61,7 @@ int main()
 
     Student obj[lineOfFile];
 
-    // Overloading Constructor
+    // Read input from a text file
     for (int numOfStudents = 0; numOfStudents < lineOfFile; numOfStudents++) {
 
         // Save the data to the variables
