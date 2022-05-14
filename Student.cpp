@@ -16,26 +16,21 @@ void Student::setValue(bool freshman, string major,// class Tuition
         setDesa(desaType,insurance,parking);
         setIntl(intl,vac);
         setTuition(freshman,maj,isInt);
+        setAcadFee(acadFee);
     
 
 }
 
-// Pass the values for class Tuition
-void Student::passForTuition(string maj) {
-    // Calculation
-    Tuition tt;
-   
-    tt.setAcadFee(acadFee);
+
+// Pass the values for class Desa,tuition and intl
+void Student::pass(double&basicCost,double&acadFee,double&total) {
+    
+    calcBasicCost(basicCost);
+    setAcadFee(acadFee);
+    calcTotalIntl(total);
 }
 
-// Pass the values for class Desa
-void Student::passForDesa() {
-    // Calculation
-    Desa d;
-    d.calcBasicCost(basicCost);
-}
-
-// Pass the values for class Intl (Friend Function)
+/*Pass the values for class Intl (Friend Function)
 void passForIntl(double &total) {
     // Calculation
     Intl i;
@@ -47,6 +42,7 @@ void passForIntl(double &total) {
 void Student::callForIntl() {
     passForIntl(isInt, isFullyVaccinated, totalIntl);
 }
+*/
 
 // Pass acadFee, totalIntl, basicCost to class TotalFee
  // we use operator overloading function in student class to add three objects togother to claculate the total fee

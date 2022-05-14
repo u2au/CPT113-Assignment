@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Student£ºpublic Desa,public Intl,public Tuition {
+class Studentï¼špublic Desa,public Intl,public Tuition {
 private:
     TotalFee f1, f2, f3; // Use composition and operator overloading (privately)
 
@@ -44,9 +44,10 @@ public:
 
     // Prototype
     void setValue(bool,string, short, short, short, bool, bool);
-    void passForTuition(string);
-    void passForDesa();
-    void callForIntl();
+    void pass(double&,double&,double&);
+    //void passForTuition(string);
+    //void passForDesa();
+     void callForIntl();//?????????????????????????????
 
     // Friend Function
     friend void passForIntl(bool, bool, double &);
