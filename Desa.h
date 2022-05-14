@@ -19,10 +19,10 @@ private:
 public:
     // Default Constructor
     Desa() {
-        desaFee = 0,
-        insuranceFee = 0,
-        parkingFee = 0,
-        parkingFeePerTime = 100,
+        desaFee = 0;
+        insuranceFee = 0;
+        parkingFee = 0;
+        parkingFeePerTime = 100;
         monthlyParkingCard = 500;
     }
     

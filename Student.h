@@ -25,9 +25,9 @@ private:
 public:
     // Default Constructor
     Student() {
-        acadFee = 0.0,
-        basicCost = 0.0,
-        totalIntl = 0.0,
+        acadFee = 0.0;
+        basicCost = 0.0;
+        totalIntl = 0.0;
         totalFee = 0.0;
     }
 
