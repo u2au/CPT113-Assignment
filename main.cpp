@@ -26,8 +26,6 @@ int main()
           parkingTimes = 0,
           lineOfFile = 0;
 
-    const int maxStudents = 100;
-
     bool isInt = true,
          isFullyVaccinated = false,
          isFreshman = true;
@@ -61,10 +59,10 @@ int main()
                 << "Costs for international students - Visa Fee, Quarantine Fee.\n"
                 << "Designed with love by Group 2 for CPT113.\n" << endl;
 
-        Student obj[maxStudents];
+        Student obj[lineOfFile];
 
         // Read input from a text file
-        for (int numOfStudents = 0; (numOfStudents < lineOfFile && numOfStudents < maxStudents); numOfStudents++) {
+        for (int numOfStudents = 0; (numOfStudents < lineOfFile); numOfStudents++) {
 
             // Save the data to the variables
             if (infile.is_open()) {
