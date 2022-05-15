@@ -42,4 +42,4 @@ void Tuition::calcExtraFee(bool f) { // Mutator
 // Calculate all the academic fee (including tuition fees, and (non-)recurrent fees)
 void Tuition::setAcadFee(double &acad) const { // Mutator
     acad = tuition + extraFee;
- }
+}

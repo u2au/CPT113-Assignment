@@ -22,6 +22,9 @@ private:
            totalIntl,
            totalFee;
 
+    // Friend Function
+    friend void passForIntl(double &);
+
 public:
     // Default Constructor
     Student() {
@@ -39,8 +42,7 @@ public:
     void passValueBack(double &, double &, double &, double &) const;
     void calcTotalFee();
 
-    // Friend Function
-    friend void passForIntl(double &);
+
 
 };
 
