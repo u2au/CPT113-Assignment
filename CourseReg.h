@@ -4,15 +4,39 @@
 
 #ifndef TUITION_CPP_COURSEREG_H
 #define TUITION_CPP_COURSEREG_H
+#include <string>
 
+using namespace std;
+
+// Linked List for Course Codes
+class CourseCode
+{
+public:
+    string code; // Current Code
+    CourseCode *next; // Pointer to the next code
+
+    // Constructor
+    CourseCode();
+
+    CourseCode (string currentCode)
+    {
+        code = currentCode;
+        next = nullptr;
+    }
+
+};
+
+template <class T>
 class CourseReg {
 private:
     short input;
+    CourseCode *head; // Head Pointer for the Course Code List
 
 public:
     // Default Constructor
     CourseReg() {
         input = -1;
+        head = nullptr;
     }
 
     // Overloading Constructor
@@ -21,11 +45,18 @@ public:
         menu();
     }
 
+    // Destructor
+    ~CourseReg();
+
     // Prototype
     void menu();
     void inputValidation();
+    void addCourse(T);
+    void setCode(T);
+
+    void dropCourse(T);
+    void displayList() const;
 
 };
-
 
 #endif //TUITION_CPP_COURSEREG_H

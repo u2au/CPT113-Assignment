@@ -8,31 +8,34 @@
 
 using namespace std;
 
-// Header
-void menu();
+template <class T>
+void menu(T);
 
 int main()
 {
+    // Variables Definition
+    bool readList = false;
+
     // Welcome
     string name, matric;
-    cout << "Welcome to use USM CS Student’s Registration System!" << "\n"
-         << "Please type your name: ";
+    cout << "Welcome to use USM CS Student’s Registration System! \n"
+         << "Please type your name: "; // Name
     cin >> name;
-    cout << "Please enter your matric number: ";
+    cout << "Please enter your matric number: "; // Matric Num
     cin >> matric;
+    cout << "Welcome, " << name << " (" << matric << ")!" << endl; // Greetings
 
     // Display the menu
-    menu();
+    menu(-1);
 
 
 
     return 0;
 }
 
-void menu()
+template <class T>
+void menu(T input)
 {
-    short input = -1; // Initialization
-
     // Menu
     cout << "Main Menu \n"
          << "1 - Course Registration \n"
@@ -49,22 +52,8 @@ void menu()
         cin >> input;
     }
 
-    switch (input)
-    {
-        // Terminate the program
-        case 0:
-            cout << "Thanks for using." << endl;
-            break;
-
-        // Course Registration
-        case 1:
-            CourseReg(-1);
-            break;
-
-        // Default
-        default:
-            cout << "Wrong lah!" << endl;
-            break;
-    }
+    if (input == 0) cout << "Thank you. \n";
+    else if (input == 1) CourseReg<T>(-1);
+//    else ; // hasn't finished
 
 }

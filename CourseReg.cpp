@@ -4,16 +4,18 @@
 
 #include "CourseReg.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-void CourseReg::menu()
+template <class T>
+void CourseReg<T>::menu()
 {
     // Menu for Course Registration
-    cout << "Course Registration Menu" << "\n"
-         << "1 - Add Courses" << "\n"
-         << "2 - Drop Courses" << "\n"
-         << "0 - Exit" << "\n"
+    cout << "Course Registration Menu \n"
+         << "1 - Add Courses \n"
+         << "2 - Drop Courses \n"
+         << "0 - Exit \n"
          << "Kindly type num of the function that you want to use: ";
     cin >> input;
 
@@ -30,7 +32,11 @@ void CourseReg::menu()
 
         case 1:
             input = -1;
-            cout << "Do you want to check the course list offered by School of Computer Science, USM?" << "\n"
+            cout << "Please wait... we're loading courses from the list." << endl;
+//            r = true; // Mark the read status
+
+
+            cout << "Do you want to check the course list offered by School of Computer Science, USM? \n"
                  << "1 - Yes, 0 - No \n";
             cin >> input;
 
@@ -58,16 +64,14 @@ void CourseReg::menu()
                 // Check if the course exists by the num
 
                 // Successfully added
-                cout << "Course #" << input << " has been added." << "\n"
-                     << "If you want to add more, please continue typing the num." << "\n"
+                cout << "Course #" << input << " has been added. \n"
+                     << "If you want to add more, please continue typing the num. \n"
                      << "Press 0 to stop. \n";
                 cin >> input;
             }
 
             cout << "Thanks for using Add Courses." << endl;
             // Go back to the main menu or terminate the program.
-            break;
-
             break;
 
         case 2:
@@ -118,8 +122,78 @@ void CourseReg::menu()
 }
 
 // Input Validation
-void CourseReg::inputValidation()
+template <class T>
+void CourseReg<T>::inputValidation()
 {
     cout << "Sorry, the num you typed was wrong. Please enter again: ";
     cin >> input;
+}
+
+// Set Course Codes
+template <class T>
+void CourseReg<T>::setCode(T c)
+{
+
+
+
+
+}
+
+// Set Course Units
+void setUnit(short u)
+{
+
+}
+
+// Set Course Types
+void setType(char t)
+{
+
+}
+
+// Add Courses
+template <class T>
+void CourseReg<T>::addCourse(T info)
+{
+    fstream infile("CourseList.txt");
+
+    // Initialization
+    CourseCode *newCode;
+    CourseCode *codePtr;
+
+    newCode = new CourseCode;
+    newCode->code = info;
+    newCode->next = nullptr;
+
+    codePtr = head;
+
+    while (infile)
+    {
+        infile >> info;
+        codePtr->next = newCode;
+
+//        infile >> info;
+//        setUnit(info);
+//
+//        infile >> info;
+//        setType(info);
+    }
+
+    infile.close();
+}
+
+
+
+// Display the list
+template <class T>
+void CourseReg<T>::displayList() const
+{
+    CourseCode *codePtr;
+    codePtr = head;
+
+    while (codePtr->next)
+    {
+        cout << codePtr << endl;
+        codePtr = codePtr->next;
+    }
 }
