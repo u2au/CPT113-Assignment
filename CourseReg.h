@@ -23,6 +23,7 @@ public:
 
     // Prototype
     void menu();
+    void inputValidation();
 
 };
 

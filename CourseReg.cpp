@@ -18,12 +18,7 @@ void CourseReg::menu()
     cin >> input;
 
     // Input Validation
-    while (input != 0 && input != 1 && input != 2)
-    {
-        cout << "Sorry, '" << input << "' is not a valid num for the program." << "\n"
-             << "Please type num of the function again: ";
-        cin >> input;
-    }
+    while (input != 0 && input != 1 && input != 2) inputValidation();
 
     switch (input)
     {
@@ -35,16 +30,12 @@ void CourseReg::menu()
 
         case 1:
             input = -1;
-            cout << "Do you want to check the course list offered by School of Computer Science, USM? "
-                 << "1 - Yes, 0 - No";
+            cout << "Do you want to check the course list offered by School of Computer Science, USM?" << "\n"
+                 << "1 - Yes, 0 - No \n";
+            cin >> input;
 
             // Input Validation
-            while (input != 1 && input != 0)
-            {
-                cout << "Sorry, the num you typed was wrong." << "\n"
-                     << "Please enter again: ";
-                cin >> input;
-            }
+            while (input != 1 && input != 0) inputValidation();
 
             // Display the course list
             if (input == 1)
@@ -69,9 +60,13 @@ void CourseReg::menu()
                 // Successfully added
                 cout << "Course #" << input << " has been added." << "\n"
                      << "If you want to add more, please continue typing the num." << "\n"
-                     << "Press 0 to stop.";
+                     << "Press 0 to stop. \n";
                 cin >> input;
             }
+
+            cout << "Thanks for using Add Courses." << endl;
+            // Go back to the main menu or terminate the program.
+            break;
 
             break;
 
@@ -89,24 +84,20 @@ void CourseReg::menu()
             {
                 if (input == 1) cout << "1";
 
-                cout << "Course #" << input << " has been dropped." << "\n"
-                     << "If you want to drop more, please continue typing the num." << "\n"
-                     << "Press 0 to stop.";
+                cout << "Course #" << input << " has been dropped. \n"
+                     << "If you want to drop more, please continue typing the num. \n"
+                     << "Press 0 to stop. \n";
                 cin >> input;
             }
 
             // Completion
             input = -1;
-            cout << "Dropping operation completed. Do you want to see the current course list?" << "\n"
-                 << "1 - Yes, 0 - No";
+            cout << "Dropping operation completed. Do you want to see the current course list? \n"
+                 << "1 - Yes, 0 - No \n";
+            cin >> input;
 
             // Input Validation
-            while (input != 1 && input != 0)
-            {
-                cout << "Sorry, the num you typed was wrong." << "\n"
-                     << "Please enter again: ";
-                cin >> input;
-            }
+            while (input != 1 && input != 0) inputValidation();
 
             // Display the current course list (after dropping)
             if (input == 1)
@@ -124,4 +115,11 @@ void CourseReg::menu()
             break;
     }
 
+}
+
+// Input Validation
+void CourseReg::inputValidation()
+{
+    cout << "Sorry, the num you typed was wrong. Please enter again: ";
+    cin >> input;
 }

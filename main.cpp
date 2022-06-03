@@ -34,17 +34,17 @@ void menu()
     short input = -1; // Initialization
 
     // Menu
-    cout << "Main Menu" << "\n"
-         << "1 - Course Registration" << "\n"
-         << "2 - CGPA Calculator" << "\n"
-         << "0 - Exit" << "\n"
+    cout << "Main Menu \n"
+         << "1 - Course Registration \n"
+         << "2 - CGPA Calculator \n"
+         << "0 - Exit \n"
          << "Kindly type num of the function that you want to use: ";
     cin >> input;
 
     // Input Validation
     while (input != 0 && input != 1 && input != 2)
     {
-        cout << "Sorry, '" << input << "' is not a valid num for the program." << "\n"
+        cout << "Sorry, '" << input << "' is not a valid num for the program. \n"
              << "Please type num of the function again: ";
         cin >> input;
     }
