@@ -133,18 +133,17 @@ void CourseReg::addCourse()
     // Open the course list
     fstream infile("CourseList.txt");
 
-    // Get code from the file
+    // Variable Definition
     string currentCode;
-
-    // Check if the file exists
-    CourseCode *newCode;
-    CourseCode *codePtr;
 
     // If the file is lost
     if (!infile) cout << "Sorry, we can't find any file called CourseList.txt." << endl;
 
     while (infile)
     {
+        CourseCode *newCode;
+        CourseCode *codePtr;
+
         // Allocate memory for the new course code
         newCode = new CourseCode;
 
