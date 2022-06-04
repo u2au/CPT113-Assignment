@@ -72,49 +72,49 @@ void CourseReg::menu()
             // Go back to the main menu or terminate the program.
             break;
 
-        case 2:
-            input = -1;
-            cout << "Course List"
-                 // Linked List
-                 << "Please type num of the course you want to drop: ";
-            cin >> input;
-
-            // Input Validation: Check if the num exists
-
-            // Drop a course
-            while (input != 0)
-            {
-                if (input == 1) cout << "1";
-
-                cout << "Course #" << input << " has been dropped. \n"
-                     << "If you want to drop more, please continue typing the num. \n"
-                     << "Press 0 to stop. \n";
-                cin >> input;
-            }
-
-            // Completion
-            input = -1;
-            cout << "Dropping operation completed. Do you want to see the current course list? \n"
-                 << "1 - Yes, 0 - No \n";
-            cin >> input;
-
-            // Input Validation
-            while (input != 1 && input != 0) inputValidation();
-
-            // Display the current course list (after dropping)
-            if (input == 1)
-            {
-                // To be continued...
-            }
-
-            cout << "Thanks for using Drop Courses." << endl;
-            // Go back to the main menu or terminate the program.
-            break;
-
-        // Default
-        default:
-            cout << "Wrong lah!" << endl;
-            break;
+//        case 2:
+//            input = -1;
+//            cout << "Course List"
+//                 // Linked List
+//                 << "Please type num of the course you want to drop: ";
+//            cin >> input;
+//
+//            // Input Validation: Check if the num exists
+//
+//            // Drop a course
+//            while (input != 0)
+//            {
+//                if (input == 1) cout << "1";
+//
+//                cout << "Course #" << input << " has been dropped. \n"
+//                     << "If you want to drop more, please continue typing the num. \n"
+//                     << "Press 0 to stop. \n";
+//                cin >> input;
+//            }
+//
+//            // Completion
+//            input = -1;
+//            cout << "Dropping operation completed. Do you want to see the current course list? \n"
+//                 << "1 - Yes, 0 - No \n";
+//            cin >> input;
+//
+//            // Input Validation
+//            while (input != 1 && input != 0) inputValidation();
+//
+//            // Display the current course list (after dropping)
+//            if (input == 1)
+//            {
+//                // To be continued...
+//            }
+//
+//            cout << "Thanks for using Drop Courses." << endl;
+//            // Go back to the main menu or terminate the program.
+//            break;
+//
+//        // Default
+//        default:
+//            cout << "Wrong lah!" << endl;
+//            break;
     }
 
 }
@@ -141,7 +141,7 @@ void CourseReg::addCourse()
     // If the file is lost
     if (!infile) cout << "Sorry, we can't find any file called CourseList.txt." << endl;
 
-    while (infile)
+    for (int currentNum = 1; infile; currentNum++)
     {
         // SetInfo START
         SetInfo *newInfo;
@@ -156,6 +156,7 @@ void CourseReg::addCourse()
         newInfo = new SetInfo;
 
         // Assign the value to the node
+//        newInfo->num = currentNum;
         newInfo->code = currentCode;
         newInfo->unit = currentUnit;
         newInfo->type = currentType;
@@ -186,16 +187,23 @@ void CourseReg::displayList() const
     SetInfo *infoPtr;
     infoPtr = head;
 
-    cout << "Here are the courses offered to School of Computer Sciences." << endl;
+    cout << "Here are the courses offered to School of Computer Sciences. \n"
+         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
 
-    cout << "Code\t" << "Unit\t" << "Type\t" << endl;
+    int num = 0; // Initialization
 
     while (infoPtr->next)
     {
-        cout << infoPtr->code << "\t"
-             << infoPtr->unit << "\t"
+        cout << ++num << "\t\t"
+             << infoPtr->code << "\t\t"
+             << infoPtr->unit << "\t\t"
              << infoPtr->type << "\t"
              << endl;
+
         infoPtr = infoPtr->next;
     }
+
+    cout << "Currently, there are " << num << " courses offered to students from School of Computer Sciences. \n";
+
+
 }

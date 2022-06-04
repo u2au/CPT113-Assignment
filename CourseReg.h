@@ -84,11 +84,6 @@ public:
 //        next = nullptr;
 //    }
 
-private:
-    string courseCode;
-    short courseUnit;
-    char courseType;
-
 };
 
 #endif //TUITION_CPP_COURSEREG_H
