@@ -8,35 +8,38 @@
 
 using namespace std;
 
-// Linked List for Course Codes
-class CourseCode
-{
-public:
-    string code; // Current Code
-    CourseCode *next; // Pointer to the next code
-
-    // Constructor
-    CourseCode();
-
-    CourseCode (string currentCode)
-    {
-        code = currentCode;
-        next = nullptr;
-    }
-
-};
-
 class CourseReg {
 private:
     short input;
-    // Declare a structure for the list
-    struct CourseCode
+    // Declare a structure for the info-setting list
+    struct SetInfo
     {
         string code;
-        struct CourseCode *next;
+        short unit;
+        char type;
+
+        struct SetInfo *next;
     };
 
-    CourseCode *head; // Head Pointer for the Course Code List
+    SetInfo *head; // Head Pointer for setting Info
+
+//    // Declare a structure for the Unit List
+//    struct Unit
+//    {
+//        short unit;
+//        struct Unit *next;
+//    };
+//
+//    Unit *unitHead; // Head Pointer for the Unit List
+//
+//    // Declare a structure for the Type List
+//    struct Type
+//    {
+//        short type;
+//        struct Type *next;
+//    };
+//
+//    Unit *typeHead; // Head Pointer for the Unit List
 
 public:
     // Default Constructor
@@ -45,12 +48,6 @@ public:
         head = nullptr;
     }
 
-//    // Overloading Constructor
-//    CourseReg(short init) {
-//        input = init;
-//        menu();
-//    }
-
 //    // Destructor
 //    ~CourseReg();
 
@@ -58,9 +55,39 @@ public:
     void menu();
     void inputValidation();
     void addCourse();
+    void passData(string, short, char);
 
     void dropCourse();
     void displayList() const;
+
+};
+
+// Linked List for Info
+class SetInfo
+{
+public:
+    string code; // Current Code
+    short unit;
+    char type;
+
+    SetInfo *next; // Pointer to the next code
+
+    // Constructor
+    SetInfo()
+    {
+
+    }
+
+//    CourseCode (string currentCode)
+//    {
+//        code = currentCode;
+//        next = nullptr;
+//    }
+
+private:
+    string courseCode;
+    short courseUnit;
+    char courseType;
 
 };
 

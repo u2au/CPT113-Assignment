@@ -32,7 +32,6 @@ void CourseReg::menu()
         case 1:
             input = -1;
             cout << "Please wait... we're loading courses from the list." << endl;
-//            r = true; // Mark the read status
 
             // Read from file
             addCourse();
@@ -136,39 +135,44 @@ void CourseReg::addCourse()
 
     // Initialization
     string currentCode = "default";
+    short currentUnit = 0;
+    char currentType = 'D';
 
     // If the file is lost
     if (!infile) cout << "Sorry, we can't find any file called CourseList.txt." << endl;
 
     while (infile)
     {
-        CourseCode *newCode;
-        CourseCode *codePtr;
+        // SetInfo START
+        SetInfo *newInfo;
+        SetInfo *InfoPtr;
 
-        // Allocate memory for the new course code
-        newCode = new CourseCode;
+        // Read data from the course list
+        infile >> currentCode;
+        infile >> currentUnit;
+        infile >> currentType;
+
+        // Allocate memory for new info
+        newInfo = new SetInfo;
 
         // Assign the value to the node
-        infile >> currentCode; // Read from file
-//        cout << "currentCode: " << currentCode << endl; // DEBUG
-        newCode->code = currentCode;
+        newInfo->code = currentCode;
+        newInfo->unit = currentUnit;
+        newInfo->type = currentType;
 
         // Make next pointer point to nullptr
-        newCode->next = nullptr;
+        newInfo->next = nullptr;
 
         // If the course list is empty
-        if (!head) head = newCode;
+        if (!head) head = newInfo;
 
         else
         {
-            codePtr = head;
-            while (codePtr->next) codePtr = codePtr->next; // Find the last node of course codes
-            codePtr->next = newCode; // Assign the value to the course list
+            InfoPtr = head;
+            while (InfoPtr->next) InfoPtr = InfoPtr->next; // Find the last node of info
+            InfoPtr->next = newInfo; // Assign the value to the course list
 
         }
-
-//        cout << "codePtr: " << codePtr << endl; // DEBUG
-//        cout << "codePtr->next: " << codePtr->next << endl; // DEBUG
 
     }
 
@@ -176,19 +180,22 @@ void CourseReg::addCourse()
     infile.close();
 }
 
-
-
 // Display the list
 void CourseReg::displayList() const
 {
-    CourseCode *codePtr;
-    codePtr = head;
+    SetInfo *infoPtr;
+    infoPtr = head;
 
     cout << "Here are the courses offered to School of Computer Sciences." << endl;
 
-    while (codePtr->next)
+    cout << "Code\t" << "Unit\t" << "Type\t" << endl;
+
+    while (infoPtr->next)
     {
-        cout << codePtr->code << endl;
-        codePtr = codePtr->next;
+        cout << infoPtr->code << "\t"
+             << infoPtr->unit << "\t"
+             << infoPtr->type << "\t"
+             << endl;
+        infoPtr = infoPtr->next;
     }
 }
