@@ -188,7 +188,7 @@ void CourseReg::displayList() const
 
     while (codePtr->next)
     {
-        cout << codePtr << endl;
+        cout << codePtr->code << endl;
         codePtr = codePtr->next;
     }
 }
