@@ -8,8 +8,7 @@
 
 using namespace std;
 
-template <class T>
-void CourseReg<T>::menu()
+void CourseReg::menu()
 {
     // Menu for Course Registration
     cout << "Course Registration Menu \n"
@@ -122,78 +121,64 @@ void CourseReg<T>::menu()
 }
 
 // Input Validation
-template <class T>
-void CourseReg<T>::inputValidation()
+void CourseReg::inputValidation()
 {
     cout << "Sorry, the num you typed was wrong. Please enter again: ";
     cin >> input;
 }
 
-// Set Course Codes
-template <class T>
-void CourseReg<T>::setCode(T c)
-{
-
-
-
-
-}
-
-// Set Course Units
-void setUnit(short u)
-{
-
-}
-
-// Set Course Types
-void setType(char t)
-{
-
-}
-
 // Add Courses
-template <class T>
-void CourseReg<T>::addCourse(T info)
+void CourseReg::addCourse()
 {
+    // Open the course list
     fstream infile("CourseList.txt");
 
-    // Initialization
+    // Get code from the file
+    string currentCode;
+
+    // Check if the file exists
     CourseCode *newCode;
     CourseCode *codePtr;
 
-    newCode = new CourseCode;
-    newCode->code = info;
-    newCode->next = nullptr;
-
-    codePtr = head;
+    // If the file is lost
+    if (!infile) cout << "Sorry, we can't find any file called CourseList.txt." << endl;
 
     while (infile)
     {
-        infile >> info;
+        // Allocate memory for the new course code
+        newCode = new CourseCode;
+
+        // Assign the value to the node
+        infile >> currentCode; // Read from file
+        newCode->code = currentCode;
+
+        // Make next pointer point to nullptr
+        newCode->next = nullptr;
+
+        // If the course list is empty
+        if (!head) codePtr = head; // If yes, make codePtr point to head
+        else while (codePtr->next) codePtr = codePtr->next; // If not, find the last node of course codes
+
+        // Assign the value to the course list
         codePtr->next = newCode;
 
-//        infile >> info;
-//        setUnit(info);
-//
-//        infile >> info;
-//        setType(info);
     }
 
+    // Close the file
     infile.close();
 }
 
 
 
 // Display the list
-template <class T>
-void CourseReg<T>::displayList() const
+void CourseReg::displayList() const
 {
-    CourseCode *codePtr;
-    codePtr = head;
-
-    while (codePtr->next)
-    {
-        cout << codePtr << endl;
-        codePtr = codePtr->next;
-    }
+//    CourseCode *codePtr;
+//    codePtr = head;
+//
+//    while (codePtr->next)
+//    {
+//        cout << codePtr << endl;
+//        codePtr = codePtr->next;
+//    }
 }

@@ -26,7 +26,6 @@ public:
 
 };
 
-template <class T>
 class CourseReg {
 private:
     short input;
@@ -45,16 +44,15 @@ public:
         menu();
     }
 
-    // Destructor
-    ~CourseReg();
+//    // Destructor
+//    ~CourseReg();
 
     // Prototype
     void menu();
     void inputValidation();
-    void addCourse(T);
-    void setCode(T);
+    void addCourse();
 
-    void dropCourse(T);
+    void dropCourse();
     void displayList() const;
 
 };

@@ -8,8 +8,7 @@
 
 using namespace std;
 
-template <class T>
-void menu(T);
+void menu(short);
 
 int main()
 {
@@ -33,8 +32,7 @@ int main()
     return 0;
 }
 
-template <class T>
-void menu(T input)
+void menu(short input)
 {
     // Menu
     cout << "Main Menu \n"
@@ -53,7 +51,7 @@ void menu(T input)
     }
 
     if (input == 0) cout << "Thank you. \n";
-    else if (input == 1) CourseReg<T>(-1);
+    else if (input == 1) CourseReg(-1);
 //    else ; // hasn't finished
 
 }
