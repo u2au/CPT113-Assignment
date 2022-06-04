@@ -155,11 +155,19 @@ void CourseReg::addCourse()
         newCode->next = nullptr;
 
         // If the course list is empty
-        if (!head) codePtr = head; // If yes, make codePtr point to head
-        else while (codePtr->next) codePtr = codePtr->next; // If not, find the last node of course codes
+        if (!head)
+            head=newCode;
+        else
+        {
+            codePtr = head; 
+            while (codePtr->next) 
+            codePtr = codePtr->next; // If not, find the last node of course codes
 
-        // Assign the value to the course list
-        codePtr->next = newCode;
+            // Assign the value to the course list
+            codePtr->next = newCode;
+
+        }
+        
 
     }
 
