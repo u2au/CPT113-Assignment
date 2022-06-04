@@ -34,7 +34,10 @@ void CourseReg::menu()
             cout << "Please wait... we're loading courses from the list." << endl;
 //            r = true; // Mark the read status
 
+            // Read from file
+            addCourse();
 
+            // Display the whole course list
             cout << "Do you want to check the course list offered by School of Computer Science, USM? \n"
                  << "1 - Yes, 0 - No \n";
             cin >> input;
@@ -43,14 +46,11 @@ void CourseReg::menu()
             while (input != 1 && input != 0) inputValidation();
 
             // Display the course list
-            if (input == 1)
-            {
-
-            }
+            if (input == 1) displayList();
 
             // Add Courses
             input = -1;
-            cout << "Please type num of the course you want to drop: ";
+            cout << "Please type num of the course you want to add: ";
             cin >> input;
 
             // Input Validation: Check if the num exists
@@ -131,10 +131,11 @@ void CourseReg::inputValidation()
 void CourseReg::addCourse()
 {
     // Open the course list
-    fstream infile("CourseList.txt");
+    ifstream infile;
+    infile.open("CourseList.txt", ios::in);
 
-    // Variable Definition
-    string currentCode;
+    // Initialization
+    string currentCode = "default";
 
     // If the file is lost
     if (!infile) cout << "Sorry, we can't find any file called CourseList.txt." << endl;
@@ -149,25 +150,25 @@ void CourseReg::addCourse()
 
         // Assign the value to the node
         infile >> currentCode; // Read from file
+//        cout << "currentCode: " << currentCode << endl; // DEBUG
         newCode->code = currentCode;
 
         // Make next pointer point to nullptr
         newCode->next = nullptr;
 
         // If the course list is empty
-        if (!head)
-            head=newCode;
+        if (!head) head = newCode;
+
         else
         {
-            codePtr = head; 
-            while (codePtr->next) 
-            codePtr = codePtr->next; // If not, find the last node of course codes
-
-            // Assign the value to the course list
-            codePtr->next = newCode;
+            codePtr = head;
+            while (codePtr->next) codePtr = codePtr->next; // Find the last node of course codes
+            codePtr->next = newCode; // Assign the value to the course list
 
         }
-        
+
+//        cout << "codePtr: " << codePtr << endl; // DEBUG
+//        cout << "codePtr->next: " << codePtr->next << endl; // DEBUG
 
     }
 
@@ -180,12 +181,14 @@ void CourseReg::addCourse()
 // Display the list
 void CourseReg::displayList() const
 {
-//    CourseCode *codePtr;
-//    codePtr = head;
-//
-//    while (codePtr->next)
-//    {
-//        cout << codePtr << endl;
-//        codePtr = codePtr->next;
-//    }
+    CourseCode *codePtr;
+    codePtr = head;
+
+    cout << "Here are the courses offered to School of Computer Sciences." << endl;
+
+    while (codePtr->next)
+    {
+        cout << codePtr << endl;
+        codePtr = codePtr->next;
+    }
 }

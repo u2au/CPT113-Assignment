@@ -29,6 +29,13 @@ public:
 class CourseReg {
 private:
     short input;
+    // Declare a structure for the list
+    struct CourseCode
+    {
+        string code;
+        struct CourseCode *next;
+    };
+
     CourseCode *head; // Head Pointer for the Course Code List
 
 public:
@@ -38,11 +45,11 @@ public:
         head = nullptr;
     }
 
-    // Overloading Constructor
-    CourseReg(short init) {
-        input = init;
-        menu();
-    }
+//    // Overloading Constructor
+//    CourseReg(short init) {
+//        input = init;
+//        menu();
+//    }
 
 //    // Destructor
 //    ~CourseReg();

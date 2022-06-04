@@ -51,7 +51,12 @@ void menu(short input)
     }
 
     if (input == 0) cout << "Thank you. \n";
-    else if (input == 1) CourseReg(-1);
+    else if (input == 1)
+    {
+        CourseReg cr;
+        cr.menu();
+    }
+
 //    else ; // hasn't finished
 
 }
