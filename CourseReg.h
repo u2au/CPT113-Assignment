@@ -59,6 +59,7 @@ public:
     void inputValidation();
     void setCourse();
     void displayList();
+    void modifyCourse();
     void passData(string, short, char);
 
     void dropCourse();
