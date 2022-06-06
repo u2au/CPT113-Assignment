@@ -1,14 +1,17 @@
 //doubly linked list for courses add/drop
 #ifndef DL_H
 #define DL_H
+#include <string>
+using namespace std;
+
 class DoubleList{
-	private:
-	    struct Course
+private:
+    struct Course
     {
-        string codes;
-        int coursenum;//num of courses in coureseList.txt
-        short units;
-        char types;
+        string courseCode;
+        int courseNum;//num of courses in coureseList.txt
+        short courseUnit;
+        char courseType;
         struct Course* previous;
         struct Course* next;
     };
@@ -16,7 +19,8 @@ class DoubleList{
     protected:
     	 int count;
     	 Course* head;
-         Course* end; 	
+         Course* end;
+
     public:
     	DoubleList(){
     		head=nullptr;
@@ -31,9 +35,9 @@ class DoubleList{
 	    void copyCourses();
 	
 		//to add courses in the list
-		void appendNode(int);
+		void appendNode(string, int, char);
 		//to drop the courses from the list
-		void deleteNode(int);	
-		void showList()const;
+		void deleteNode(int);
+		void showList();
 };
 #endif

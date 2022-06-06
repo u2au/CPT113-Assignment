@@ -1,5 +1,6 @@
 #include"DoubleList.h"
 #include <iostream>
+
 using namespace std;
 //bool DoubleList::search(const int num){
 //	bool found=false;
@@ -18,13 +19,29 @@ using namespace std;
 //	return found;
 //}
 
-void DoubleList::appendNode(int addnum){
-	Course* newNode;
-	newNode=new Course;
-	newNode->
-	
-	
-	
+void DoubleList::appendNode(string node, int unit, char type)
+{
+	Course *newNode;
+    Course *nodePtr;
+    Course *trailPtr;
+
+	newNode = new Course;
+	newNode->courseCode = node;
+    newNode->courseUnit = unit;
+    newNode->courseType = type;
+
+    if (head == NULL) head = newNode;
+    else
+    {
+        while (nodePtr != NULL)
+        {
+            trailPtr = nodePtr;
+            nodePtr = nodePtr->next;
+        }
+    }
+
+    nodePtr = newNode;
+
 }
 
 void DoubleList::deleteNode(int delnum){
@@ -34,7 +51,7 @@ void DoubleList::deleteNode(int delnum){
 	bool found;
 	if(head==nullptr)
 	   cout<<" Can't delete from an empty list..."<<endl;
-	else if(head->coursenum==delnum)
+	else if(head->courseNum==delnum)
 	{
 		nodeptr=head;
 		head=head->next;
@@ -49,23 +66,22 @@ void DoubleList::deleteNode(int delnum){
 		found=false;
 		nodeptr=head;
 		
-		while(nodeptr!=nullptr&& !found)
-		    if(nodeptr->coursenum==delnum)
+		while(nodeptr!=nullptr && !found)
+		    if(nodeptr->courseNum==delnum)
 		     found=true;
 		    else
 		      nodeptr=nodeptr->next;
 		if(nodeptr==nullptr)
 		    cout<<"the courses to be delete is not in the list...please try again"<<endl;
-		else if(nodeptr->coursenum==delnum)
+		else if(nodeptr->courseNum==delnum)
 		{
 			trailptr=nodeptr->previous;
 			trailptr->next=nodeptr->next;
 			
 			if(nodeptr->next!=nullptr)
-			   nodeptr->next->prevoius=trailptr;
+			   nodeptr->next->previous=trailptr;
 			   
-			if(nodeptr==end)
-			   last=trailptr;
+//			if(nodeptr==end) last=trailptr;
 			   
 			   count--;
 			   delete nodeptr;
@@ -80,15 +96,13 @@ void DoubleList::showList(){
 	nodeptr=head;
 	while(nodeptr!=nullptr){
 		count++;
-		cout << nodeptr->coursenum << "\t\t"
-		     <<nodeptr->codes<<"\t\t"
-             << nodeptr->units << "\t\t"
-             << nodeptr->types << "\t\t"
+		cout << nodeptr->courseNum << "\t\t"
+		     << nodeptr->courseCode<<"\t\t"
+             << nodeptr->courseUnit << "\t\t"
+             << nodeptr->courseType << "\t\t"
              << endl;
 
         nodeptr = nodeptr->next;
     }
-		
-	}
 	
 }
