@@ -11,12 +11,15 @@ using namespace std;
 class CourseReg {
 private:
     short input;
+    int numOfCourses = 0;
+
     // Declare a structure for the info-setting list
     struct SetInfo
     {
         string code;
         short unit;
         char type;
+
 
         struct SetInfo *next;
     };
@@ -54,11 +57,11 @@ public:
     // Prototype
     void menu();
     void inputValidation();
-    void addCourse();
+    void setCourse();
+    void displayList();
     void passData(string, short, char);
 
     void dropCourse();
-    void displayList() const;
 
 };
 
