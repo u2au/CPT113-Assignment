@@ -16,19 +16,30 @@ private:
     // Declare a structure for the info-setting list
     struct SetInfo
     {
-    	int number;
         string code;
         short unit;
         char type;
 
-
         struct SetInfo *next;
-        struct SetInfo *pre;//doubly linked list
     };
 
     SetInfo *head; // Head Pointer for setting Info
     SetInfo *end;  //end pointer for setting Info
-    
+
+    // Declare a structure for the Student's Registration Doubly Linked List
+    struct Student
+    {
+        string code;
+        short unit;
+        char type;
+
+        struct Student *next;
+        struct Student *prev;
+    };
+
+    Student *courseHead;
+    Student *courseEnd;
+
     protected:
     	   int count=0;//to calculate the number of courses has been added
 
@@ -55,8 +66,12 @@ public:
     CourseReg() {
         input = -1;
         head = nullptr;
-        end=nullptr;
+        end = nullptr;
     }
+
+    string code;
+    CourseReg *next;
+    CourseReg *prev;
 
 //    // Destructor
 //    ~CourseReg();
@@ -66,12 +81,13 @@ public:
     void inputValidation();
     void setCourse();
     void displayList();
-    void modifyCourse();
+    void terminal();
+    void modifyCourse(char, int);
     void passData(string, short, char);
     
     bool search(int);
-    void addCourse(string,short,char);
-    void dropCourse(int);
+//    void addCourse(char, int);
+//    void dropCourse(int);
     void showNewList();//finally show the courses this student has choose
 
 };
@@ -99,6 +115,18 @@ public:
 //        code = currentCode;
 //        next = nullptr;
 //    }
+
+};
+
+// Doubly Linked List for Student's Registration
+class Student
+{
+private:
+    CourseReg *head;
+    CourseReg *end;
+
+    // Methods
+
 
 };
 
