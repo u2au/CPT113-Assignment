@@ -38,6 +38,7 @@ void CourseReg::setCourse()
     infile.open("CourseList.txt", ios::in);
 
     // Initialization
+    int currentNum=0;
     string currentCode = "default";
     short currentUnit = 1;
     char currentType = 'D';
@@ -53,6 +54,7 @@ void CourseReg::setCourse()
             SetInfo *InfoPtr;
 
             // Read data from the course list
+            infile >> currentNum;
             infile >> currentCode;
             infile >> currentUnit;
             infile >> currentType;
@@ -61,6 +63,7 @@ void CourseReg::setCourse()
             newInfo = new SetInfo;
 
             // Assign the value to the node
+            newInfo->num =  currentNum;
             newInfo->code = currentCode;
             newInfo->unit = currentUnit;
             newInfo->type = currentType;
@@ -100,26 +103,28 @@ void CourseReg::displayList()
     cout << "Here are the courses offered to CS students. \n"
          << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
 
-    int num = 0; // Initialization
+   int count = 0; // Initialization
 
     while (infoPtr->next)
     {
-        cout << ++num << "\t\t"
+        cout << infoPtr->num << "\t\t"
              << infoPtr->code << "\t\t"
              << infoPtr->unit << "\t\t"
              << infoPtr->type << "\t"
              << endl;
 
         infoPtr = infoPtr->next;
+        count++
     }
 
-    cout << "Currently, there are " << num << " courses offered to students from School of Computer Sciences. \n";
+    cout << "Currently, there are " << count << " courses offered to students from School of Computer Sciences. \n";
 
 }
 
 // Registration System
 void CourseReg::modifyCourse()
 {
+	
     // Display the list
     cout << "Do you want to display all the courses offered to USM CS students? (1 - Yes, 0 - No) : ";
     cin >> input;
@@ -162,9 +167,19 @@ void CourseReg::modifyCourse()
 
             // Add or drop a course
             if (operation == "add") {
-                cout << "Course #" << input << " has been added. Please enter next command. \n";
+            	bool exist=search(input);
+            	if( !exist)
+            	   cout<<" Sorry this course doesn't exist...please enter again. \n"
+            	else
+				{
+					//function addCousese	
+                    cout << "Course #" << input << " has been added. Please enter next command. \n";
+				}
+            
             }
             else if (operation == "drop") {
+            	//function dropCourse
+            	
                 cout << "Course #" << input << " has been dropped. Please enter next command. \n";
             }
 
@@ -176,3 +191,110 @@ void CourseReg::modifyCourse()
     }
     else cout << "Thanks for using. \n";
 }
+
+bool CourseReg::search(int input){
+
+    bool found=false;
+	SetInfo* nodeptr;
+	nodeptr=head;
+	while(nodeptr!=nullptr && !found)
+	{
+		if(nodeptr->num==input)
+		{
+			found=true;
+			addCourse(nodeptr->code,nodeptr->unit,nodeptr->type);
+		}
+		else
+			nodeptr=nodeptr->next;
+			
+	if(found)
+	    found=(nodeptr->num==imput);
+	    
+	    return found;
+		
+	}
+}
+
+
+void CourseReg::addCourse(string codes, short units, char types)
+{
+	// we want to copy the node we want from the existing list to a new list
+    SetInfo *newNode;
+    SetInfo *nodePtr;
+    SetInfo *trailPtr;
+	
+	//allocate a new node & store the value of the current list ndoe in it
+	newNode=new SetInfo;
+	newNode->code=codes;
+	newNode->type=types;
+	newNode->unit=units;
+	
+	if(head==nullptr)
+	{
+		newNode->pre=nullptr;
+		newNode->next=nullptr;
+		head=newNode;
+		end=newNode;
+	}
+	else
+	{
+		newNode->next=nullptr;
+		end->next=newNode;
+		newNode->pre=end;
+		end=newNode;
+	}
+
+}
+
+void CourseReg::deleteNode(int delnum){
+	Course* nodeptr;
+	Course* trailptr;
+	
+	bool found;
+	if(head==nullptr)
+	   cout<<" Can't delete from an empty list..."<<endl;
+	else if(head->num==delnum)
+	{
+		nodeptr=head;
+		head=head->next;
+		 
+		if(head!=nullptr)
+		   head->previous=nullptr;
+		else 
+		   end=nullptr;
+	}
+	else
+	{
+		found=false;
+		nodeptr=head;
+		
+		while(nodeptr!=nullptr && !found)
+		    if(nodeptr->courseNum==delnum)
+		     found=true;
+		    else
+		      nodeptr=nodeptr->next;
+		if(nodeptr==nullptr)
+		    cout<<"the courses to be delete is not in the list...please try again"<<endl;
+		else if(nodeptr->courseNum==delnum)
+		{
+			trailptr=nodeptr->previous;
+			trailptr->next=nodeptr->next;
+			
+			if(nodeptr->next!=nullptr)
+			   nodeptr->next->previous=trailptr;
+			   
+//			if(nodeptr==end) last=trailptr;
+			   
+			   count--;
+			   delete nodeptr;
+		}
+		   
+	}
+	
+}
+
+void CourseReg::showNewList(){
+	//show the final courses student choose after add/drop courses
+	
+}
+

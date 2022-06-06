@@ -16,15 +16,21 @@ private:
     // Declare a structure for the info-setting list
     struct SetInfo
     {
+    	int number;
         string code;
         short unit;
         char type;
 
 
         struct SetInfo *next;
+        struct SetInfo *pre;//doubly linked list
     };
 
     SetInfo *head; // Head Pointer for setting Info
+    SetInfo *end;  //end pointer for setting Info
+    
+    protected:
+    	   int count=0;//to calculate the number of courses has been added
 
 //    // Declare a structure for the Unit List
 //    struct Unit
@@ -49,6 +55,7 @@ public:
     CourseReg() {
         input = -1;
         head = nullptr;
+        end=nullptr;
     }
 
 //    // Destructor
@@ -61,8 +68,11 @@ public:
     void displayList();
     void modifyCourse();
     void passData(string, short, char);
-
-    void dropCourse();
+    
+    bool search(int);
+    void addCourse(string,short,char);
+    void dropCourse(int);
+    void showNewList();//finally show the courses this student has choose
 
 };
 
@@ -70,11 +80,13 @@ public:
 class SetInfo
 {
 public:
+	int num;
     string code; // Current Code
     short unit;
     char type;
 
     SetInfo *next; // Pointer to the next code
+    SetInfo *pre;
 
     // Constructor
     SetInfo()

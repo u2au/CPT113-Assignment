@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "CourseReg.h"
+##include "CourseReg.cpp"
 
 using namespace std;
 
