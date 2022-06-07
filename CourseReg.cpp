@@ -54,6 +54,7 @@ void CourseReg::setCourse()
             SetInfo *InfoPtr;
 
             // Read data from the course list
+            infile >> currentNum;
             infile >> currentCode;
             infile >> currentUnit;
             infile >> currentType;
@@ -62,6 +63,7 @@ void CourseReg::setCourse()
             newInfo = new SetInfo;
 
             // Assign the value to the node
+            newInfo->num = currentNum;
             newInfo->code = currentCode;
             newInfo->unit = currentUnit;
             newInfo->type = currentType;
@@ -105,7 +107,8 @@ void CourseReg::displayList()
 
     while (infoPtr->next)
     {
-        cout << infoPtr->code << "\t\t"
+        cout <<infoPtr->num<<"\t\t"
+	    	<< infoPtr->code << "\t\t"
              << infoPtr->unit << "\t\t"
              << infoPtr->type << "\t"
              << endl;
@@ -135,9 +138,9 @@ void CourseReg::terminal()
     // Temp Variable
     string operation = "def";
 
-    cout << "Input Formats: <operation> <num> \n"
+    cout << "Input Formats: <operation> <course name> \n"
          << "Operations: add, drop, exit \n"
-         << "For example, if a student wants to add a course which num is 20, the command is: add 20 \n"
+         << "For example, if a student wants to add course which num is 20 , the command is: add 20 \n"
          << "Kindly enter: exit, to exit anytime. \n";
 
     // Ask for input
@@ -164,14 +167,14 @@ void CourseReg::terminal()
 
             // Add or drop a course
             if (operation == "add") {
-            	bool exist = search(input);
-            	if (!exist) cout<< "Sorry this course doesn't exist... Please enter again. \n"; // cin?
-            	else
-				{
+            //	bool exist = search(input);
+            //	if (exist==false) cout<< "Sorry this course doesn't exist... Please enter again. \n"; // cin?
+            //	else
+			//	{
 					// function addCousese
                     modifyCourse('a', input);
-//                    cout << "Course #" << input << " has been added. Please enter next command. \n";
-				}
+                    cout << "Course #" << input << " has been added. Please enter next command. \n";
+			//	}
             
             }
             else if (operation == "drop") {
@@ -189,27 +192,28 @@ void CourseReg::terminal()
     else cout << "Thanks for using. \n";
 }
 
-//bool CourseReg::search(int input){
+//bool CourseReg::search(int cname){
 //
 //    bool found=false;
 //	SetInfo* nodeptr;
 //	nodeptr=head;
 //	while(nodeptr!=nullptr && !found)
 //	{
-//		if(nodeptr->num==input)
+//		if(nodeptr->num==cname)
 //		{
 //			found=true;
-//			addCourse(nodeptr->code,nodeptr->unit,nodeptr->type);
+//		//	addCourse(nodeptr->code,nodeptr->unit,nodeptr->type);
 //		}
 //		else
 //			nodeptr=nodeptr->next;
+//   }
 //
 //	if(found)
-//	    found=(nodeptr->num==imput);
+//	    found=(nodeptr->num==input);
 //
 //	    return found;
 //
-//	}
+//	
 //}
 
 
@@ -219,7 +223,7 @@ void CourseReg::modifyCourse(char ops, int num)
     SetInfo *nodePtr;
     Student *newNode;
 
-    if (ops == 'a')
+    if (ops == 'a')//add the courses
     {
         // Allocate a new node & store the value of the current list ndoe in it
         newNode = new Student;
@@ -228,6 +232,7 @@ void CourseReg::modifyCourse(char ops, int num)
         nodePtr = nullptr;
         for (int i = 1; i < num; i++) nodePtr = nodePtr->next;
 
+        newNode->num = nodePtr->num ;
         newNode->code = nodePtr->code;
         newNode->type = nodePtr->type;
         newNode->unit = nodePtr->unit;
@@ -248,7 +253,7 @@ void CourseReg::modifyCourse(char ops, int num)
         }
     }
 
-    else if (ops == 'd')
+    else if (ops == 'd')//drop the courses
     {
         Student *coursePtr;
         Student *trailPtr;
@@ -301,6 +306,18 @@ void CourseReg::modifyCourse(char ops, int num)
 
 void CourseReg::showNewList(){
 	//show the final courses student choose after add/drop courses
+	Student *coursePtr;
+    Student *trailPtr;
+    if(courseHead == nullptr)
+      cout<<"You didn't have any courses yet...\n";
+    else
+    {
+    	coursePtr= courseHead;
+    	while(coursePtr!=nullptr){
+    		cout<<coursePtr->num<<" "<<coursePtr->code<<endl;
+    		coursePtr->next;
+		}
+	}      
 	
 }
 

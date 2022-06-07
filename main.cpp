@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include "CourseReg.h"
+#include "CourseReg.cpp"
+
 
 using namespace std;
 
@@ -12,12 +14,12 @@ void menu(short);
 
 int main()
 {
-    // Variables Definition
+    // Variables Definitionew
     bool readList = false;
 
     // Welcome
     string name, matric;
-    cout << "Welcome to use USM CS Student’s Registration System! \n"
+    cout << "Welcome to use USM CS Student's Registration System! \n"
          << "Please type your name: "; // Name
     cin >> name;
     cout << "Please enter your matric number: "; // Matric Num
@@ -55,6 +57,7 @@ void menu(short input)
     {
         CourseReg cr;
         cr.menu();
+        cr.showNewList();
     }
 
 //    else ; // hasn't finished

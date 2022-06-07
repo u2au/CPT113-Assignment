@@ -10,25 +10,29 @@ using namespace std;
 
 class CourseReg {
 private:
-    short input;
+    
     int numOfCourses = 0;
 
     // Declare a structure for the info-setting list
     struct SetInfo
     {
+    	int num;
         string code;
         short unit;
         char type;
 
+
         struct SetInfo *next;
+        //struct SetInfo *prev;
     };
 
     SetInfo *head; // Head Pointer for setting Info
-    SetInfo *end;  //end pointer for setting Info
+ //   SetInfo *end;  //end pointer for setting Info
 
     // Declare a structure for the Student's Registration Doubly Linked List
     struct Student
     {
+        int num;
         string code;
         short unit;
         char type;
@@ -41,9 +45,10 @@ private:
     Student *courseEnd;
 
     protected:
-    	   int count=0;//to calculate the number of courses has been added
+    	  int count=0;//to calculate the number of courses has been added
+    	  short input;
 
-//    // Declare a structure for the Unit List
+//     //Declare a structure for the Unit List
 //    struct Unit
 //    {
 //        short unit;
@@ -66,12 +71,13 @@ public:
     CourseReg() {
         input = -1;
         head = nullptr;
-        end = nullptr;
+        courseHead = nullptr;
+        courseEnd = nullptr;
     }
 
     string code;
-    CourseReg *next;
-    CourseReg *prev;
+//    CourseReg *next;
+//    CourseReg *prev;
 
 //    // Destructor
 //    ~CourseReg();
@@ -85,10 +91,10 @@ public:
     void modifyCourse(char, int);
     void passData(string, short, char);
     
-    bool search(int);
-//    void addCourse(char, int);
-//    void dropCourse(int);
-    void showNewList();//finally show the courses this student has choose
+  // bool search(int);
+  // void addCourse(char, string);
+  //  void dropCourse(string);
+   void showNewList();//finally show the courses this student has choose
 
 };
 
@@ -102,7 +108,7 @@ public:
     char type;
 
     SetInfo *next; // Pointer to the next code
-    SetInfo *pre;
+   // SetInfo *pre;
 
     // Constructor
     SetInfo()
@@ -121,11 +127,16 @@ public:
 // Doubly Linked List for Student's Registration
 class Student
 {
-private:
-    CourseReg *head;
-    CourseReg *end;
+	public:
+    	int num;
+        string code;
+        short unit;
+        char type;
 
-    // Methods
+        struct Student *next;
+        struct Student *prev;
+    
+
 
 
 };
