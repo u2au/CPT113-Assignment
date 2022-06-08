@@ -26,12 +26,36 @@ private:
 
     SetInfo *head; // Head Pointer for setting Info
 
+    // Declare a structure for the Course Registration Doubly Linked List
+    struct Student
+    {
+        string courseCode;
+        short courseUnit;
+        char courseType;
+
+        struct Student *next;
+        struct Student *prev;
+//        struct Student *courseHead;
+//        struct Student *courseEnd;
+    };
+
+    Student *courseHead;
+    Student *courseEnd;
+
 public:
     // Default Constructor
     CourseReg() {
         input = -1;
         head = nullptr;
+        courseHead = nullptr;
+        courseEnd = nullptr;
     }
+
+    // For the Doubly Linked List
+    CourseReg *courseNext;
+    CourseReg *coursePrev;
+//    Student *courseHead;
+//    Student *courseEnd;
 
 //    // Destructor
 //    ~CourseReg();
@@ -42,9 +66,8 @@ public:
     void setCourse();
     void displayList();
     void modifyCourse();
-    void passData(string, short, char);
-
-    void dropCourse();
+    void addCourse(int);
+    void dropCourse(int);
 
 };
 
@@ -69,6 +92,27 @@ public:
 //        code = currentCode;
 //        next = nullptr;
 //    }
+
+};
+
+// Doubly Linked List for Student's Course Registration
+class Student
+{
+private:
+//    CourseReg *courseHead;
+//    CourseReg *courseEnd;
+
+public:
+
+// Default Constructor
+    Student()
+    {
+//        courseHead = NULL;
+//        courseEnd = NULL;
+    }
+
+    // Prototype
+
 
 };
 

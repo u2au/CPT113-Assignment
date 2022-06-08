@@ -142,6 +142,7 @@ void CourseReg::modifyCourse()
     cin >> operation;
     if (operation != "exit")
     {
+        Student s;
         cin >> input;
         do {
             // Input Validation
@@ -161,10 +162,13 @@ void CourseReg::modifyCourse()
             }
 
             // Add or drop a course
+
             if (operation == "add") {
+                addCourse(input);
                 cout << "Course #" << input << " has been added. Please enter next command. \n";
             }
             else if (operation == "drop") {
+                dropCourse(input);
                 cout << "Course #" << input << " has been dropped. Please enter next command. \n";
             }
 
@@ -175,4 +179,82 @@ void CourseReg::modifyCourse()
 
     }
     else cout << "Thanks for using. \n";
+}
+
+// Add a course
+void CourseReg::addCourse(int num)
+{
+    // Copy the node we want from the existing list to a new list
+    SetInfo *nodePtr = nullptr;
+    Student *coursePtr;
+    Student *newCourse;
+
+    // Allocate a new node & store the value of the current list node in it
+    newCourse = new Student;
+    nodePtr = head;
+
+    // Get data from a specific node from the course list
+    for (int i = 1; i < num; i++) nodePtr = nodePtr->next;
+
+//    // DEBUG
+//    cout << nodePtr->code << endl;
+//    newCourse->courseCode = "1";
+//    cout << newCourse->courseCode << endl;
+
+    // After pointing to the course we want to add, get information of the node
+    newCourse->courseCode = nodePtr->code;
+    newCourse->courseType = nodePtr->type;
+    newCourse->courseUnit = nodePtr->unit;
+
+    if (courseHead == nullptr) // Empty List
+    {
+        newCourse->prev = nullptr;
+        newCourse->next = nullptr;
+        courseHead = newCourse;
+        courseEnd = newCourse;
+
+    }
+    else // Non-empty List
+    {
+        // Initialization
+        Student *coursePtr = courseHead;
+        Student *trailPtr = nullptr;
+
+        while (coursePtr->next != NULL) coursePtr = coursePtr->next;
+        trailPtr = coursePtr;
+        coursePtr = coursePtr->next;
+
+        trailPtr->next = newCourse;
+        newCourse->prev = trailPtr;
+        courseEnd = newCourse;
+        courseEnd->next = nullptr;
+
+        // DEBUG
+        coursePtr = courseHead;
+        cout << "Registered Courses List \n"
+             << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
+
+        for (int i = 1; coursePtr->next != NULL; i++)
+        {
+            cout << i << "\t\t"
+                 << coursePtr->courseCode << "\t\t"
+                 << coursePtr->courseUnit << "\t\t"
+                 << coursePtr->courseType << "\t"
+                 << endl;
+
+            coursePtr = coursePtr->next;
+        }
+        // DEBUG END
+    }
+
+
+
+}
+
+// Drop a course
+void CourseReg::dropCourse(int num)
+{
+
+
+
 }
