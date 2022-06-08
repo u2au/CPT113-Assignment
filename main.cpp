@@ -6,10 +6,9 @@
 #include <string>
 #include "CourseReg.h"
 
-
 using namespace std;
 
-void menu();
+void menu(short);
 
 int main()
 {
@@ -18,7 +17,7 @@ int main()
 
     // Welcome
     string name, matric;
-    cout << "Welcome to use USM CS Student's Registration System! \n"
+    cout << "Welcome to use USM CS Student’s Registration System! \n"
          << "Please type your name: "; // Name
     cin >> name;
     cout << "Please enter your matric number: "; // Matric Num
@@ -26,16 +25,15 @@ int main()
     cout << "Welcome, " << name << " (" << matric << ")!" << endl; // Greetings
 
     // Display the menu
-    menu();
+    menu(-1);
 
 
 
     return 0;
 }
 
-void menu()
+void menu(short input)
 {
-    int input = -1;
     // Menu
     cout << "Main Menu \n"
          << "1 - Course Registration \n"
@@ -56,8 +54,7 @@ void menu()
     else if (input == 1)
     {
         CourseReg cr;
-        cr.displayMenu();
-//        cr.showNewList();
+        cr.menu();
     }
 
 //    else ; // hasn't finished
