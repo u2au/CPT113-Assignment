@@ -162,10 +162,9 @@ void CourseReg::modifyCourse()
             }
 
             // Add or drop a course
-
             if (operation == "add") {
                 addCourse(input);
-                cout << "Course #" << input << " has been added. Please enter next command. \n";
+
             }
             else if (operation == "drop") {
                 dropCourse(input);
@@ -188,6 +187,7 @@ void CourseReg::addCourse(int num)
     SetInfo *nodePtr = nullptr;
     Student *coursePtr;
     Student *newCourse;
+    Student *trailPtr = nullptr;
 
     // Allocate a new node & store the value of the current list node in it
     newCourse = new Student;
@@ -195,11 +195,6 @@ void CourseReg::addCourse(int num)
 
     // Get data from a specific node from the course list
     for (int i = 1; i < num; i++) nodePtr = nodePtr->next;
-
-//    // DEBUG
-//    cout << nodePtr->code << endl;
-//    newCourse->courseCode = "1";
-//    cout << newCourse->courseCode << endl;
 
     // After pointing to the course we want to add, get information of the node
     newCourse->courseCode = nodePtr->code;
@@ -218,9 +213,8 @@ void CourseReg::addCourse(int num)
     {
         // Initialization
         Student *coursePtr = courseHead;
-        Student *trailPtr = nullptr;
 
-        while (coursePtr->next != NULL) coursePtr = coursePtr->next;
+        while (coursePtr->next != nullptr) coursePtr = coursePtr->next;
         trailPtr = coursePtr;
         coursePtr = coursePtr->next;
 
@@ -229,25 +223,41 @@ void CourseReg::addCourse(int num)
         courseEnd = newCourse;
         courseEnd->next = nullptr;
 
-        // DEBUG
-        coursePtr = courseHead;
-        cout << "Registered Courses List \n"
-             << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
+    }
 
-        for (int i = 1; coursePtr->next != NULL; i++)
+    // Display current registration list
+    coursePtr = courseHead;
+    cout << "Registered Courses List \n"
+         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
+
+    int i = 0; // For counting num of courses
+    bool last = false;
+
+    do {
+        cout << ++i << "\t\t"
+             << coursePtr->courseCode << "\t\t"
+             << coursePtr->courseUnit << "\t\t"
+             << coursePtr->courseType << "\t"
+             << endl;
+
+        // If the list only has 1 element, do not point to the next node
+        if (courseHead != courseEnd) coursePtr = coursePtr->next;
+
+        // Display the last node
+        if (coursePtr->next == nullptr && courseHead != courseEnd)
         {
-            cout << i << "\t\t"
+            cout << ++i << "\t\t"
                  << coursePtr->courseCode << "\t\t"
                  << coursePtr->courseUnit << "\t\t"
                  << coursePtr->courseType << "\t"
                  << endl;
-
-            coursePtr = coursePtr->next;
         }
-        // DEBUG END
-    }
 
+    } while (coursePtr->next != nullptr);
 
+    cout << coursePtr->courseCode << " has been successfully added to your registration list! \n"
+         << "Please enter next command: ";
+    // Display current registration list END
 
 }
 
@@ -258,3 +268,27 @@ void CourseReg::dropCourse(int num)
 
 
 }
+
+//// Check if a course exists in the registration list
+//bool CourseReg::ifExists(string checkedCode) const
+//{
+//    Student *checkPtr;
+//    bool found = false;
+//
+//    checkPtr = courseHead;
+//
+//    // Check if the code exists
+//    while (checkPtr->next != nullptr)
+//    {
+//        if (checkedCode == checkPtr->courseCode)
+//        {
+//            found = true;
+//            break;
+//        }
+//
+//        else checkPtr = checkPtr->next;
+//    }
+//
+//    return found;
+//
+//}

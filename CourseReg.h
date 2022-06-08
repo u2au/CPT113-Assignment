@@ -68,6 +68,7 @@ public:
     void modifyCourse();
     void addCourse(int);
     void dropCourse(int);
+    bool ifExists(string) const;
 
 };
 
