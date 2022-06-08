@@ -5,16 +5,15 @@
 #include <iostream>
 #include <string>
 #include "CourseReg.h"
-#include "CourseReg.cpp"
 
 
 using namespace std;
 
-void menu(short);
+void menu();
 
 int main()
 {
-    // Variables Definitionew
+    // Variables Definition
     bool readList = false;
 
     // Welcome
@@ -27,15 +26,16 @@ int main()
     cout << "Welcome, " << name << " (" << matric << ")!" << endl; // Greetings
 
     // Display the menu
-    menu(-1);
+    menu();
 
 
 
     return 0;
 }
 
-void menu(short input)
+void menu()
 {
+    int input = -1;
     // Menu
     cout << "Main Menu \n"
          << "1 - Course Registration \n"
@@ -56,8 +56,8 @@ void menu(short input)
     else if (input == 1)
     {
         CourseReg cr;
-        cr.menu();
-        cr.showNewList();
+        cr.displayMenu();
+//        cr.showNewList();
     }
 
 //    else ; // hasn't finished

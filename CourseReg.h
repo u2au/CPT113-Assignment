@@ -26,9 +26,6 @@ private:
         //struct SetInfo *prev;
     };
 
-    SetInfo *head; // Head Pointer for setting Info
- //   SetInfo *end;  //end pointer for setting Info
-
     // Declare a structure for the Student's Registration Doubly Linked List
     struct Student
     {
@@ -41,30 +38,21 @@ private:
         struct Student *prev;
     };
 
+
+
+    protected:
+
+
+public:
+    int count = 0;//to calculate the number of courses has been added
+    short input;
+
+    SetInfo *head; // Head Pointer for setting Info
+    //   SetInfo *end;  //end pointer for setting Info
+
     Student *courseHead;
     Student *courseEnd;
 
-    protected:
-    	  int count=0;//to calculate the number of courses has been added
-    	  short input;
-
-//     //Declare a structure for the Unit List
-//    struct Unit
-//    {
-//        short unit;
-//        struct Unit *next;
-//    };
-//
-//    Unit *unitHead; // Head Pointer for the Unit List
-//
-//    // Declare a structure for the Type List
-//    struct Type
-//    {
-//        short type;
-//        struct Type *next;
-//    };
-//
-//    Unit *typeHead; // Head Pointer for the Unit List
 
 public:
     // Default Constructor
@@ -83,7 +71,7 @@ public:
 //    ~CourseReg();
 
     // Prototype
-    void menu();
+    void displayMenu();
     void inputValidation();
     void setCourse();
     void displayList();
@@ -91,19 +79,19 @@ public:
    // void modifyCourse(string, int);
     void addCourse(string,int);
     void dropCourse(string,int);
-    void passData(string, short, char);
+//    void passData(string, short, char);
     
    bool search(int);
   // void addCourse(char, string);
   //  void dropCourse(string);
-   void showNewList();//finally show the courses this student has choose
+//   void showNewList();//finally show the courses this student has choose
 
 };
 
 // Linked List for Info
 class SetInfo
 {
-public:
+private:
 	int num;
     string code; // Current Code
     short unit;
@@ -129,17 +117,20 @@ public:
 // Doubly Linked List for Student's Registration
 class Student
 {
-	public:
-    	int num;
-        string code;
-        short unit;
-        char type;
+private:
+    int num;
+    string code;
+    short unit;
+    char type;
 
-        struct Student *next;
-        struct Student *prev;
-    
+    struct Student *next;
+    struct Student *prev;
 
+    // Constructor
+    Student()
+    {
 
+    }
 
 };
 
