@@ -172,14 +172,14 @@ void CourseReg::terminal()
             //	else
 			//	{
 					// function addCousese
-                    modifyCourse('a', input);
+                   addCourse(operation,input);
                     cout << "Course #" << input << " has been added. Please enter next command. \n";
 			//	}
             
             }
             else if (operation == "drop") {
             	//function dropCourse
-                modifyCourse('d', input);
+                  dropCourse(operation,input);
 //                cout << "Course #" << input << " has been dropped. Please enter next command. \n";
             }
 
@@ -192,45 +192,45 @@ void CourseReg::terminal()
     else cout << "Thanks for using. \n";
 }
 
-//bool CourseReg::search(int cname){
-//
-//    bool found=false;
-//	SetInfo* nodeptr;
-//	nodeptr=head;
-//	while(nodeptr!=nullptr && !found)
-//	{
-//		if(nodeptr->num==cname)
-//		{
-//			found=true;
-//		//	addCourse(nodeptr->code,nodeptr->unit,nodeptr->type);
-//		}
-//		else
-//			nodeptr=nodeptr->next;
-//   }
-//
-//	if(found)
-//	    found=(nodeptr->num==input);
-//
-//	    return found;
-//
-//	
-//}
+bool CourseReg::search(int cname){//to search if the course student want to drop exist in the doubly linked list (course added)
+
+    bool found=false;
+	Student* nodeptr;
+	nodeptr=courseHead;
+	while(nodeptr!=nullptr && !found)
+	{
+		if(nodeptr->num==cname)
+		{
+			found=true;
+		
+		}
+		else
+			nodeptr=nodeptr->next;
+   }
+
+	if(found)
+	    found=(nodeptr->num==input);
+
+	    return found;
+
+	
+}
 
 
-void CourseReg::modifyCourse(char ops, int num)
+void CourseReg::addCourse(string ops, int num)
 {
 	// we want to copy the node we want from the existing list to a new list
     SetInfo *nodePtr;
     Student *newNode;
 
-    if (ops == 'a')//add the courses
-    {
+    
         // Allocate a new node & store the value of the current list ndoe in it
         newNode = new Student;
 
         // Get data from a specific node from the course list
         nodePtr = nullptr;
-        for (int i = 1; i < num; i++) nodePtr = nodePtr->next;
+        for (int i = 1; i < num; i++) 
+		nodePtr = nodePtr->next;
 
         newNode->num = nodePtr->num ;
         newNode->code = nodePtr->code;
@@ -251,57 +251,59 @@ void CourseReg::modifyCourse(char ops, int num)
             newNode->prev = courseEnd;
             courseEnd = newNode;
         }
-    }
+         showNewList();
+}
 
-    else if (ops == 'd')//drop the courses
-    {
-        Student *coursePtr;
+
+void CourseReg::dropCourse(string ops, int cnum){
+	    Student *coursePtr;
         Student *trailPtr;
 
         bool found = false;
-        if (courseHead == nullptr) cout << "You haven't added any course yet."<< endl; // How to come back?
-        else if (courseHead != nullptr && num == 1) // If the first one is the one to be deleted
-        {
+    if (courseHead == nullptr) 
+	    cout << "You haven't added any course yet."<< endl; 
+    
+    else
+   {
+   	  // Display the results
+    	bool exist=search(cnum);
+    	if(exist){
+		
+		    if (courseHead != nullptr && cnum == 1) // If the first one is the one to be deleted
+           {
             coursePtr = courseHead;
             courseHead = courseHead->next;
 
-            if (courseHead != nullptr) courseHead->prev = nullptr;
-            else courseEnd = nullptr;
-        }
-        else
-        {
+                if (courseHead != nullptr) 
+			    courseHead->prev = nullptr;
+                else 
+			    courseEnd = nullptr;
+           }
+           else
+          {
             coursePtr = courseHead;
 
-            for (int i = 1; coursePtr != nullptr && found == false; i++)
+               for (int i = 1; coursePtr != nullptr && found == false; i++)
             {
-                if (i == num)
+                if (i == cnum)
                 {
                     found = true;
                     break;
                 }
                 else coursePtr = coursePtr->next;
             }
+		
+	}
+}
+    	else{
+		cout<<"no such course exist, please enter again.\n"<<endl;
+	}
+	showNewList();
+   	
+   	
+   }
 
-            // Display the results
-            if (coursePtr == nullptr) cout << "Sorry, we can't find any course which num is " << num << ", please try again. \n";
-            else if (found == true)
-            {
-                trailPtr = trailPtr->prev;
-                trailPtr->next = coursePtr->next;
-
-                if(coursePtr->next != nullptr)
-                    coursePtr->next->prev = trailPtr;
-
-			if (coursePtr == courseEnd) courseEnd = trailPtr; // ?
-                count--; // What is it?
-                delete coursePtr;
-                delete trailPtr;
-            }
-
-        }
-    }
-
-
+           
 }
 
 void CourseReg::showNewList(){
@@ -314,7 +316,9 @@ void CourseReg::showNewList(){
     {
     	coursePtr= courseHead;
     	while(coursePtr!=nullptr){
-    		cout<<coursePtr->num<<" "<<coursePtr->code<<endl;
+    		cout<<"Those are the course you choose:\n"<<endl;
+    		cout<<coursePtr->num<<" "<<coursePtr->code<<" "
+			    <<coursePtr->type<<" "<<coursePtr->unit<<endl;
     		coursePtr->next;
 		}
 	}      

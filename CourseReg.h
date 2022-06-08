@@ -88,10 +88,12 @@ public:
     void setCourse();
     void displayList();
     void terminal();
-    void modifyCourse(char, int);
+   // void modifyCourse(string, int);
+    void addCourse(string,int);
+    void dropCourse(string,int);
     void passData(string, short, char);
     
-  // bool search(int);
+   bool search(int);
   // void addCourse(char, string);
   //  void dropCourse(string);
    void showNewList();//finally show the courses this student has choose
