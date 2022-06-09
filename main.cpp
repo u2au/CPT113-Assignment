@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "CourseReg.h"
+#include "CGPA.h"
 
 using namespace std;
 
@@ -57,6 +58,11 @@ void menu(short input)
         cr.menu();
     }
 
-//    else ; // hasn't finished
+    else if (input == 2)
+    {
+        CGPA cg;
+        cg.setInfo();
+
+    }
 
 }

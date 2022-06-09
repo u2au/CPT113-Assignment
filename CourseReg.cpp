@@ -47,12 +47,12 @@ void CourseReg::setCourse()
     if (!infile) cout << "Sorry, we can't find any file called CourseList.txt." << endl;
     else
     {
+        // SetInfo START
+        SetInfo *newInfo;
+        SetInfo *InfoPtr;
+
         for (int i = 1; infile; i++)
         {
-            // SetInfo START
-            SetInfo *newInfo;
-            SetInfo *InfoPtr;
-
             // Read data from the course list
             infile >> currentCode;
             infile >> currentUnit;
@@ -61,7 +61,7 @@ void CourseReg::setCourse()
             // Allocate memory for new info
             newInfo = new SetInfo;
 
-            // Assign the value to the node
+            // Assign the values to the node
             newInfo->num = i;
             newInfo->code = currentCode;
             newInfo->unit = currentUnit;
