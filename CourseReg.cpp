@@ -98,7 +98,7 @@ void CourseReg::displayList()
     infoPtr = head;
 
     cout << "Here are the courses offered to CS students. \n"
-         << "Num\t\t" << "Code\t\t" << "Unit\t\t" << "Type\t" << endl;
+         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
 
     int num = 0; // Initialization
 
@@ -196,38 +196,43 @@ void CourseReg::addCourse(int num)
     // Get data from a specific node from the course list
     for (int i = 1; i < num; i++) nodePtr = nodePtr->next;
 
-    // After pointing to the course we want to add, get information of the node
-    newCourse->courseCode = nodePtr->code;
-    newCourse->courseType = nodePtr->type;
-    newCourse->courseUnit = nodePtr->unit;
-
-    if (courseHead == nullptr) // Empty List
+    // Check if the course exists in the registration list
+    if (ifExists(nodePtr->code)) cout << "Sorry, " << nodePtr->code << " has already in the registration list. Please enter next command. \n";
+    else
     {
-        newCourse->prev = nullptr;
-        newCourse->next = nullptr;
-        courseHead = newCourse;
-        courseEnd = newCourse;
+        // After pointing to the course we want to add, get information of the node
+        newCourse->courseCode = nodePtr->code;
+        newCourse->courseType = nodePtr->type;
+        newCourse->courseUnit = nodePtr->unit;
 
+        if (courseHead == nullptr) // Empty List
+        {
+            newCourse->prev = nullptr;
+            newCourse->next = nullptr;
+            courseHead = newCourse;
+            courseEnd = newCourse;
+
+        }
+        else // Non-empty List
+        {
+            // Initialization
+            Student *coursePtr = courseHead;
+
+            while (coursePtr->next != nullptr) coursePtr = coursePtr->next;
+            trailPtr = coursePtr;
+            coursePtr = coursePtr->next;
+
+            trailPtr->next = newCourse;
+            newCourse->prev = trailPtr;
+            courseEnd = newCourse;
+            courseEnd->next = nullptr;
+
+        }
+
+        isEmpty = false;
+
+        showReg('a');
     }
-    else // Non-empty List
-    {
-        // Initialization
-        Student *coursePtr = courseHead;
-
-        while (coursePtr->next != nullptr) coursePtr = coursePtr->next;
-        trailPtr = coursePtr;
-        coursePtr = coursePtr->next;
-
-        trailPtr->next = newCourse;
-        newCourse->prev = trailPtr;
-        courseEnd = newCourse;
-        courseEnd->next = nullptr;
-
-    }
-
-    isEmpty = false;
-
-    showReg('a');
 
 }
 
@@ -311,7 +316,7 @@ void CourseReg::showReg(char ops)
 
     coursePtr = courseHead;
     cout << "Registered Courses List \n"
-         << "Num\t\t" << "Code\t\t" << "Unit\t\t" << "Type\t" << endl;
+         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
 
     int i = 0; // For counting num of courses
     bool last = false;
@@ -349,18 +354,22 @@ void CourseReg::showReg(char ops)
     // Display current registration list END
 }
 
-//// Check if a course exists in the registration list
-//bool CourseReg::ifExists(string checkedCode, char mode)
-//{
-//    bool found = false;
-//    Student *checkPtr;
-//    checkPtr = courseHead;
-//    while (checkPtr != nullptr && !found)
-//    {
-//        if (checkPtr->courseCode == checkedCode) found = true;
-//        else checkPtr = checkPtr->next;
-//    }
-//
-//    return found;
-//
-//}
+// Check if a course exists in the registration list
+bool CourseReg::ifExists(string checkCode)
+{
+    bool found = false;
+    Student *checkPtr;
+    checkPtr = courseHead;
+
+    if (courseHead == courseEnd) found = false;
+    else
+    {
+        while (checkPtr != nullptr && !found)
+        {
+            if (checkPtr->courseCode == checkCode) found = true;
+            else checkPtr = checkPtr->next;
+        }
+    }
+
+    return found;
+};

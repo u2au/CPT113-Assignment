@@ -70,7 +70,7 @@ public:
     void addCourse(int);
     void dropCourse(int);
     void showReg(char);
-    bool ifExists(string, char);
+    bool ifExists(string);
 
 };
 
