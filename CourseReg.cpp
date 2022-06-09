@@ -167,8 +167,8 @@ void CourseReg::modifyCourse()
 
             }
             else if (operation == "drop") {
-                dropCourse(input);
-                cout << "Course #" << input << " has been dropped. Please enter next command. \n";
+                if (!isEmpty) dropCourse(input);
+                else cout << "Sorry, you can't drop the course since you haven't registered any course yet. \n";
             }
 
             cin >> operation;
@@ -225,7 +225,90 @@ void CourseReg::addCourse(int num)
 
     }
 
-    // Display current registration list
+    isEmpty = false;
+
+    showReg('a');
+
+}
+
+// Drop a course
+void CourseReg::dropCourse(int num)
+{
+    Student *numPtr = courseHead;
+    Student *dropPtr = courseHead;
+
+    short reg = 0;
+    bool valid = false;
+
+    // Calculate num of registered courses
+    if (courseHead == courseEnd) reg++;
+    else reg++; // To avoid not counting the last node
+
+    while (numPtr->next != nullptr) {
+        numPtr = numPtr->next;
+        reg++;
+    }
+
+    // Check if the num is valid
+    if (num < 0 || num > reg)
+    {
+        cout << "Sorry, the num of the course to be dropped must be: \n"
+                "larger than 0 and less than " << reg << ".\n"
+             << "Please re-enter the command. \n";
+        valid = false; // Go back to the menu
+
+    } else valid = true;
+
+    // If the num is valid, drop the selected course
+    if (valid)
+    {
+        // Delete the only course in the registration list
+        if (courseHead == courseEnd)
+        {
+            dropPtr = courseHead;
+            courseHead = courseHead->next;
+            delete dropPtr;
+
+            cout << "Kindly add any course you like! Please enter any command. \n";
+            isEmpty = true;
+
+        }
+
+        // Delete the first course in the registration list with multiple courses
+        else if (num == 1)
+        {
+            dropPtr = courseHead;
+            courseHead = courseHead->next;
+            delete dropPtr;
+
+            // Display
+            showReg('d');
+            cout << "Course #" << num << " " << dropPtr->courseCode << " has been dropped. Please enter next command. \n";
+        }
+
+        else // If the course to be deleted is not the first course in the list
+        {
+            for (int i = 1; i != num; i++) dropPtr = dropPtr->next;
+
+            Student *trailPtr;
+            trailPtr = dropPtr->prev;
+            trailPtr->next = dropPtr->next;
+            if (dropPtr->next != nullptr) dropPtr->next->prev = trailPtr;
+            if (dropPtr == courseEnd) courseEnd = trailPtr;
+
+            // Display
+            showReg('d');
+            cout << "Course #" << num << " " << dropPtr->courseCode << " has been dropped. Please enter next command. \n";
+        }
+    }
+
+}
+
+// Display the registration list
+void CourseReg::showReg(char ops)
+{
+    Student *coursePtr;
+
     coursePtr = courseHead;
     cout << "Registered Courses List \n"
          << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
@@ -255,37 +338,26 @@ void CourseReg::addCourse(int num)
 
     } while (coursePtr->next != nullptr);
 
-    cout << coursePtr->courseCode << " has been successfully added to your registration list! \n"
-         << "Please enter next command: ";
+    // Display
+    if (ops == 'a')
+    {
+        // Added a course
+        cout << coursePtr->courseCode << " has been successfully added to your registration list! \n"
+             << "Please enter next command: ";
+    }
+
     // Display current registration list END
-
-}
-
-// Drop a course
-void CourseReg::dropCourse(int num)
-{
-
-
-
 }
 
 //// Check if a course exists in the registration list
-//bool CourseReg::ifExists(string checkedCode) const
+//bool CourseReg::ifExists(string checkedCode, char mode)
 //{
-//    Student *checkPtr;
 //    bool found = false;
-//
+//    Student *checkPtr;
 //    checkPtr = courseHead;
-//
-//    // Check if the code exists
-//    while (checkPtr->next != nullptr)
+//    while (checkPtr != nullptr && !found)
 //    {
-//        if (checkedCode == checkPtr->courseCode)
-//        {
-//            found = true;
-//            break;
-//        }
-//
+//        if (checkPtr->courseCode == checkedCode) found = true;
 //        else checkPtr = checkPtr->next;
 //    }
 //

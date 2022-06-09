@@ -12,6 +12,7 @@ class CourseReg {
 private:
     short input;
     int numOfCourses = 0;
+    bool isEmpty = true;
 
     // Declare a structure for the info-setting list
     struct SetInfo
@@ -68,7 +69,8 @@ public:
     void modifyCourse();
     void addCourse(int);
     void dropCourse(int);
-    bool ifExists(string) const;
+    void showReg(char);
+    bool ifExists(string, char);
 
 };
 
