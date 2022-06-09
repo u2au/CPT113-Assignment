@@ -5,6 +5,7 @@
 #include "CourseReg.h"
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -46,7 +47,7 @@ void CourseReg::setCourse()
     if (!infile) cout << "Sorry, we can't find any file called CourseList.txt." << endl;
     else
     {
-        while (infile)
+        for (int i = 1; infile; i++)
         {
             // SetInfo START
             SetInfo *newInfo;
@@ -61,6 +62,7 @@ void CourseReg::setCourse()
             newInfo = new SetInfo;
 
             // Assign the value to the node
+            newInfo->num = i;
             newInfo->code = currentCode;
             newInfo->unit = currentUnit;
             newInfo->type = currentType;
@@ -100,11 +102,9 @@ void CourseReg::displayList()
     cout << "Here are the courses offered to CS students. \n"
          << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
 
-    int num = 0; // Initialization
-
     while (infoPtr->next)
     {
-        cout << ++num << "\t\t"
+        cout << infoPtr->num << "\t\t"
              << infoPtr->code << "\t\t"
              << infoPtr->unit << "\t\t"
              << infoPtr->type << "\t"
@@ -113,7 +113,7 @@ void CourseReg::displayList()
         infoPtr = infoPtr->next;
     }
 
-    cout << "Currently, there are " << num << " courses offered to students from School of Computer Sciences. \n";
+    cout << "Currently, there are " << (infoPtr->num) - 1 << " courses offered to students from School of Computer Sciences. \n";
 
 }
 
@@ -140,39 +140,48 @@ void CourseReg::modifyCourse()
 
     // Ask for input
     cin >> operation;
+
     if (operation != "exit")
     {
-        Student s;
-        cin >> input;
+        if (operation != "search") cin >> input;
+        else cin >> strInput;
+
         do {
             // Input Validation
-            while ((operation != "add" && operation != "drop" && operation != "exit")
-                   || (input <= 0 || input > numOfCourses))
+            while ((operation != "add" && operation != "drop" && operation != "search" && operation != "exit")
+                   || ((input <= 0 || input > numOfCourses) && operation != "search"))
             {
-                if (operation != "add" && operation != "drop" && operation != "exit") {
-                    cout << "Sorry, possible operations are: add, drop, exit. Please re-enter the whole command. \n";
+                if (operation != "add" && operation != "drop" && operation != "search" && operation != "exit") {
+                    cout << "Sorry, possible operations are: add, drop, search, exit. Please re-enter the whole command. \n";
                 }
 
-                if (input <= 0 || input > numOfCourses) {
+                if ((input <= 0 || input > numOfCourses) && operation != "search") {
                     cout << "Sorry, valid range of the courses is: 1-" <<  numOfCourses << ". Please re-enter the whole command. \n";
                 }
 
                 cin >> operation;
-                cin >> input;
+                if (operation == "exit") break;
+                else if (operation == "search") cin >> strInput;
+                else cin >> input;
             }
 
             // Add or drop a course
-            if (operation == "add") {
-                addCourse(input);
+            if (operation == "add") addCourse(input);
 
-            }
-            else if (operation == "drop") {
+            else if (operation == "drop")
+            {
                 if (!isEmpty) dropCourse(input);
                 else cout << "Sorry, you can't drop the course since you haven't registered any course yet. \n";
             }
 
+            else if (operation == "search") searchCourse(strInput);
+
+            // Next operation
             cin >> operation;
-            if (operation != "exit") cin >> input;
+
+            if (operation == "search") cin >> strInput;
+            else if (operation == "exit") break;
+            else cin >> input;
 
         } while (operation != "exit");
 
@@ -348,7 +357,7 @@ void CourseReg::showReg(char ops)
     {
         // Added a course
         cout << coursePtr->courseCode << " has been successfully added to your registration list! \n"
-             << "Please enter next command: ";
+             << "Please enter next command. \n";
     }
 
     // Display current registration list END
@@ -373,3 +382,47 @@ bool CourseReg::ifExists(string checkCode)
 
     return found;
 };
+
+// Search a course by its prefix
+void CourseReg::searchCourse(string search)
+{
+    SetInfo *infoPtr = head;
+
+    int numOfResults = 0;
+
+    cout << "Search Results \n"
+         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
+
+    while (infoPtr->next != nullptr)
+    {
+        if (infoPtr->code.substr(0, search.length()) == search)
+        {
+            cout << infoPtr->num << "\t\t"
+                 << infoPtr->code << "\t\t"
+                 << infoPtr->unit << "\t\t"
+                 << infoPtr->type << "\t"
+                 << endl;
+
+            numOfResults++;
+        }
+
+        infoPtr = infoPtr->next;
+    }
+
+    // Display
+    switch (numOfResults)
+    {
+        case 0:
+            cout << "Sorry, we can't find any courses containing " << search << ". Please enter next command. \n";
+            break;
+
+        case 1:
+            cout << "There is 1 course containing " << search << ". Please enter next command. \n";
+            break;
+
+        default:
+            cout << "There are " << numOfResults << " courses containing " << search << ". Please enter next command. \n";
+            break;
+    }
+
+}

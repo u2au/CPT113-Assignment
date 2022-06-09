@@ -13,10 +13,12 @@ private:
     short input;
     int numOfCourses = 0;
     bool isEmpty = true;
+    string strInput;
 
     // Declare a structure for the info-setting list
     struct SetInfo
     {
+        int num;
         string code;
         short unit;
         char type;
@@ -36,8 +38,6 @@ private:
 
         struct Student *next;
         struct Student *prev;
-//        struct Student *courseHead;
-//        struct Student *courseEnd;
     };
 
     Student *courseHead;
@@ -55,8 +55,6 @@ public:
     // For the Doubly Linked List
     CourseReg *courseNext;
     CourseReg *coursePrev;
-//    Student *courseHead;
-//    Student *courseEnd;
 
 //    // Destructor
 //    ~CourseReg();
@@ -71,6 +69,7 @@ public:
     void dropCourse(int);
     void showReg(char);
     bool ifExists(string);
+    void searchCourse(string);
 
 };
 
@@ -90,28 +89,17 @@ public:
 
     }
 
-//    CourseCode (string currentCode)
-//    {
-//        code = currentCode;
-//        next = nullptr;
-//    }
-
 };
 
 // Doubly Linked List for Student's Course Registration
 class Student
 {
-private:
-//    CourseReg *courseHead;
-//    CourseReg *courseEnd;
-
 public:
 
 // Default Constructor
     Student()
     {
-//        courseHead = NULL;
-//        courseEnd = NULL;
+
     }
 
     // Prototype
