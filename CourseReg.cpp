@@ -98,7 +98,7 @@ void CourseReg::displayList()
     infoPtr = head;
 
     cout << "Here are the courses offered to CS students. \n"
-         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
+         << "Num\t\t" << "Code\t\t" << "Unit\t\t" << "Type\t" << endl;
 
     int num = 0; // Initialization
 
@@ -279,11 +279,11 @@ void CourseReg::dropCourse(int num)
         {
             dropPtr = courseHead;
             courseHead = courseHead->next;
-            delete dropPtr;
 
             // Display
             showReg('d');
             cout << "Course #" << num << " " << dropPtr->courseCode << " has been dropped. Please enter next command. \n";
+            delete dropPtr;
         }
 
         else // If the course to be deleted is not the first course in the list
@@ -311,7 +311,7 @@ void CourseReg::showReg(char ops)
 
     coursePtr = courseHead;
     cout << "Registered Courses List \n"
-         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
+         << "Num\t\t" << "Code\t\t" << "Unit\t\t" << "Type\t" << endl;
 
     int i = 0; // For counting num of courses
     bool last = false;
