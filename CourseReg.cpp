@@ -134,7 +134,7 @@ void CourseReg::modifyCourse()
     string operation = "def";
 
     cout << "Input Formats: <operation> <num> \n"
-         << "Operations: add, drop, exit \n"
+         << "Operations: add, drop, search, exit \n"
          << "For example, if a student wants to add a course which num is 20, the command is: add 20 \n"
          << "Kindly enter: exit, to exit anytime. \n";
 
@@ -327,8 +327,8 @@ void CourseReg::showReg(char ops)
     cout << "Registered Courses List \n"
          << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
 
-    int i = 0; // For counting num of courses
-    bool last = false;
+    int i = 0, // Count courses
+        totalUnits = 0; // Calculate the units of courses selected
 
     do {
         cout << ++i << "\t\t"
@@ -336,6 +336,8 @@ void CourseReg::showReg(char ops)
              << coursePtr->courseUnit << "\t\t"
              << coursePtr->courseType << "\t"
              << endl;
+
+        totalUnits += coursePtr->courseUnit;
 
         // If the list only has 1 element, do not point to the next node
         if (courseHead != courseEnd) coursePtr = coursePtr->next;
@@ -348,20 +350,30 @@ void CourseReg::showReg(char ops)
                  << coursePtr->courseUnit << "\t\t"
                  << coursePtr->courseType << "\t"
                  << endl;
+
+            totalUnits += coursePtr->courseUnit;
         }
 
     } while (coursePtr->next != nullptr);
 
     // Display
+    cout << "Total Units: " << totalUnits << " units \n";
+    if (totalUnits > 25)
+    {
+        cout << "Gentle Reminder: Currently, you have registered more than 25 units for a semester. \n"
+             << "Only students in their final year are allowed to do so. \n\n";
+    }
+
+    // Since adding courses is done in this function,
+    // if the display is placed outside, it'll increase the complexity.
     if (ops == 'a')
     {
         // Added a course
         cout << coursePtr->courseCode << " has been successfully added to your registration list! \n"
              << "Please enter next command. \n";
     }
-
-    // Display current registration list END
 }
+// Display current registration list END
 
 // Check if a course exists in the registration list
 bool CourseReg::ifExists(string checkCode)
