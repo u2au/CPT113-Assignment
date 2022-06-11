@@ -82,8 +82,14 @@ void CGPA::setInfo()
     while (courseCode != "exit")
     {
         // Ask for input
-        if (courseCode != "exit") cin >> courseCode >> courseGrade >> unit;
-        else cout << "Thanks for using. \n";
+        cin >> courseCode;
+        if (courseCode == "exit")
+        {
+            cout << "Thanks for using. \n";
+            break;
+        }
+
+        else cin >> courseGrade >> unit;
 
         // Input Validation
         bool gradeVal = false,
