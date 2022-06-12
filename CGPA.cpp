@@ -15,7 +15,7 @@ void CGPA::setInfo()
 
     // Welcome
     cout << "Welcome to CGPA Calculator! \n"
-         << "Are you in semester 1? (1 for yes, 0 for no) : ";
+         << "Are you in year 1 semester 1 ? (1 for yes, 0 for no) : ";
 
     // Ask for input
     cin >> input;

@@ -74,9 +74,9 @@ public:
 };
 
 // Linked List for Info
-class SetInfo
+struct SetInfo
 {
-public:
+//public:
     string code; // Current Code
     short unit;
     char type;
@@ -84,23 +84,28 @@ public:
     SetInfo *next; // Pointer to the next code
 
     // Constructor
-    SetInfo()
-    {
-
-    }
+//    SetInfo()
+//    {
+//
+//    }
 
 };
 
 // Doubly Linked List for Student's Course Registration
-class Student
+struct Student
 {
-public:
+ string courseCode;
+        short courseUnit;
+        char courseType;
+
+        struct Student *next;
+        struct Student *prev;
 
 // Default Constructor
-    Student()
-    {
-
-    }
+//    Student()
+//    {
+//
+//    }
 
     // Prototype
 
