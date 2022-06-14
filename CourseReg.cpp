@@ -325,7 +325,9 @@ void CourseReg::showReg(char ops)
 
     coursePtr = courseHead;
     cout << "Registered Courses List \n"
-         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
+        << "---------------------------------------------------------\n"
+        << "Num\t|\t" << "Code\t|\t" << "Unit\t|" << "Type\t" << endl;
+    cout << "---------------------------------------------------------" << endl;
 
     int i = 0, // Count courses
         totalUnits = 0; // Calculate the units of courses selected
@@ -403,7 +405,9 @@ void CourseReg::searchCourse(string search)
     int numOfResults = 0;
 
     cout << "Search Results \n"
-         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
+        << "---------------------------------------------------------\n"
+        << "Num\t|\t" << "Code\t|\t" << "Unit\t|" << "Type\t" << endl;
+    cout << "---------------------------------------------------------" << endl;
 
     while (infoPtr->next != nullptr)
     {
@@ -425,8 +429,9 @@ void CourseReg::searchCourse(string search)
     switch (numOfResults)
     {
         case 0:
-            cout << "Sorry, we can't find any courses containing " << search << ". Please enter next command. \n";
-            break;
+            cout <<"Null. \n"
+            << "\nSorry, we can't find any courses containing " << search << ". Please enter next command. \n";
+        break;
 
         case 1:
             cout << "There is 1 course containing " << search << ". Please enter next command. \n";
