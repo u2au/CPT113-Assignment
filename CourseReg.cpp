@@ -11,6 +11,8 @@ using namespace std;
 
 void CourseReg::menu()
 {
+    system("CLS");
+
     // Welcome
     cout << "Welcome to USM CS Student Registration System! \n"
          << "Please wait... We're loading courses from the course list... \n";
@@ -395,7 +397,7 @@ bool CourseReg::ifExists(string checkCode)
     }
 
     return found;
-};
+}
 
 // Search a course by its prefix
 void CourseReg::searchCourse(string search)

@@ -7,25 +7,18 @@
 #include "CourseReg.h"
 #include "CGPA.h"
 
-
 using namespace std;
 
 void menu(short);
 
 int main()
 {
-    // Variables Definition
-    bool readList = false;
-
     // Welcome
     string name, matric;
-    cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << endl;
-    cout << "■                                                        ■ \n";
-    cout << "■  Welcome to use USM CS Student's Registration System!  ■ \n" ;
-    cout << "■                                                        ■ \n";
-    cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n" << endl;
-    cout << "-------------------------------------------------------------------------------" << endl;
-    cout<< "＞ Please type your name: "; // Name
+    cout << " +----------------------------------------------------+ \n\n"
+         << "  Welcome to use USM CS Student's Registration System!  \n\n"
+         << " +----------------------------------------------------+ \n\n";
+    cout << "＞ Please type your name: "; // Name
     cin >> name;
     cout << "＞ Please enter your matric number: "; // Matric Num
     cin >> matric;
@@ -42,13 +35,14 @@ int main()
 void menu(short input)
 {
     // Menu
-    cout << "\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n" 
-    << "■\t\t\tMain Menu\t\t\t■ \n"
-        << "■\t\t  1 - Course Registration  \t\t■ \n"
-        << "■\t\t    2 - CGPA Calculator    \t\t■ \n"
-        << "■\t\t\t0 - Exit\t\t\t■ \n"
-        << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n"
-        << "Kindly type num of the function that you want to use: ";
+    cout << " +-------------------------+ \n"
+         << "          Main Menu\n"
+         << "   1 - Course Registration\n"
+         << "   2 - CGPA Calculator\n"
+         << "   0 - Exit\n"
+         << " +-------------------------+ \n"
+         << "Kindly type num of the function that you want to use: ";
+
     cin >> input;
 
     // Input Validation
