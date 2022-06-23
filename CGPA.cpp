@@ -51,7 +51,11 @@ void CGPA::setInfo()
                     cin >> input;
                 }
 
-                if (input == 1) break;
+                if (input == 1)
+                {
+                    sem1 = true;
+                    break;
+                }
             }
 
             cout << "The credit hours must be larger than 0. Please re-enter: ";
