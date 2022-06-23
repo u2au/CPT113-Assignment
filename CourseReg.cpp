@@ -197,10 +197,9 @@ void CourseReg::modifyCourse()
 void CourseReg::addCourse(int num)
 {
     // Copy the node we want from the existing list to a new list
-    SetInfo *nodePtr = nullptr;
-    Student *coursePtr;
+    SetInfo *nodePtr;
     Student *newCourse;
-    Student *trailPtr = nullptr;
+    Student *trailPtr;
 
     // Allocate a new node & store the value of the current list node in it
     newCourse = new Student;
@@ -233,7 +232,6 @@ void CourseReg::addCourse(int num)
 
             while (coursePtr->next != nullptr) coursePtr = coursePtr->next;
             trailPtr = coursePtr;
-            coursePtr = coursePtr->next;
 
             trailPtr->next = newCourse;
             newCourse->prev = trailPtr;
@@ -252,15 +250,14 @@ void CourseReg::addCourse(int num)
 // Drop a course
 void CourseReg::dropCourse(int num)
 {
+    // Initialization
     Student *numPtr = courseHead;
     Student *dropPtr = courseHead;
 
     short reg = 0;
-    bool valid = false;
+    bool valid;
 
-    // Calculate num of registered courses
-    if (courseHead == courseEnd) reg++;
-    else reg++; // To avoid not counting the last node
+    reg++; // To avoid not counting the last node
 
     while (numPtr->next != nullptr) {
         numPtr = numPtr->next;

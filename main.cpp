@@ -15,17 +15,17 @@ int main()
 {
     // Welcome
     string name, matric;
-    
+
     cout << " +----------------------------------------------------+ \n\n"
          << "  Welcome to use USM CS Student's Registration System!  \n\n"
          << " +----------------------------------------------------+ \n\n";
-         
+
     cout << "\tPlease type your name: "; // Name
     cin >> name;
-    
+
     cout << "\tPlease enter your matric number: "; // Matric Num
     cin >> matric;
-    
+
     cout << "Welcome, " << name << " (" << matric << ")!" << endl; // Greetings
 
     // Display the menu
@@ -51,12 +51,12 @@ void menu(short input)
     while (input != 0 && input != 1 && input != 2)
     {
         cout << "Sorry, '" << input << "' is not a valid num for the program. \n"
-            << "Please type num of the function again: ";
+             << "Please type num of the function again: ";
         cin >> input;
     }
 
     if (input == 0) cout << "Thank you. \n";
-    
+
     else if (input == 1)
     {
         CourseReg cr;

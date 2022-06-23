@@ -53,10 +53,6 @@ public:
         courseEnd = nullptr;
     }
 
-    // For the Doubly Linked List
-    CourseReg *courseNext;
-    CourseReg *coursePrev;
-
     // Prototype
     void menu();
     void inputValidation();
@@ -68,29 +64,6 @@ public:
     void showReg(char);
     bool ifExists(string);
     void searchCourse(string);
-
-};
-
-// Linked List for Info
-struct SetInfo
-{
-    string code; // Current Code
-    short unit;
-    char type;
-
-    SetInfo *next; // Pointer to the next code
-
-};
-
-// Doubly Linked List for Student's Course Registration
-struct Student
-{
-	string courseCode;
-    short courseUnit;
-    char courseType;
-
-    struct Student *next;
-    struct Student *prev;
 
 };
 

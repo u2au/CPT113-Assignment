@@ -14,9 +14,9 @@ private:
     // Variable Definition
     short prevHrs = 0;
 
-    float prevcgpa = 0.0,
-          gpa = 0.0,
-          cgpa = 0.0;
+    double prevcgpa = 0.0,
+           gpa = 0.0,
+           cgpa = 0.0;
 
     bool sem1 = false,
          onlyCourse = true;
@@ -64,25 +64,6 @@ public:
     void calc();
 
 
-};
-
-class calcCGPA
-{
-public:
-    string currentCode,
-           currentGrade;
-
-    short currentUnit;
-
-    calcCGPA *next;
-
-    // Constructor
-    calcCGPA ()
-    {
-        currentCode = "Default";
-        currentGrade = "D";
-        currentUnit = 0;
-    }
 };
 
 #endif //TUITION_CPP_CGPA_H

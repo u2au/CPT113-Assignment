@@ -32,38 +32,45 @@ void CGPA::setInfo()
     // Set Credit hours and CGPA of a student who is not in semester 1
     if (input == 0) // Not a freshman
     {
+        // Credit Hours
         cout << "Please enter your credit hours first: ";
         cin >> prevHrs;
 
-        // If the user wrongly typed 0
-        if (prevHrs == 0)
+        // Input Validation (> 0)
+        while (prevHrs <= 0)
         {
-            cout << "You just typed 0 for your credit hours. Are you in semester 1? (1 for yes, 0 for no) : ";
-            cin >> input;
-
-            // Input Validation (0 or 1, double check)
-            while (input != 0 && input != 1)
+            if (prevHrs == 0)
             {
-                cout << "The input must be 0 or 1. Please re-enter: ";
+                cout << "Are you in year 1 semester 1 ? (1 for yes, 0 for no) : ";
                 cin >> input;
+
+                // Input Validation (0 or 1)
+                while (input != 0 && input != 1)
+                {
+                    cout << "The input must be 0 or 1. Please re-enter: ";
+                    cin >> input;
+                }
+
+                if (input == 1) break;
             }
 
-            if (input == 1) sem1 = true;
+            cout << "The credit hours must be larger than 0. Please re-enter: ";
+            cin >> prevHrs;
         }
+        // Credit Hours END
 
+        // CGPA
         // Record the Credit Hours
-        else
-        {
-            cout << "Great. Please type your CGPA until last semester: ";
-            cin >> prevcgpa;
+        cout << "Great. Please type your CGPA until last semester: ";
+        cin >> prevcgpa;
 
-            // Input Validation (0.0 - 4.0)
-            while (prevcgpa < 0.0 || prevcgpa > 4.0)
-            {
-                cout << "Sorry, the range of CGPA is 0.0 - 4.0. Please re-enter: ";
-                cin >> prevcgpa;
-            }
+        // Input Validation (0.0 - 4.0)
+        while (prevcgpa < 0.0 || prevcgpa > 4.0)
+        {
+            cout << "Sorry, the range of CGPA is 0.0 - 4.0. Please re-enter: ";
+            cin >> prevcgpa;
         }
+        // CGPA End
 
     } else sem1 = true;
     // Set END
@@ -95,7 +102,7 @@ void CGPA::setInfo()
 
         // Input Validation
         bool gradeVal = false,
-             unitVal = false;
+             unitVal;
 
         // Check if the grade exists
         for (int i = 0; i < 12; i++) if (courseGrade == grade[i]) gradeVal = true;
@@ -128,7 +135,7 @@ void CGPA::setCourses(string newCode, string newGrade, short newUnit)
 {
     // Save info into the calculation list
     calcCGPA *newCourse;
-    calcCGPA *coursePtr = head;
+    calcCGPA *coursePtr;
 
     // Allocate memory for new info
     newCourse = new calcCGPA;
@@ -160,11 +167,11 @@ void CGPA::calc()
     calcCGPA *matchPtr = head;
     calcCGPA *calcPtr = head;
 
-    float GP = 0.0,             // GP by course
-          courseGP = 0.0,      // Total GP by course
-          totalGP = 0.0;      // Total GP
+    double GP,                   // GP by course
+           courseGP,            // Total GP by course
+           totalGP = 0.0;      // Total GP
 
-    short totalUnit = 0;
+    auto totalUnit = 0;
     bool conversion = false;
 
     // Convert grade to grade point (GP)
@@ -253,7 +260,7 @@ void CGPA::calc()
     else
     {
         // Initialization
-        float prevGP = prevcgpa * prevHrs;
+        double prevGP = prevcgpa * prevHrs;
 
         // Get total GP including last semester(s)
         totalGP += prevGP;
@@ -265,8 +272,7 @@ void CGPA::calc()
     }
 
     // Display GPA and CGPA
-    cout << "GPA: " << gpa << " \n"
-         << "CGPA: " << cgpa << " \n"
-         << fixed << setprecision(2);
+    cout << "GPA: " << gpa << " \n" << fixed << setprecision(2)
+         << "CGPA: " << cgpa << " \n" << fixed << setprecision(2);
 
 }
