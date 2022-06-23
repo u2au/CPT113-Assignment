@@ -101,8 +101,10 @@ void CourseReg::displayList()
     SetInfo *infoPtr;
     infoPtr = head;
 
-    cout << "Here are the courses offered to CS students. \n"
-         << "Num\t\t" << "Code\t\t" << "Unit\t" << "Type\t" << endl;
+    cout << "Here are the courses offered to CS students. \n\n"
+         << "---------------------------------------------------------\n"
+         << "Num\t|\t" << "Code\t|\t" << "Unit\t|\t" << "Type\t\n"
+		 << "---------------------------------------------------------\n";
 
     while (infoPtr->next)
     {
@@ -324,12 +326,14 @@ void CourseReg::dropCourse(int num)
 void CourseReg::showReg(char ops)
 {
     Student *coursePtr;
-
     coursePtr = courseHead;
+    
+    system("CLS");
+    
     cout << "Registered Courses List \n"
         << "---------------------------------------------------------\n"
-        << "Num\t|\t" << "Code\t|\t" << "Unit\t|" << "Type\t" << endl;
-    cout << "---------------------------------------------------------" << endl;
+        << "Num\t|\t" << "Code\t|\t" << "Unit\t|\t" << "Type\t\n"
+		<< "---------------------------------------------------------\n";
 
     int i = 0, // Count courses
         totalUnits = 0; // Calculate the units of courses selected
@@ -361,7 +365,7 @@ void CourseReg::showReg(char ops)
     } while (coursePtr->next != nullptr);
 
     // Display
-    cout << "Total Units: " << totalUnits << " units \n";
+    cout << "\nTotal Units: " << totalUnits << " units \n";
     if (totalUnits > 25)
     {
         cout << "Gentle Reminder: Currently, you have registered more than 25 units for a semester. \n"
@@ -408,8 +412,8 @@ void CourseReg::searchCourse(string search)
 
     cout << "Search Results \n"
         << "---------------------------------------------------------\n"
-        << "Num\t|\t" << "Code\t|\t" << "Unit\t|" << "Type\t" << endl;
-    cout << "---------------------------------------------------------" << endl;
+        << "Num\t|\t" << "Code\t|\t" << "Unit\t|\t" << "Type\t\n"
+		<< "---------------------------------------------------------\n";
 
     while (infoPtr->next != nullptr)
     {
@@ -431,8 +435,8 @@ void CourseReg::searchCourse(string search)
     switch (numOfResults)
     {
         case 0:
-            cout <<"Null. \n"
-            << "\nSorry, we can't find any courses containing " << search << ". Please enter next command. \n";
+            cout << "Null.\n\n"
+           		 << "Sorry, we can't find any courses containing " << search << ". Please enter next command. \n";
         break;
 
         case 1:

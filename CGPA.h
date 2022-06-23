@@ -30,11 +30,9 @@ private:
         short currentUnit;
 
         struct calcCGPA *next; // To point to the next node
-//        struct calcCGPA *prev; // To point to the prev node
     };
 
     calcCGPA *head; // Head Pointer
-//    calcCGPA *end; // End Pointer
 
     // Set arrays for storing grades info
     string grade[12] = {

@@ -10,6 +10,8 @@ using namespace std;
 
 void CGPA::setInfo()
 {
+	system("CLS");
+	
     // Initialization
     short input = -1;
 
@@ -135,7 +137,6 @@ void CGPA::setCourses(string newCode, string newGrade, short newUnit)
     newCourse->currentCode = newCode;
     newCourse->currentGrade = newGrade;
     newCourse->currentUnit = newUnit;
-//    cout << newCourse->currentCode << " " << newCourse->currentGrade << " " << newCourse->currentUnit << endl;
 
     // Make next pointer point to nullptr
     newCourse->next = nullptr;
@@ -193,6 +194,8 @@ void CGPA::calc()
     // For the last node
     if (!onlyCourse)
     {
+    	system("CLS");
+    	
         for (int i = 0; (i <= 11 && !conversion); i++)
         {
             // If respective grade is found
@@ -211,21 +214,21 @@ void CGPA::calc()
 
     // Display the results, and calculate
     cout << "Calculation Results \n"
-         << "Course\t\t" << "Grade\t" << "Unit\n";
+         << "Course\t\t" << "Grade\t\t" << "Unit\n";
 
     // Check if the course is the only course in the list
     if (onlyCourse)
     {
         cout << calcPtr->currentCode << "\t\t"
              << calcPtr->currentGrade << "\t\t"
-             << calcPtr->currentUnit << "\n";
+             << calcPtr->currentUnit << "\n\n";
 
         gpa = totalGP / (calcPtr->currentUnit);
     }
 
     // If there are multiple courses in the calculation list
     else
-    {
+	{
         while (calcPtr->next != nullptr)
         {
             // Display
@@ -239,7 +242,7 @@ void CGPA::calc()
         // Display
         cout << calcPtr->currentCode << "\t\t"
              << calcPtr->currentGrade << "\t\t"
-             << calcPtr->currentUnit << "\n";
+             << calcPtr->currentUnit << "\n\n";
 
         gpa = totalGP / totalUnit;
 

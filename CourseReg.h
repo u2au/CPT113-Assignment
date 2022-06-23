@@ -9,6 +9,7 @@
 using namespace std;
 
 class CourseReg {
+	
 private:
     short input;
     int numOfCourses = 0;
@@ -56,9 +57,6 @@ public:
     CourseReg *courseNext;
     CourseReg *coursePrev;
 
-//    // Destructor
-//    ~CourseReg();
-
     // Prototype
     void menu();
     void inputValidation();
@@ -76,39 +74,23 @@ public:
 // Linked List for Info
 struct SetInfo
 {
-//public:
     string code; // Current Code
     short unit;
     char type;
 
     SetInfo *next; // Pointer to the next code
 
-    // Constructor
-//    SetInfo()
-//    {
-//
-//    }
-
 };
 
 // Doubly Linked List for Student's Course Registration
 struct Student
 {
- string courseCode;
-        short courseUnit;
-        char courseType;
+	string courseCode;
+    short courseUnit;
+    char courseType;
 
-        struct Student *next;
-        struct Student *prev;
-
-// Default Constructor
-//    Student()
-//    {
-//
-//    }
-
-    // Prototype
-
+    struct Student *next;
+    struct Student *prev;
 
 };
 

@@ -6,8 +6,6 @@
 #include <string>
 #include "CourseReg.h"
 #include "CGPA.h"
-#include "CourseReg.cpp"
-#include "CGPA.cpp"
 
 using namespace std;
 
@@ -17,19 +15,21 @@ int main()
 {
     // Welcome
     string name, matric;
+    
     cout << " +----------------------------------------------------+ \n\n"
          << "  Welcome to use USM CS Student's Registration System!  \n\n"
          << " +----------------------------------------------------+ \n\n";
+         
     cout << "\tPlease type your name: "; // Name
     cin >> name;
+    
     cout << "\tPlease enter your matric number: "; // Matric Num
     cin >> matric;
+    
     cout << "Welcome, " << name << " (" << matric << ")!" << endl; // Greetings
 
     // Display the menu
     menu(-1);
-
-
 
     return 0;
 }
@@ -56,6 +56,7 @@ void menu(short input)
     }
 
     if (input == 0) cout << "Thank you. \n";
+    
     else if (input == 1)
     {
         CourseReg cr;
